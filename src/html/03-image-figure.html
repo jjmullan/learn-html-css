@@ -20,26 +20,20 @@
   </head>
   <body>
     <h1>이미지 삽입하기</h1>
+    <h2>이미지 요소</h2>
 
     <!-- 비트맵 이미지 -->
-    <figure>
-      <img src="../assets/food/cake.jpeg" alt="Peace of Cake(한 조각의 평화) - 밀크레이프, 수플레치즈, 초코 티라미수, 데블스 초코, 더블치즈" />
-      <figcaption class="sr-only">비트맵 이미지 1</figcaption>
-    </figure>
+    <img src="../assets/food/cake.jpeg" alt="Peace of Cake(한 조각의 평화) - 밀크레이프, 수플레치즈, 초코 티라미수, 데블스 초코, 더블치즈" />
     <br />
-    <figure>
-      <img src="../assets/food/icecream.webp" alt="놓여진 여러 개의 컵 아이스크림과 스푼" />
-      <figcaption class="sr-only">비트맵 이미지 2</figcaption>
-    </figure>
+    <img src="../assets/food/icecream.webp" alt="놓여진 여러 개의 컵 아이스크림과 스푼" />
+    <br />
 
     <!-- 벡터 이미지 -->
-    <figure>
-      <img src="../assets/svg/chitchat.svg" alt="채팅" width="50" height="50" />
-      <figcaption class="sr-only">벡터 이미지 1</figcaption>
-    </figure>
-
-    <!-- img 의 alt 속성을 svg 에서 aria-label 속성으로 사용할 수 있다 -->
-    <svg aria-label="1대1 채팅" class="h-12 w-12" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+    <img src="../assets/svg/chitchat.svg" alt="채팅" width="50" height="50" />
+    <!-- img 의 alt 속성을 svg 에서 1. aria-label 속성 또는 2. 태그 내 title 속성으로 사용할 수 있다 -->
+    <svg aria-label="1대1 채팅" width="50" height="auto" class="h-12 w-12" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+      <!-- aria-label 은 상호작용하는 요소(a, input 등)에 사용하는 것이 적합하다 -->
+      <title>1대1 채팅</title>
       <defs>
         <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="a">
           <stop stop-color="#2397B3" offset="0%"></stop>
@@ -64,5 +58,17 @@
         <path d="M18 17a2 2 0 1 0 0-4 2 2 0 0 0 0 4zM24 17a2 2 0 1 0 0-4 2 2 0 0 0 0 4zM30 17a2 2 0 1 0 0-4 2 2 0 0 0 0 4z" fill="#FFF"></path>
       </g>
     </svg>
+    <br />
+    <hr />
+
+    <!-- 피규어 요소 -->
+    <h2>피규어 요소</h2>
+    <figure>
+      <!-- 스크린리더가 alt 와 figcaption 항목을 중복으로 읽을 수 있기 떄문에, alt="" 처럼 생략할 수 있음 -->
+      <!-- 단, alt="" 로 설정하면 SEO에서 불이익을 받을 수 있음 -->
+      <img src="../assets/drama/good-partner-narrow.webp" alt="" />
+      <figcaption class="sr-only">드라마 굿파트너 속 장나라</figcaption>
+    </figure>
+    <br />
   </body>
 </html>
