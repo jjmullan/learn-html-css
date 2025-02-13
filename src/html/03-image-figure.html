@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>이미지와 피규어</title>
+    <style>
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border-width: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>이미지 삽입하기</h1>
+
+    <!-- 비트맵 이미지 -->
+    <figure>
+      <img src="../assets/food/cake.jpeg" alt="Peace of Cake(한 조각의 평화) - 밀크레이프, 수플레치즈, 초코 티라미수, 데블스 초코, 더블치즈" />
+      <figcaption class="sr-only">비트맵 이미지 1</figcaption>
+    </figure>
+    <br />
+    <figure>
+      <img src="../assets/food/icecream.webp" alt="놓여진 여러 개의 컵 아이스크림과 스푼" />
+      <figcaption class="sr-only">비트맵 이미지 2</figcaption>
+    </figure>
+
+    <!-- 벡터 이미지 -->
+    <figure>
+      <img src="../assets/svg/chitchat.svg" alt="채팅" width="50" height="50" />
+      <figcaption class="sr-only">벡터 이미지 1</figcaption>
+    </figure>
+
+    <!-- img 의 alt 속성을 svg 에서 aria-label 속성으로 사용할 수 있다 -->
+    <svg aria-label="1대1 채팅" class="h-12 w-12" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="a">
+          <stop stop-color="#2397B3" offset="0%"></stop>
+          <stop stop-color="#13577E" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="b">
+          <stop stop-color="#73DFF2" offset="0%"></stop>
+          <stop stop-color="#47B1EB" offset="100%"></stop>
+        </linearGradient>
+      </defs>
+      <g fill="none" fill-rule="evenodd">
+        <path
+          d="M28.872 22.096c.084.622.128 1.258.128 1.904 0 7.732-6.268 14-14 14-2.176 0-4.236-.496-6.073-1.382l-6.022 2.007c-1.564.521-3.051-.966-2.53-2.53l2.007-6.022A13.944 13.944 0 0 1 1 24c0-7.331 5.635-13.346 12.81-13.95A9.967 9.967 0 0 0 13 14c0 5.523 4.477 10 10 10a9.955 9.955 0 0 0 5.872-1.904z"
+          fill="url(#a)"
+          transform="translate(1 1)"
+        ></path>
+        <path
+          d="M35.618 20.073l2.007 6.022c.521 1.564-.966 3.051-2.53 2.53l-6.022-2.007A13.944 13.944 0 0 1 23 28c-7.732 0-14-6.268-14-14S15.268 0 23 0s14 6.268 14 14c0 2.176-.496 4.236-1.382 6.073z"
+          fill="url(#b)"
+          transform="translate(1 1)"
+        ></path>
+        <path d="M18 17a2 2 0 1 0 0-4 2 2 0 0 0 0 4zM24 17a2 2 0 1 0 0-4 2 2 0 0 0 0 4zM30 17a2 2 0 1 0 0-4 2 2 0 0 0 0 4z" fill="#FFF"></path>
+      </g>
+    </svg>
+  </body>
+</html>
