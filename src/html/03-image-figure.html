@@ -29,6 +29,7 @@
     <br />
 
     <!-- 벡터 이미지 -->
+    <!-- 성능 관점에서 마크업 언어(HTML)에서 이미지의 크기를 설정하는 것으로 렌더링 성능을 높일 수 있다 -->
     <img src="../assets/svg/chitchat.svg" alt="채팅" width="50" height="50" />
     <!-- img 의 alt 속성을 svg 에서 1. aria-label 속성 또는 2. 태그 내 title 속성으로 사용할 수 있다 -->
     <svg aria-label="1대1 채팅" width="50" height="auto" class="h-12 w-12" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
@@ -70,5 +71,12 @@
       <figcaption class="sr-only">드라마 굿파트너 속 장나라</figcaption>
     </figure>
     <br />
+
+    <figure>
+      <!-- 웹이 발전함에 따라, 사용자에게 보내지는 asset의 수가 크게 증가하면서 렌더링 길이가 길어짐
+      -> loading="lazy"은 지금 안봐도 되는 이미지의 로딩을 지연시키고, 화면이 보일 때 이미지를 로딩해줌으로써 렌더링 경로 길이를 단축시킨다 -->
+      <img src="../assets/drama/mon-friend-son-narrow.webp" alt="엄마친구아들 (새로운 에피소드 지금 시청하기)" width="284" height="400" loading="lazy" />
+      <figcaption class="sr-only">티빙에서 시청 - 엄마친구아들</figcaption>
+    </figure>
   </body>
 </html>
