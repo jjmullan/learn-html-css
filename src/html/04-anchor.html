@@ -4,6 +4,19 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>하이퍼링크</title>
+    <style>
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border-width: 0;
+      }
+    </style>
   </head>
   <body>
     <h1>하이퍼링크</h1>
@@ -42,5 +55,18 @@
       <h2>제목</h2>
       <p>내용</p>
     </a>
+
+    <section>
+      <figure>
+        <img src="../assets/cafew/card-02-@1x.jpg" alt="" />
+        <figcaption class="sr-only">공부 중인 사람들</figcaption>
+      </figure>
+      <h1>
+        RESPONSIVE WEB <br />
+        DESIGN STRATEGIES <br />
+        반응형 웹디자인 전략
+      </h1>
+      <a href="/" target="_blank" rel="noopener noreferrer" title="강의 정보 보러가기"> 강의정보 </a>
+    </section>
   </body>
 </html>
