@@ -5,16 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>멋사 프론트엔드 부트캠프 13기</title>
     <style>
-      dl > div {
+      dl {
         display: flex;
-        flex-direction: column;
-        margin-bottom: 3vh;
+        flex-direction: row;
       }
 
-      dt,
+      dl > div {
+        margin-right: 5vw;
+      }
+
+      dl > div > dt {
+        font-weight: bold;
+        margin-bottom: 2vh;
+      }
+
       dd {
-        display: block;
-        margin-bottom: 50;
+        font-size: 1.1em;
+        margin-bottom: 1vh;
       }
 
       a {
