@@ -5,8 +5,7 @@ body {
 
 header {
   width: 100vw;
-  height: 15vh;
-  margin-top: 10vh;
+  margin-top: 150px;
 }
 
 header > h1 {
@@ -62,7 +61,7 @@ dl {
   flex-direction: row;
   justify-content: space-between;
   flex-wrap: wrap;
-  margin: 4vh 2vw;
+  margin: 2vw 2vh;
 }
 
 dl > div {
@@ -72,7 +71,7 @@ dl > div {
   border-radius: 30px;
   background-color: rgb(251, 250, 250);
   box-shadow: 4px 5px 10px #ccc;
-  margin: 2vh 0;
+  margin-bottom: 2vh;
   position: relative;
 }
 
