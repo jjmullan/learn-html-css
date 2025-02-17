@@ -43,10 +43,10 @@
       <thead>
         <tr>
           <!-- <th scope="col"> => 제목 셀이 열 방향으로 유효 -->
-          <th scope="col">번호</th>
-          <th scope="col">강사</th>
-          <th scope="col">멘토</th>
-          <th scope="col">운영진</th>
+          <th id="col1" scope="col">번호</th>
+          <th id="col2" scope="col">강사</th>
+          <th id="col3" scope="col">멘토</th>
+          <th id="col4" scope="col">운영진</th>
         </tr>
       </thead>
       <tfoot>
@@ -60,8 +60,9 @@
       </tfoot>
       <tbody>
         <tr>
-          <th scope="row">1</th>
-          <td>슬비쌤</td>
+          <th id="num1" scope="row">1</th>
+          <!-- headers 는 td 셀이 영향을 받은 th(id)를 header 속성으로 넣어주는 것 -->
+          <td headers="col2 num1">슬비쌤</td>
           <td>유진혁</td>
           <td>정재인</td>
         </tr>
@@ -79,6 +80,40 @@
         <tr>
           <!-- 위 셀에서 행 방향으로 2칸을 병합했기 때문에, 열 항목은 하나만 넣으면 된다. -->
           <td colspan="2">&nbsp;</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <hr />
+
+    <!-- <figure><table></table><figcaption></figcaption></figure> 형태로도 사용이 가능하다. -->
+    <table>
+      <tbody>
+        <tr>
+          <!-- id 와 class 는 해석하기에 용이하고, 명확하게 구분할 수 있는 이름으로 잘 지어줘야 한다. -->
+          <th id="col1-1" scope="col">학습시간</th>
+          <td headers="col1-1">09:00 ~ 17:00&lpar;28시간&rpar;</td>
+          <th id="col1-2" scope="col">난이도</th>
+          <td headers="col1-2">초급</td>
+        </tr>
+        <tr>
+          <th id="col2-1" scope="col">교육비 지원</th>
+          <td headers="col2-1">고용보험 비환급</td>
+          <th id="col2-2" scope="col">평가항목</th>
+          <td headers="col2-2">출석률 100&percnt;</td>
+        </tr>
+        <tr>
+          <th id="col3-1" scope="col">수료기준</th>
+          <td headers="col3-1">총점 80점 이상시 수료</td>
+          <th id="col3-2" scope="col">정원</th>
+          <td headers="col3-2">24명</td>
+        </tr>
+        <tr>
+          <th id="col4-1" scope="col">교재정보</th>
+          <td headers="col4-1" colspan="3">
+            입문자를 위한 GIT과 HTML&amp;CSS<br />
+            HTML&amp;CSS 웹 사이트 개발과 디자인 기초&lpar;35,000원&rpar;
+          </td>
         </tr>
       </tbody>
     </table>
