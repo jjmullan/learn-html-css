@@ -14,25 +14,43 @@ header > h1 {
   font-size: 3em;
 }
 
+ul {
+  padding: 1vh 2vw;
+}
+
+header > nav {
+  display: flex;
+  justify-content: space-between;
+}
+
 header > nav > ul {
   display: flex;
+  flex-wrap: nowrap;
   flex-direction: row;
   justify-content: center;
+  align-items: center;
 }
 
 header > nav > ul > li {
   list-style: none;
 }
 
+header > nav > ul > li:first-child,
+li:nth-child(4),
+li:nth-child(8) {
+  color: blue;
+  font-weight: bold;
+}
+
 header > nav > ul > li::after {
   content: ' ㅣ';
-  padding-right: 8px;
+  padding-right: 9px;
   color: #ccc;
 }
 
 header > nav > ul > li:last-child::after {
   content: '';
-  padding-right: 8px;
+  padding-right: 9px;
 }
 
 main {
@@ -69,6 +87,10 @@ dl > div > dt {
 dd {
   font-size: 1.1em;
   margin-bottom: 1vh;
+}
+
+.monday {
+  border: 3px solid blue;
 }
 
 a {
