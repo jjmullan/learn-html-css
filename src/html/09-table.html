@@ -16,8 +16,12 @@
       table,
       th,
       td {
-        border: 1px solid #000;
+        border-collapse: collapse;
         border-spacing: 0;
+        border: 1px solid #000;
+        text-align: center;
+        width: 50vw;
+        height: 5vh;
       }
     </style>
   </head>
@@ -27,24 +31,56 @@
       <caption>
         멋쟁이 사자처럼 프론트엔드 스쿨 13기
       </caption>
-      <tr>
-        <th>번호</th>
-        <th>강사</th>
-        <th>멘토</th>
-        <th>운영진</th>
-      </tr>
-      <tr>
-        <td>1</td>
-        <td>슬비쌤</td>
-        <td>유진혁</td>
-        <td>정재인</td>
-      </tr>
-      <tr>
-        <td>2</td>
-        <td>용쌤</td>
-        <td>권석기</td>
-        <td>금윤호</td>
-      </tr>
+
+      <!-- colgrup -->
+      <colgroup>
+        <col />
+        <col span="2" />
+        <col />
+      </colgroup>
+
+      <!-- 현업에서 thead -> tfoot -> tbody(동적으로 값이 갱신될 수 있음) 순서로 작성하는 것이 유용하다. -->
+      <thead>
+        <tr>
+          <!-- <th scope="col"> => 제목 셀이 열 방향으로 유효 -->
+          <th scope="col">번호</th>
+          <th scope="col">강사</th>
+          <th scope="col">멘토</th>
+          <th scope="col">운영진</th>
+        </tr>
+      </thead>
+      <tfoot>
+        <tr>
+          <!-- <th scope="row"> => 제목 셀이 행 방향으로 유효 -->
+          <th scope="row">인원 수</th>
+          <td>2</td>
+          <td>2</td>
+          <td>2</td>
+        </tr>
+      </tfoot>
+      <tbody>
+        <tr>
+          <th scope="row">1</th>
+          <td>슬비쌤</td>
+          <td>유진혁</td>
+          <td>정재인</td>
+        </tr>
+        <tr>
+          <th scope="row">2</th>
+          <td>용쌤</td>
+          <td>권석기</td>
+          <td>금윤호</td>
+        </tr>
+        <tr>
+          <!-- <td rowspan="2" colspan="2"> => 일반 셀을 행, 열 방향으로 2칸을 병합한다 -->
+          <td rowspan="2" colspan="2">&nbsp;</td>
+          <td colspan="2">&nbsp;</td>
+        </tr>
+        <tr>
+          <!-- 위 셀에서 행 방향으로 2칸을 병합했기 때문에, 열 항목은 하나만 넣으면 된다. -->
+          <td colspan="2">&nbsp;</td>
+        </tr>
+      </tbody>
     </table>
   </body>
 </html>
