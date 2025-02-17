@@ -20,7 +20,7 @@ ul {
 
 header > nav {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 header > nav > ul {
@@ -73,6 +73,7 @@ dl > div {
   background-color: rgb(251, 250, 250);
   box-shadow: 4px 5px 10px #ccc;
   margin: 2vh 0;
+  position: relative;
 }
 
 dl > div:last-child {
@@ -89,8 +90,17 @@ dd {
   margin-bottom: 1vh;
 }
 
-.monday {
-  border: 3px solid blue;
+.monday::before {
+  content: '월요일';
+  position: absolute;
+  padding: 8px;
+  background-color: blue;
+  font-size: 0.8em;
+  font-weight: bold;
+  color: white;
+  left: -15px;
+  top: -15px;
+  border-radius: 20px;
 }
 
 a {
