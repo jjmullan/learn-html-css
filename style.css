@@ -90,8 +90,8 @@ dd {
   margin-bottom: 1vh;
 }
 
-.monday::before {
-  content: '월요일';
+.weekdayStart::before {
+  content: '한 주 시작!';
   position: absolute;
   padding: 8px;
   background-color: blue;
