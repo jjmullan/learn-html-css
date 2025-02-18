@@ -17,13 +17,14 @@ ul {
   padding: 1vh 2vw;
 }
 
-header > nav {
+nav {
   display: flex;
   justify-content: space-around;
   height: 50px;
+  margin-bottom: 50px;
 }
 
-header > nav > ul {
+nav > ul {
   display: flex;
   flex-wrap: nowrap;
   flex-direction: row;
@@ -31,24 +32,24 @@ header > nav > ul {
   align-items: center;
 }
 
-header > nav > ul > li {
+nav > ul > li {
   list-style: none;
 }
 
-header > nav > ul > li:first-child,
+nav > ul > li:first-child,
 li:nth-child(4),
 li:nth-child(8) {
   color: blue;
   font-weight: bold;
 }
 
-header > nav > ul > li::after {
+nav > ul > li::after {
   content: ' ㅣ';
   padding-right: 9px;
   color: #ccc;
 }
 
-header > nav > ul > li:last-child::after {
+nav > ul > li:last-child::after {
   content: '';
 }
 
