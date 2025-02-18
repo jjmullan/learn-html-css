@@ -15,15 +15,26 @@
   </head>
   <body>
     <h1>iframe, object 요소</h1>
+
+    <!-- iframe 속성 중 frameborder, allow 는 표준 속성이 아니다  -->
+    <h2>예제 1 <span>:</span> iframe</h2>
     <iframe
       width="560"
       height="315"
       src="https://www.youtube.com/embed/W6VSA3GDK6s?si=meBsdQlSRjIeFsNt"
-      title="YouTube video player"
+      title="WAI-ARIA를 위한 접근성 권고안 - Youtube 'AOA11Y '"
       frameborder="0"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
       referrerpolicy="strict-origin-when-cross-origin"
       allowfullscreen
     ></iframe>
+
+    <hr />
+
+    <h2>예제 2 <span>:</span> object</h2>
+    <figure>
+      <object type="application/pdf" data="/src/assets/pdf/wai-aria.pdf" width="600" height="1200"></object>
+      <figcaption>WAI-ARIA</figcaption>
+    </figure>
   </body>
 </html>
