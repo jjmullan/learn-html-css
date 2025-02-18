@@ -29,7 +29,8 @@
       <li><a href="https://www.mydevice.io/">mydevice.io</a>에서 PIXEL RATIO - CSS pixel-ratio를 확인!</li>
       <li>개발자 도구 - 콘솔 에서 window.devicePixelRatio 를 작성해서도 확인 가능!</li>
     </ul>
-    <span class="extraLearning">✍🏻 픽셀 밀도에 관한 추가 학습 필요!</span><span>*디바이스에 맞는 최적화된 이미지를 렌더링해야 성능을 잡을 수 있다*</span>
+    <span class="extraLearning">✍🏻 픽셀 밀도에 관한 추가 학습 필요!</span
+    ><span>*디바이스에 맞는 최적화된 이미지를 렌더링해야 성능을 잡을 수 있다*</span>
 
     <!-- mdn https://developer.mozilla.org/en-US/docs/Web/HTML/Responsive_images -->
     <div>
@@ -47,11 +48,41 @@
     </div>
 
     <!-- 예제 1 : srcset, sizes 속성-->
-    <img srcset="../assets/logo/netflix@1x.png 1x, ../assets/logo/netflix@2x.png 2x" src="../assets/logo/netflix@1x.png" alt="넷플릭스" />
+    <div>
+      <img srcset="../assets/logo/netflix@1x.png 1x, ../assets/logo/netflix@2x.png 2x" src="../assets/logo/netflix@1x.png" alt="넷플릭스" />
+    </div>
 
     <!-- 예제 2 : src 는 png, srcset 은 webp 를 넣었을 때, 실제 표시되는 소스는 srcset=".webp"로 적용된다 -->
     <!-- why? 모던 브라우저에서 차세대 이미지 포맷인 webp가 있으면, 해당 파일 형식을 먼저 불러오기 한다. webp 를 불러오지 못하는 구형 브라우저는 png 를 그대로 가져온다 -->
-    <img srcset="../assets/logo/netflix@1x.webp 1x, ../assets/logo/netflix@2x.webp 2x" src="../assets/logo/netflix@1x.png" alt="넷플릭스" />
-    <img src="../assets/june/eg_srcset.png" alt="네트워크에서 srcset 확인" width="80%" />
+    <div>
+      <img srcset="../assets/logo/netflix@1x.webp 1x, ../assets/logo/netflix@2x.webp 2x" src="../assets/logo/netflix@1x.png" alt="넷플릭스" />
+      <img src="../assets/june/eg_srcset.png" alt="네트워크에서 srcset 확인" width="80%" />
+    </div>
+
+    <!-- <picture> 는 <img> 를 담기 위한 컨테이너 요소 -->
+    <picture>
+      <!-- 뷰포트 너비(width)가 550일 때 small, 1024일 때 medium, 1600일 때 large 를 불러온다. -->
+      <img
+        src="../assets/rwd/small-550.jpg"
+        srcset="
+          ../assets/rwd/small-550.jpg    550w,
+          ../assets/rwd/medium-1024.jpg 1024w,
+          ../assets/rwd/large-1600.jpg  1600w,
+          ../assets/rwd/normal-1920.jpg 1920w
+        "
+        sizes="(max-width: 768px) 550px, 100vw"
+        alt=""
+        width=""
+        height=""
+      />
+    </picture>
+
+    <!-- source 속성 예제 -->
+    <picture>
+      <source srcset="../assets/rwd/small-550.jpg 550w" media="(max-width: 768px)" />
+      <source srcset="../assets/rwd/medium-1024.jpg 1024w" media="(max-width: 1024px)" />
+      <source srcset="../assets/rwd/large-1600.jpg 1600w" media="(max-width: 1600px)" />
+      <img src="../assets/rwd/normal-1920.jpg" alt="" />
+    </picture>
   </body>
 </html>
