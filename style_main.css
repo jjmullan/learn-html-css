@@ -6,7 +6,7 @@ main {
   margin: 0 50px 80px;
 }
 
-dl {
+section {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -14,7 +14,7 @@ dl {
   margin: 0;
 }
 
-dl > div {
+section > ul {
   width: 17vw;
   padding: 2vw;
   margin-bottom: 3vh;
@@ -25,13 +25,16 @@ dl > div {
   position: relative;
 }
 
-dl > div > dt {
+section > ul > li:first-child {
   font-weight: bold;
   margin-bottom: 2vh;
+  list-style: none;
+  margin-left: 0;
 }
 
-dd {
+section > ul > li {
   margin: 0 0 1.5vh 1vw;
+  list-style: none;
 }
 
 .weekdayStart::before {

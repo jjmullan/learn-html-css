@@ -13,10 +13,6 @@ header > h1 {
   font-size: 3em;
 }
 
-ul {
-  padding: 1vh 2vw;
-}
-
 nav {
   display: flex;
   justify-content: space-around;
@@ -30,15 +26,14 @@ nav > ul {
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  padding: 1vh 2vw;
 }
 
 nav > ul > li {
   list-style: none;
 }
 
-nav > ul > li:first-child,
-li:nth-child(4),
-li:nth-child(8) {
+.navName > li:first-child {
   color: blue;
   font-weight: bold;
 }
