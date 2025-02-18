@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- ========== 커스텀 항목 ========== -->
+    <meta name="description" content="(SEO에 노출되는 페이지 설명)" />
+    <meta property="og:title" content="(제목)" />
+    <meta property="og:description" content="(요약설명)" />
+    <meta property="og:image" content="(썸네일 이미지 URL)" />
+    <meta property="og:url" content="(링크 URL)" />
+    <meta property="og:type" content="website" />
+    <!-- ========== 커스텀 항목 ========== -->
+    <title>폼(input) 요소</title>
+  </head>
+  <body>
+    <h1>form 요소</h1>
+    <h2>input 요소</h2>
+    <h3>한 줄 입력 서식 <span>:</span> form > fieldset > legend + div > label + input ( text, password, search )</h3>
+    <!-- filedset : 연관성 있는 폼 서식을 그룹핑할 때 사용  -->
+    <form action="">
+      <fieldset>
+        <!-- <legend> : 그룹핑 명칭 -->
+        <legend>폼 서식</legend>
+
+        <!-- div 로 묶어 컴포넌트화 한다 -->
+        <div>
+          <!-- 웹 접근성 면에서 <input id=""> 와 <label for=""> 로 1대1로 대응해서, label 속성으로 어떠한 항목인지 알려주기  -->
+          <label for="userName">이름</label>
+
+          <!-- <input type="text" ... > : 텍스트를 입력할 수 있는 서식을 생성 -->
+          <input type="text" id="userName" />
+        </div>
+
+        <div>
+          <label for="userPwd">비밀번호</label>
+          <input type="password" id="userPwd" />
+        </div>
+
+        <div>
+          <label for="likelionSearch">검색</label>
+          <input type="search" id="likelionSearch" />
+        </div>
+      </fieldset>
+    </form>
+
+    <hr />
+    <span class="extraLearning">✍🏻 네이밍할 때 방식 알아보기 : camelCase, kebab-case, snake_case, PascalCase</span>
+  </body>
+</html>
