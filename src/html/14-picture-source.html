@@ -3,14 +3,6 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- ========== 커스텀 항목 ========== -->
-    <meta name="description" content="(SEO에 노출되는 페이지 설명)" />
-    <meta property="og:title" content="(제목)" />
-    <meta property="og:description" content="(요약설명)" />
-    <meta property="og:image" content="(썸네일 이미지 URL)" />
-    <meta property="og:url" content="(링크 URL)" />
-    <meta property="og:type" content="website" />
-    <!-- ========== 커스텀 항목 ========== -->
     <title>picture, source 요소</title>
     <style>
       .extraLearning {
@@ -29,8 +21,8 @@
       <li><a href="https://www.mydevice.io/">mydevice.io</a>에서 PIXEL RATIO - CSS pixel-ratio를 확인!</li>
       <li>개발자 도구 - 콘솔 에서 window.devicePixelRatio 를 작성해서도 확인 가능!</li>
     </ul>
-    <span class="extraLearning">✍🏻 픽셀 밀도에 관한 추가 학습 필요!</span
-    ><span>*디바이스에 맞는 최적화된 이미지를 렌더링해야 성능을 잡을 수 있다*</span>
+    <span class="extraLearning">✍🏻 픽셀 밀도에 관한 추가 학습 필요!</span>
+    <span>*디바이스에 맞는 최적화된 이미지를 렌더링해야 성능을 잡을 수 있다*</span>
 
     <!-- mdn https://developer.mozilla.org/en-US/docs/Web/HTML/Responsive_images -->
     <div>
@@ -70,7 +62,7 @@
           ../assets/rwd/large-1600.jpg  1600w,
           ../assets/rwd/normal-1920.jpg 1920w
         "
-        sizes="(max-width: 768px) 550px, 100vw"
+        sizes="(max-width: 768px) 550w, 100vw"
         alt=""
         width=""
         height=""
@@ -82,6 +74,7 @@
       <source srcset="../assets/rwd/small-550.jpg 550w" media="(max-width: 768px)" />
       <source srcset="../assets/rwd/medium-1024.jpg 1024w" media="(max-width: 1024px)" />
       <source srcset="../assets/rwd/large-1600.jpg 1600w" media="(max-width: 1600px)" />
+      <source srcset="../assets/rwd/normal-1920.jpg 1920w" media="(min-width: 1601px)" />
       <img src="../assets/rwd/normal-1920.jpg" alt="" />
     </picture>
   </body>
