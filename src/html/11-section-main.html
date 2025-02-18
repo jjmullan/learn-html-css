@@ -13,5 +13,55 @@
     <!-- ========== 커스텀 항목 ========== -->
     <title>섹션과 메인 요소</title>
   </head>
-  <body></body>
+  <body>
+    <!-- 마크업의 기본 요소 / 정형화된 위치가 아닌 맥락에 따라 마크업 할 필요가 있음 -->
+    <!-- <header></header>
+    <nav></nav>
+    <main>
+      <figure></figure>
+      <article></article>
+      <section></section>
+      <div></div>
+      <aside></aside>
+    </main>
+    <aside></aside>
+    <footer></footer> -->
+
+    <!-- div 는 의미가 없지만, WAI-ARIA 의 role 속성을 이용하여 의미를 할당, 접근성을 보완할 수 있음 -->
+    <div role="banner"></div>
+    <div role="footer"></div>
+
+    <!-- 실습 예제 -->
+    <header>
+      <h1>머리말</h1>
+    </header>
+    <nav>
+      <h2>메뉴</h2>
+    </nav>
+    <main>
+      <!-- section(1장 1절, 1장 2절, ... 으로 마크업하고 싶은 콘텐츠 블록) vs article(완결되는 정보, 독립된 글) => 크게 차이가 없음. 너무 많은 고민을 하면 오히려 코드를 망칠 수 있음 -->
+      <section>
+        <article>
+          <figure>
+            <img src="" alt="" />
+            <figcaption></figcaption>
+          </figure>
+          <p>콘텐츠 섹션 1</pㅇ>
+        </article>
+        <article>
+          <figure>
+            <img src="" alt="" />
+            <figcaption></figcaption>
+          </figure>
+          <p>콘텐츠 섹션 2</p>
+        </article>
+      </section>
+    </main>
+    <aside>
+      <h2>부가 정보</h2>
+    </aside>
+    <footer>
+      <h2>바닥글</h2>
+    </footer>
+  </body>
 </html>
