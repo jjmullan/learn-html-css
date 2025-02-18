@@ -12,8 +12,46 @@
     <meta property="og:type" content="website" />
     <!-- ========== 커스텀 항목 ========== -->
     <title>picture, source 요소</title>
+    <style>
+      .extraLearning {
+        display: inline-bock;
+        background-color: yellow;
+        font-weight: bold;
+        padding: 5px 10px;
+      }
+    </style>
   </head>
   <body>
     <h1>picture, source 요소</h1>
+
+    <span>반응형 디자인을 위한 디바이스 크기 및 픽셀 밀도를 확인할 수 있다</span>
+    <ul>
+      <li><a href="https://www.mydevice.io/">mydevice.io</a>에서 PIXEL RATIO - CSS pixel-ratio를 확인!</li>
+      <li>개발자 도구 - 콘솔 에서 window.devicePixelRatio 를 작성해서도 확인 가능!</li>
+    </ul>
+    <span class="extraLearning">✍🏻 픽셀 밀도에 관한 추가 학습 필요!</span><span>*디바이스에 맞는 최적화된 이미지를 렌더링해야 성능을 잡을 수 있다*</span>
+
+    <!-- mdn https://developer.mozilla.org/en-US/docs/Web/HTML/Responsive_images -->
+    <div>
+      <!-- srcset="파일명 원본파일크기, 파일명 원본파일크기, ...")  -->
+      <!-- sizes="(조건) 원본파일크기, (조건) 원본파일 크기, ..., 원본파일 크기" 조건에 맞는 소스를 사용(=미디어쿼리) -->
+      <!-- srcset 속성을 사용하면, sizes 속성을 같이 사용해야 한다 -->
+      <!-- src="파일명" 실제 렌더링하는 소스 -->
+      <img
+        srcset="elva-fairy-480w.jpg 480w, elva-fairy-800w.jpg 800w"
+        sizes="(max-width: 600px) 480px,
+           800px"
+        src="elva-fairy-800w.jpg"
+        alt="Elva dressed as a fairy"
+      />
+    </div>
+
+    <!-- 예제 1 : srcset, sizes 속성-->
+    <img srcset="../assets/logo/netflix@1x.png 1x, ../assets/logo/netflix@2x.png 2x" src="../assets/logo/netflix@1x.png" alt="넷플릭스" />
+
+    <!-- 예제 2 : src 는 png, srcset 은 webp 를 넣었을 때, 실제 표시되는 소스는 srcset=".webp"로 적용된다 -->
+    <!-- why? 모던 브라우저에서 차세대 이미지 포맷인 webp가 있으면, 해당 파일 형식을 먼저 불러오기 한다. webp 를 불러오지 못하는 구형 브라우저는 png 를 그대로 가져온다 -->
+    <img srcset="../assets/logo/netflix@1x.webp 1x, ../assets/logo/netflix@2x.webp 2x" src="../assets/logo/netflix@1x.png" alt="넷플릭스" />
+    <img src="../assets/june/eg_srcset.png" alt="네트워크에서 srcset 확인" width="80%" />
   </body>
 </html>
