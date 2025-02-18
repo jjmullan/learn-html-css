@@ -11,9 +11,28 @@
     <meta property="og:url" content="(링크 URL)" />
     <meta property="og:type" content="website" />
     <!-- ========== 커스텀 항목 ========== -->
-    <title>video, iframe 요소</title>
+    <title>video, source 요소</title>
   </head>
   <body>
-    <h1>video, iframe 요소</h1>
+    <h1>video, source 요소</h1>
+
+    <h2>예제 1<span>:</span> controls</h2>
+    <!-- < ... controls> = < ... controls="true"> -->
+    <video src="../assets/video/google-developer-stories.mov" controls></video>
+
+    <hr />
+
+    <h2>예제 2 <span>:</span> autoplay &amp; muted, poster=&quot;이미지파일&quot;3</h2>
+    <!-- autoplay muted : 웹을 로딩하면 자동 재생하고, 음소거하는 속성 (웹 접근성 면에서 두 속성을 반드시 같이 사용한다)-->
+    <!-- poster="이미지파일" : 커버 이미지 설정 -->
+    <video controls autoplay muted poster="../assets/video/poster.jpg">
+      <!-- source 의 순서대로 로딩한다 -->
+      <source src="../assets/video/google-developer-stories.mov" type="video/mov" />
+      <source src="../assets/video/google-developer-stories.mp4" type="video/mp4" />
+      <source src="../assets/video/google-developer-stories.webm" type="video/webm" />
+      <source src="../assets/video/google-developer-stories.ogg" type="video/ogg" />
+      <!-- 웹용 자막(.vtt) 설정 : src(링크), kind(종류), srclang(자막 언어), label(자막에 표기되는 정보) -->
+      <track src="../assets/video/google-developer-stories-subtitles-en.vtt" kind="captions" srclang="en" label="English Caption" />
+    </video>
   </body>
 </html>
