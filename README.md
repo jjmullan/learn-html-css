@@ -77,7 +77,7 @@
 
 ###### CSS
 
-1. [CSS]()
+1. [CSS 기초](#1-css-기초)
 
 <br />
 <br />
@@ -417,7 +417,7 @@ HTML5 에서 DTD는 위 3가지 종류를 구분해서 사용하지 않는다.
 
 ### 18-4. label 요소
 
-웹 접근성 면에서 폼 항목과 label 을 1대1로 대응해줘야 한다. 만약, label 을 대응하지 않기를 원한다면, 폼 항목에 `aria-label=""`로 웹 접근성을 향상할 수 있다.
+웹 접근성 면에서 폼 요소와 label 을 1대1로 대응하는 것을 권고한다. 만약, label 로 대응하지 않기를 원한다면, 폼 항목에 `aria-label=""`로 웹 접근성을 향상할 수 있다.
 
 <br />
 
@@ -483,20 +483,6 @@ name 속성으로
 
 <br />
 
-#### type="url" 속성
-
-#### type="date" 속성
-
-#### type="datetime" 속성
-
-#### type="month" 속성
-
-#### type="week" 속성
-
-#### type="datetime-local" 속성
-
-<br />
-
 #### type="number" 속성
 
 #### min, max 속성
@@ -505,7 +491,15 @@ name 속성으로
 
 <br />
 
-#### type="color" 속성
+#### 기타 type 속성
+
+- type="url"
+- type="date"
+- type="datetime"
+- type="month"
+- type="week"
+- type="datetime-local"
+- type="color"
 
 <br />
 
@@ -527,7 +521,7 @@ required 속성을 input 태그 안에 넣어, 사용자에게 입력을 받고 
 입력값에 대한 힌트를 줄 수 있다.
 
 ```html
-<!-- 최대 5자리까지 텍스트를 입력하게 할 수 있다 -->
+<!-- 최대 6자리까지 텍스트를 입력하게 할 수 있다 -->
 <div>
   <label for="userName">이름</label>
   <input type="text" name="userName" id="userName" placeholder="김민수" maxlength="6" />
@@ -552,19 +546,60 @@ required 속성을 input 태그 안에 넣어, 사용자에게 입력을 받고 
 
 #### list 속성과 datalist 요소
 
+type="text" 와 &lt;select&gt; 의 기능이 합쳐진 듯이 보이는 형태이다. 지정된 항목 중에 선택해야 하는 콤보 박스와는 달리, 입력란에 원하는 텍스트를 입력할 수 있다. 이때, 마우스를 클릭하면 &lt;option&gt; 요소가 콤보 박스 형태로 제공되며, 선택지를 추천하여 작성을 유도할 수 있다.
+
+&lt;input&gt; 요소의 list 속성과 &lt;datalist&gt; 의 id 값을 매칭하여 사용할 수 있다.
+
+```html
+<label for="ice-cream-choice">맛을 골라주세요!</label>
+<input list="ice-cream-flavors" id="ice-cream-choice" name="ice-cream-choice" />
+
+<datalist id="ice-cream-flavors">
+  <option value="초콜렛"></option>
+  <option value="코코넛"></option>
+  <option value="민트"></option>
+  <option value="딸기"></option>
+  <option value="바닐라"></option>
+</datalist>
+```
+
 <br />
 
 #### pattern 속성
+
+사용자가 입력한 값이 특정 정규식 패턴과 일치하는지 검사하는 역할을 하며, 입력값을 직접 수정하거나 변환할 수 없다. 주로 text, tel, email, password 같은 입력 필드에서 사용된다.
+
+```html
+<!-- 영어 대소문자(A-Z, a-z)만 입력 가능 -->
+<form>
+  <label>이름 (영문만):</label>
+  <input type="text" name="username" pattern="[A-Za-z]+" required />
+  <button type="submit">제출</button>
+</form>
+
+<!-- 010-(4자리숫자)-(4자리숫자)만 입력 가능 -->
+<form>
+  <label>전화번호:</label>
+  <input type="tel" name="phone" pattern="010-\d{4}-\d{4}" title="010-1234-5678 형식으로 입력하세요." required />
+  <button type="submit">제출</button>
+</form>
+```
 
 <br />
 
 #### autofocus 속성
 
+페이지가 로드될 때 특정 입력 필드에 자동으로 포커스를 맞출 수 있도록 부여하는 속성이다.
+
+```html
+<input type="text" name="userID" maxlength="15" autofocus />
+```
+
 <br />
 
 ## 19. form (button) 요소
 
-하나의 form 태그에 포함된 input 과 button 은 동일한 속성을 부여하면, 동일한 기능으로 작동한다.
+버튼 기능이 부여된 요소이다. 하나의 form 태그에 포함된 input 과 button 은 동일한 속성을 부여하면, 동일한 기능으로 작동한다.
 
 ```html
 <form>
@@ -647,13 +682,35 @@ option 요소가 많은 경우, optgroup 요소를 부모로 사용하여 그룹
 
 ### 20-2. textarea 요소
 
-여러 줄에 걸쳐 많은 양의 텍스트를 작성할 때, textarea 요소를 활용할 수 있다.
+여러 줄에 걸쳐 많은 양의 텍스트를 작성할 때, textarea 요소를 활용할 수 있다. textarea 요소를 설명하는 label 에 필수 입력을 표기하는 애스터리스크(`*`)를 붙일 수 있는데, 웹 접근성을 개선하기 위해 다음 예시와 같이 &lt;span&gt; 태그에 aria-hidden, .sr-only 등을 활용할 수 있다.
+
+```html
+<form action="/" method="post">
+  <div>
+    <label for="message">
+      내용
+      <!-- 필수 입력 항목에 * 처리가 되는데, 웹 접근성 면에서 다음과 같이 처리한다 -->
+      <span aria-hidden="true">*</span>
+      <span class="sr-only">필수</span>
+    </label>
+    <textarea name="message" id="message" cols="40" rows="20" placeholder="메시지"></textarea>
+  </div>
+</form>
+```
+
+<br />
+
+#### cols, rows 속성
+
+textarea 의 열(cols) 방향과 행(rows) 방향 텍스트 표시 영역을 제한할 수 있다.
+
+<br />
 
 #### placeholder 속성
 
-&lt;textarea&gt;와 &lt;/textarea&gt; 사이에 값 _value_ 이 있는 경우, placeholder 속성이 중복되어 화면에 나타나지 않는다.
+&lt;textarea&gt;와 &lt;/textarea&gt; 사이에 값 _value_ 이 있는 경우, 텍스트가 중첩되어 화면에 나타나지 않는다.
 
-보통 placeholder 의 텍스트는 길게 작성하지 않는다. 만약, placeholder 를 여러 줄에 걸쳐 길게 작성하고 싶다면, CSS 로 textarea 위에 텍스트를 올리고, JavaScript 를 통해 동적으로 작동할 수 있도록 만든다.
+보통 placeholder 의 텍스트는 길게 작성하지 않는다. 만약, placeholder 를 여러 줄에 걸쳐 길게 작성하고 싶다면, CSS 로 textarea 위에 텍스트를 올리고, JavaScript 를 통해 동적으로 작동할 수 있도록 만들 수 있다.
 
 <br />
 
@@ -663,9 +720,63 @@ option 요소가 많은 경우, optgroup 요소를 부모로 사용하여 그룹
 
 ### 21-1. dialog 요소
 
+모달 창을 만드는 데 사용되는 요소이다. 마크업 만으로 동적 제어를 할 수 없기 떄문에, Javascript 를 통한 동적 함수를 만들어줘야 한다.
+
+```html
+<!-- 코드 예시 -->
+<head>
+  ...
+  <script type="module">
+    document.addEventListener('DOMContentLoaded', () => {
+      // DOM Selection
+      const showDialogButton = document.querySelector('.show-diaglog');
+      const dialog = document.querySelector('.pannel-dialog');
+      const closeDialogButton = dialog.querySelector('.close-dialog');
+
+      // Function Implementation
+      const showDialog = () => dialog.showModal();
+      const closeDialog = () => dialog.close();
+
+      // Event Binding
+      showDialogButton.addEventListener('click', showDialog);
+      closeDialogButton.addEventListener('click', closeDialog);
+    });
+  </script>
+</head>
+<body>
+  <div class="dialog-area">
+    <button type="button" class="show-diaglog">모달창 보기</button>
+    <dialog class="pannel-dialog" aria-labelledby="event">
+      <h2 id="event">깜짝 혜택</h2>
+      <p>
+        파도가 밀려와 구덩이를 쓸고 지나간다. 양동이로 퍼 올려 쌓아 놓은 모래 더미를 끌고 가면서 구덩이를 덮는다. 구덩이에 거의 들어찬 모래 위에서
+        바닷물이 작은 소용돌이를 일으킨다. 바닷가를 뛰어다니며 서래를 찾는 해준. 해안 도로로 다시 올라가 찾다가 또 내려온다. 서래 있던 자리는 이제
+        평평해졌다. 구덩이는 흔적도 없다. 연수에게 전화 걸면서 서래가 묻힌 데까지 오는 해준, 우왕좌왕하며 안절부절 여기저기 휙휙 둘러본다. 가까워진
+        물결, 젖은 바위, 물에 잠긴 모래, 물에 뜬 채 멀어지는 대나무 장대. <cite>&lt;헤어질 결심&gt; p182</cite>
+      </p>
+      <button type="button" class="close-dialog">닫기</button>
+    </dialog>
+  </div>
+</body>
+```
+
+<br />
+
+#### aria-labelledby
+
+특정 속성 지정자에 반환되는 값을 대치하여 입력할 수 있다. 아래 예시에서는 h2 요소의 id 값을 사용하였다.
+
+```html
+<dialog class="pannel-dialog" aria-labelledby="event">
+  <h2 id="event">깜짝 혜택</h2>
+</dialog>
+```
+
+<br />
+
 ### 21-2. popover 속성
 
-button 요소의 popovertarget 속성, div 요소의 popover 속성을 활용하여 JavaScript 없이 모달 창을 만들 수 있다.
+button 요소의 popovertarget 속성 값과 div 요소의 id 를 매칭하고, div 요소에 popover 속성을 활용하여 JavaScript 없이 팝업 창을 만들 수 있다.
 
 - &lt;button **popovertarget="modal"** ... &gt;
 - &lt;div **id="modal"** **popver** ... &gt;
@@ -681,13 +792,31 @@ button 요소의 popovertarget 속성, div 요소의 popover 속성을 활용하
 
 ## 22. details, summary 요소
 
-### 22-1. details 요소
+details 요소 안에 summary 가 포함된 형태를 갖는다. summary 는 해당 상자에 대한 label 기능을 한다. 클릭하면 부모 요소의 상태가 열리고, 닫힌다. Notion 의 토글 기능과 유사하다.
 
-#### open 속성
+```html
+<details>
+  <summary>제목</summary>
+  단락 요소...
+</details>
+```
 
 <br />
 
-### 22-2. summary 요소
+#### open 속성
+
+details 요소에 open 속성을 사용하면, 해당 상자는 최초 웹 브라우저 로딩 시에 열린 상태로 보여진다.
+
+```html
+<details open>
+  <summary>Overview</summary>
+  <ol>
+    <li>Cash on hand: $500.00</li>
+    <li>Current invoice: $75.30</li>
+    <li>Due date: 5/6/19</li>
+  </ol>
+</details>
+```
 
 <br />
 
@@ -722,18 +851,22 @@ javascript 를 활용하여 동적으로 제어할 수 있는 함수를 HTML 파
 </body>
 ```
 
+##### &lt;script type="module"&gt;
+
 <br />
 
 ###### CSS3
 
-## 01. CSS 기초
+## 1. CSS 기초
 
-- [CSS3 test](https://css3test.com/)
-- [하나의 HTML 코드 - CSS 스타일링 예시](http://csszengarden.com/)
+- [CSS3 지원 수준 확인](https://css3test.com/)
+- [구조와 표현이 분리된 예시](http://csszengarden.com/)
 
-### 01-1. CSS 사용의 의의
+### 1-1. CSS 사용의 의의
 
 문서의 구조와 표현을 분리할 수 있다. 이는 구조와 표현을 분리함으로써, 문서 구조의 수정 없이 스타일의 변경만으로 다양한 표현을 할 수 있다는 것을 의미한다.
+
+현대 시대에는 구조와 표현 동작을 분리하기 보다 이 세 가지가 하나로 병합되는 특징을 갖는다. 바로 컴포넌트 단위로 UI를 개발하기 때문이다. React, Vue와 같이 Javascript 프레임워크에서 컴포넌트를 조립하여 서비스를 구축해 나가는 방식으로 개발이 진화하고 있다.
 
 ##### Component
 
@@ -741,9 +874,9 @@ javascript 를 활용하여 동적으로 제어할 수 있는 함수를 HTML 파
 
 <br />
 
-### 01-2. CSS 문법 규칙
+### 1-2. CSS 기본 문법
 
-CSS 문법의 규칙은 크게 선택자(selector)와 선언부(declaration block)로 이루어지며 선언부는 다시 속성(property)과 속성 값(value)으로 구성되어 있다. 이때 선언부는 세미콜론(;)으로 속성과 속성 값을 구분하여 여러 개의 선언(declaration)을 지정할 수 있다. 모던 웹브라우저의 경우 CSS의 최신 속성을 실험적으로 제공하고 있으며 이를 사용하기 위해서는 속성이나 속성 값 앞에 웹 브라우저별로 **접두사(vendor prefix)**를 붙여야한다.
+CSS 문법의 규칙은 크게 선택자와 {선언부}로 이루어지며 {선언부}는 다시 속성(property)과 속성 값(value)으로 구성되어 있다. 이때 선언부는 세미콜론(;)으로 속성과 속성 값을 구분하여 여러 개의 선언을 지정할 수 있다. 모던 웹브라우저의 경우 CSS의 최신 속성을 실험적으로 제공하고 있으며 이를 사용하기 위해서는 속성이나 속성 값 앞에 웹 브라우저별로 접두사 _vendor prefix_ 를 붙여야한다.
 
 - **External Style Sheet** : CSS 파일을 별도로 생성하여 HTML 문서에 연결하는 방식으로 &lt;link&gt; 요소를 사용하는 방법과 @import 명령을 사용하는 두 가지 방식이 있다.
 - **Embedded Style Sheet** : 별도로 CSS 파일을 생성하지 않고 HTML 파일 내에 CSS 코드를 직접 포함하여 스타일을 적용하는 방식으로 CSS 코드는 &lt;style&gt; 요소 내에 선언한다.
@@ -766,7 +899,26 @@ CSS 문법의 규칙은 크게 선택자(selector)와 선언부(declaration bloc
 
 <br />
 
-### 01-3. color
+주석은 `/* 텍스트 */` 의 형태로 처리한다.
+
+```css
+/* 이것은 주석입니다. */
+```
+
+<br />
+
+단위는 문자열 타입, 숫자 타입, 길이 단위 타입 등 다양한 유형이 있다.
+
+- 문자열 타입: inherit
+- 숫자 타입: 정수, 실수, %, ...
+- 길이 단위 타입
+  - 상대 단위: em, rem, vw, vh, vmin, ...
+  - 절대 단위: cm, mm, px, in, ...
+- 기타 단위 타입: deg(각도), s, ms(시간), Hz(빈도), dpi(해상도), ...
+
+<br />
+
+### 1-3. color
 
 `color` 속성을 활용하여 직접 색을 지정하거나(e.g. blue, tomato, violet, ...), #colorcode(e.g. #ccc, #43204a), rgb(a), hsl(a) 등 다양한 형태로 색상을 지정할 수 있다.
 
@@ -781,25 +933,33 @@ CSS 문법의 규칙은 크게 선택자(selector)와 선언부(declaration bloc
 
 <br />
 
-### 01-4. font-size
+### 1-4. font-size
+
+지정된 요소의 폰트 크기를 지정할 수 있다.
 
 <br />
 
-### 01-5. background-color
+### 1-5. background-color
+
+지정된 요소의 배경 색을 지정할 수 있다.
 
 <br />
 
-### 01-6. font-family
+### 1-6. font-family
+
+파일에서 사용되는 폰트 종류를 묶음으로 지정할 수 있다. 맨 앞의 폰트를 가장 먼저 불러오며, 브라우저가 해당 폰트를 읽지 못하는 경우 그 다음 폰트를 불러온다.
 
 <br />
 
-##### 벤더 프리픽스
-
-<br />
+##### 벤더 프리픽스 _vendor prefix_
 
 ##### CSSOM (CSS Object Model) -> Render Tree
 
-<hr />
+<br />
+
+###### 2025-02-20
+
+## 2.
 
 <style>
    h5::before {
