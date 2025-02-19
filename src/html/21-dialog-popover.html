@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>dialog 요소, popover 속성</title>
+    <style>
+      /* ::backdrop -> dimmed 처리된 영역의 스타일을 지정하는 것 */
+      dialog.pannel-dialog::backdrop {
+        background: linear-gradient(to bottom right, rgba(255, 182, 193, 0.5), rgba(173, 216, 230, 0.5));
+      }
+    </style>
+    <!-- type="module" : DOM tree 를 구현한 뒤 script 를 작성하는 옵션 -->
+    <script type="module">
+      document.addEventListener('DOMContentLoaded', () => {
+        // DOM Selection
+        const showDialogButton = document.querySelector('.show-diaglog');
+        const dialog = document.querySelector('.pannel-dialog');
+        const closeDialogButton = dialog.querySelector('.close-dialog');
+  
+        // Function Implementation
+        const showDialog = () => dialog.showModal();
+        const closeDialog = () => dialog.close();
+  
+        // Event Binding
+        showDialogButton.addEventListener('click', showDialog);
+        closeDialogButton.addEventListener('click', closeDialog);
+      });
+    </script>
+  </head>
+  <body>
+    <h1>dialog 요소</h1>
+
+    <div class="dialog-area">
+      <button type="button" class="show-diaglog">모달창 보기</button>
+
+      <!-- aria-labelledby="다른 요소 별칭" -->
+      <dialog class="pannel-dialog" aria-labelledby="event">
+        <h2 id="event">깜짝 혜택</h2>
+        <p>
+          파도가 밀려와 구덩이를 쓸고 지나간다. 양동이로 퍼 올려 쌓아 놓은 모래 더미를 끌고 가면서 구덩이를 덮는다. 구덩이에 거의 들어찬 모래 위에서
+          바닷물이 작은 소용돌이를 일으킨다. 바닷가를 뛰어다니며 서래를 찾는 해준. 해안 도로로 다시 올라가 찾다가 또 내려온다. 서래 있던 자리는 이제
+          평평해졌다. 구덩이는 흔적도 없다. 연수에게 전화 걸면서 서래가 묻힌 데까지 오는 해준, 우왕좌왕하며 안절부절 여기저기 휙휙 둘러본다. 가까워진
+          물결, 젖은 바위, 물에 잠긴 모래, 물에 뜬 채 멀어지는 대나무 장대. <cite>&lt;헤어질 결심&gt; p182</cite>
+        </p>
+        <button type="button" class="close-dialog">닫기</button>
+      </dialog>
+    </div>
+
+    <h1>popover 속성</h1>
+    <button class="button-popover" type="button" popovertarget="popoverContent">팝오버 보기</button>
+    <div id="popoverContent" popover>
+      <p>팝오버 내용</p>
+    </div>
+  </div>
+  
+  </body>
+</html>
