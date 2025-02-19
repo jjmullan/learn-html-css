@@ -3,20 +3,21 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- ========== 커스텀 항목 ========== -->
-    <meta name="description" content="(SEO에 노출되는 페이지 설명)" />
-    <meta property="og:title" content="(제목)" />
-    <meta property="og:description" content="(요약설명)" />
-    <meta property="og:image" content="(썸네일 이미지 URL)" />
-    <meta property="og:url" content="(링크 URL)" />
-    <meta property="og:type" content="website" />
-    <!-- ========== 커스텀 항목 ========== -->
     <title>폼(input) 요소</title>
+    <style>
+      fieldset > div {
+        margin: 8px 0;
+      }
+      label {
+        display: inline-block;
+        width: 100px;
+      }
+    </style>
   </head>
   <body>
     <h1>form 요소</h1>
     <h2>input 요소</h2>
-    <h3>한 줄 입력 서식 <span>:</span> form > fieldset > legend + div > label + input ( text, password, search )</h3>
+    <h3>한 줄 입력 서식 <span>:</span> form > fieldset > legend + div > label + input</h3>
     <!-- filedset : 연관성 있는 폼 서식을 그룹핑할 때 사용  -->
     <form action="">
       <fieldset>
@@ -29,18 +30,78 @@
           <label for="userName">이름</label>
 
           <!-- <input type="text" ... > : 텍스트를 입력할 수 있는 서식을 생성 -->
-          <input type="text" id="userName" />
+          <input type="text" name="userName" id="userName" required placeholder="e.g. 최영준" maxlength="6" />
         </div>
 
         <div>
           <label for="userPwd">비밀번호</label>
-          <input type="password" id="userPwd" />
+          <input type="password" name="userPwd" id="userPwd" required placeholder="8자리 이상" minlength="8" />
         </div>
 
         <div>
           <label for="likelionSearch">검색</label>
-          <input type="search" id="likelionSearch" />
+          <input type="search" name="likelionSearch" id="likelionSearch" required />
         </div>
+
+        <div>
+          <label for="userEmail">이메일</label>
+          <input type="email" name="userEmail" id="userEmail" required />
+        </div>
+
+        <!-- 모바일 환경에서는 tel 타입 입력란에 숫자 키패드가 나온다.  -->
+        <div>
+          <label for="userPhone">연락처</label>
+          <input type="tel" name="userPhone" id="userPhone" required />
+        </div>
+
+        <div>
+          <label for="dateTimeLocal">날짜</label>
+          <input type="datetime-local" name="dateTimeLocal" id="dateTimeLocal" required />
+        </div>
+
+        <div>
+          <label for="number">수량</label>
+          <input type="number" name="number" id="number" required min="5" max="100" step="5" />
+        </div>
+
+        <fieldset>
+          <legend>체크박스</legend>
+          <!-- <input type="checkbox" ... >  -->
+          <div>
+            <input type="checkbox" name="classLikelion" id="classHtml" value="html" checked />
+            <label for="classHtml">HTML</label>
+          </div>
+          <div>
+            <input type="checkbox" name="classLikelion" id="classCss" value="css" />
+            <label for="classCss">CSS</label>
+          </div>
+          <div>
+            <input type="checkbox" name="classLikelion" id="classJs" value="JavaScript" />
+            <label for="classJs">JavaScript</label>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>라디오</legend>
+          <!-- <input type="radio" ... >  -->
+          <div>
+            <input type="radio" name="classRoom" id="classRoom1" checked value="classroom1" />
+            <label for="classRoom1">회고 1팀</label>
+          </div>
+          <div>
+            <input type="radio" name="classRoom" id="classRoom2" value="classroom2" />
+            <label for="classRoom2">회고 2팀</label>
+          </div>
+          <div>
+            <input type="radio" name="classRoom" id="classRoom3" value="classroom3" />
+            <label for="classRoom3">회고 3팀</label>
+          </div>
+        </fieldset>
+
+        <!-- <form action="">로 입력한 값을 보낼 수 있다 -->
+        <div><input type="submit" value="전송" id="submit" /></div>
+        <!-- button 태그로도 간단히 작성이 가능하다 -->
+        <button type="submit">전송</button>
       </fieldset>
     </form>
 
