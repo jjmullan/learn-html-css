@@ -27,10 +27,12 @@ nav > ul {
   justify-content: center;
   align-items: center;
   padding: 1vh 2vw;
+  position: relative;
 }
 
 nav > ul > li {
   list-style: none;
+  font-size: 0.8em;
 }
 
 .navName > li:first-child {
@@ -46,6 +48,12 @@ nav > ul > li::after {
 
 nav > ul > li:last-child::after {
   content: '';
+}
+
+.class-begin::before {
+  content: 'Start!';
+  position: absolute;
+  top: 5px;
 }
 
 @media screen and (max-width: 768px) {
