@@ -1,14 +1,3 @@
-<style>
-   h5::before {
-      content: '✍🏻 ';
-   }
-
-   h5 {
-      color: blue;
-      margin-left: 15px;
-   }
-</style>
-
 ###### Likelion Front-end School
 
 # HTML/CSS
@@ -17,7 +6,7 @@
 
 ## 목차
 
-###### 2025-02-12
+###### HTML
 
 0. [Github](#0-github)
 
@@ -31,8 +20,6 @@
    Hyper Text Markup Language 란 <br />
    &lt;tag&gt; 구성요소 <br />
    HTML 문서 구조
-
-###### 2025-02-13
 
 2. [HTML 제목과 단락](#02-html-제목과-단락)
 
@@ -48,8 +35,6 @@
 
    &lt;a&gt; <br />
 
-###### 2025-02-17
-
 5. [HTML 순서형, 비순서형 목록]()
 
 6. [HTML 정의형 목록]()
@@ -61,8 +46,6 @@
 9. [HTML 테이블]()
 
 10. [HTML 컨테이너 요소]()
-
-###### 2025-02-18
 
 11. [HTML section, main 요소]()
 
@@ -80,15 +63,21 @@
 
 18. [HTML form (input) 요소 - 1]()
 
-###### 2025-02-19
+19. [HTML form (input) 요소 - 2]()
 
-18. [HTML form (input) 요소 - 2]()
+20. [HTML form (button) 요소]()
 
-19. [HTML form (button) 요소]()
+21. [HTML form (select, textarea) 요소]()
 
-20. [HTML form (select, textarea) 요소]()
+22. [HTML dialog 요소, popover 속성]()
 
-21. [HTML dialog 요소, popover 속성]()
+23. [HTML details, summary 요소]()
+
+24. [HTML script 요소]()
+
+###### CSS
+
+1. [CSS]()
 
 <br />
 <br />
@@ -103,16 +92,18 @@
 
 **스크럼 리더** _scrum leader_ 는 원활한 협업 환경 세팅을 위해 [필요한 package 를 devDefendency 로 설치](#devdefendency-로-package-설치하기)하고(e.g. live-server, prettier) [package.json](#packagejson-작성-예시), [.gitignore](#gitignore-작성-예시), .prettierrc.cjs 등 필요 환경 세팅을 완료한 뒤, github repository 를 생성, push 해두어야 한다.
 
-##### devDefendency 로 package 설치하기
-
 ```bash
+# devDefendency 로 package 설치하기
+
 npm install {패키지명} --save-dev
 npm i {패키지명} -D
 ```
 
-##### 예시 : .package.json 작성 - live-server, prettier
+<br />
 
 ```javascript
+// .package.json 에서 live-server, prettier 관련 설정값 작성 예시
+
 {
   "scripts": {
     "start": "live-server . --port=3000 --host=localhost --no-browser",
@@ -125,9 +116,9 @@ npm i {패키지명} -D
 }
 ```
 
-##### 예시 : .gitignore 작성
-
 ```bash
+# .gitignore 작성 예시
+
 # Node.js 관련
 node_modules/   # npm 패키지 폴더 (용량 많음) -> npm i 로 패키지 관리로 재설치 가능
 dist/           # 빌드 결과물
@@ -151,15 +142,15 @@ test.html
 *.js
 ```
 
-##### 예시 : package.json 의 "scripts" 사용
-
 ```bash
-# scripts 에 사용한 package 수동 명령어 사용 예시
+# package.json 의 "scripts" 사용 예시
 npm start
 npm run format
 ```
 
-##### git push
+<br />
+
+모든 환경 설정이 완료된 후, github repository 에 push 한다.
 
 ```bash
 git push
@@ -181,16 +172,18 @@ git clone https://github.com/seulbinim/ssam-html-css.git
 git clone -o {브랜치명} https://github.com/seulbinim/ssam-html-css.git
 ```
 
-##### repository 가 잘 연결되었는지 확인하기
+<br />
+
+repository 가 잘 연결되었는지 확인할 수 있다.
 
 ```bash
 # 현재 git repository 의 별칭과 github 링크를 확인할 수 있다
 git remote -v
 ```
 
-##### repository 연결 제거하기
+<br />
 
-협업 환경에서 프로젝트가 종료할 때까지 연결을 제거하지 않는다.
+repository 연결을 제거할 수 있는데, 협업 환경에서 프로젝트가 종료할 때까지 연결을 제거하지 않는다.
 
 ```bash
 git remote rm origin
@@ -233,13 +226,13 @@ npm i
 
 ### 1-1-1. Hyper Text 란 ?
 
-정적인 형태의 텍스트에 문서를 연결될 수 있도록 하여, 텍스트 _Text_ 의 기능을 초월 _Hyper_ 하였다.
+정적인 형태의 텍스트에 문서를 연결될 수 있도록 하여, 텍스트 _Text_ 의 기능을 초월 _Hyper_ 하였음을 의미한다.
+
+<br />
 
 ### 1-1-2. Markup Language 란 ?
 
 태그 _&lt;Tag&gt;_ 를 사용하여 콘텐츠의 의미와 구조를 지정하고, 표시 _Markup_ 하여 컴퓨터가 이해할 수 있는 언어 _Language_ 로 치환한 것이다.
-
-##### Text vs Hyper Text Markup Language
 
 ```html
 <!-- Text -->
@@ -267,6 +260,8 @@ npm i
 <과정 파트="HTML/CSS">프론트엔드</과정>
 ```
 
+<br />
+
 태그는 트리 형태의 부모-자식 구조를 가질 수 있다. 트리 형태 구조는 추후 DOM 파트에서 자세하게 학습할 수 있다.
 
 ```html
@@ -284,7 +279,11 @@ npm i
 
 #### DTD : Doctype Declaration
 
-HTML5 등장 이전에 DTD는 총 3가지 형태 _Strict, Transitional, Frameset_ 를 지녔다. 최신 웹 표준을 따르는 **Strict** 는 빈 요소에는 꼭 슬래시(/)를 붙여야 한다거나, 속성에는 반드시 값을 가져야 한다(속성="값") 등 매우 엄격한 규칙을 지닌 가장 엄격한 문서 유형이다. 호환형의 **Transitional** 유형은 inline style 을 추가한다거나, 속성에 반드시 값을 가지지 않아도 되는 등 Strict 유형보다 덜 엄격한 유형이다. **Frameset** 유형은 &lt;frameset&gt;을 사용하여 여러 HTML 문서를 나눠 표시하는 유형이다.
+HTML5 등장 이전에 DTD는 총 3가지 형태 _Strict, Transitional, Frameset_ 를 지녔다.
+
+- 최신 웹 표준을 따르는 **Strict** 는 빈 요소에는 꼭 슬래시(/)를 붙여야 한다거나, 속성에는 반드시 값을 가져야 한다(속성="값") 등 매우 엄격한 규칙을 지닌 가장 엄격한 문서 유형이다.
+- 호환형의 **Transitional** 유형은 inline style 을 추가한다거나, 속성에 반드시 값을 가지지 않아도 되는 등 Strict 유형보다 덜 엄격한 유형이다.
+- **Frameset** 유형은 &lt;frameset&gt;을 사용하여 여러 HTML 문서를 나눠 표시하는 유형이다.
 
 HTML5 에서 DTD는 위 3가지 종류를 구분해서 사용하지 않는다.
 
@@ -401,9 +400,8 @@ HTML5 에서 DTD는 위 3가지 종류를 구분해서 사용하지 않는다.
 - `enctype` 속성은 폼 데이터를 서버로 전송할 때 사용할 인코딩 방식을 지정한다.
 - `target` 속성은 폼 데이터를 전송한 뒤 서버의 응답을 표시할 창 또는 프레임의 형태를 지정한다.
 
-##### 예시 : 데이터를 post 방식으로 formspree 서버로 전송
-
 ```html
+<!-- 데이터를 post 방식으로 formspree 서버로 전송 -->
 <form action="https://formspree.io/" method="post"></form>
 ```
 
@@ -515,10 +513,8 @@ name 속성으로
 
 required 속성을 input 태그 안에 넣어, 사용자에게 입력을 받고 싶은 특정 요소를 필수로 설정할 수 있다. 예를 들면, 회원가입을 할 때 ID, Password 를 필수 입력 값으로 설정할 수 있고, 성별, 생년월일 등은 선택 항목으로 둘 수 있다.
 
-##### div 에 aria- 속성을 이용하여 폼 서식을 만드는 예시
-
 ```html
-<!-- aria-require="true"를 속성으로 넣어 required 속성을 동작하게 만들 수 있다 -->
+<!-- div 요소에 aria-require="true"를 속성으로 넣어 required 속성을 동작하게 만들 수 있다 -->
 <div role="form">
   <div aria-required="true" contenteditable="true"></div>
 </div>
@@ -529,8 +525,6 @@ required 속성을 input 태그 안에 넣어, 사용자에게 입력을 받고 
 #### placeholder 속성
 
 입력값에 대한 힌트를 줄 수 있다.
-
-##### 예시
 
 ```html
 <!-- 최대 5자리까지 텍스트를 입력하게 할 수 있다 -->
@@ -545,8 +539,6 @@ required 속성을 input 태그 안에 넣어, 사용자에게 입력을 받고 
 #### maxlength, minlength 속성
 
 값의 최대 길이 _maxlength_ , 최소 길이 _minlength_ 를 지정할 수 있다.
-
-##### 예시
 
 ```html
 <!-- 최소 8자리 이상으로 비밀번호를 입력하게 할 수 있다 -->
@@ -574,8 +566,6 @@ required 속성을 input 태그 안에 넣어, 사용자에게 입력을 받고 
 
 하나의 form 태그에 포함된 input 과 button 은 동일한 속성을 부여하면, 동일한 기능으로 작동한다.
 
-##### 예시
-
 ```html
 <form>
   <div><label for="user">사용자 이름</label><input type="text" name="user" id="userName" /></div>
@@ -597,8 +587,6 @@ required 속성을 input 태그 안에 넣어, 사용자에게 입력을 받고 
 
 같은 form 태그에 포함되지 않는 요소를 포함하고 싶은 경우가 있다. 이때, form 의 id 와 바깥에 있는 요소에 form="id" 를 매칭하면 하나의 form 요소처럼 컨트롤 할 수 있다.
 
-##### 예시
-
 ```html
 <form id="test"><button></button></form>
 <button form="test"></button>
@@ -613,8 +601,6 @@ required 속성을 input 태그 안에 넣어, 사용자에게 입력을 받고 
 select 요소와 option 요소를 사용하여, 셀렉트 박스 _Select box_ 폼을 만들 수 있다.
 
 웹을 최초로 불러왔을 때 리스트 폼 형태의 맨 처음 요소에 `value=""`값을 넣어 리스트를 안내하는 특정 텍스트를 입력할 수 있다. 해당 방법은 추후 CSS 를 통해 디자인적으로 변경하여 활용할 수 있으나, 권하지는 않는다.
-
-##### 예시
 
 ```html
 <form action="/" method="post">
@@ -636,8 +622,6 @@ select 요소와 option 요소를 사용하여, 셀렉트 박스 _Select box_ �
 <br />
 
 option 요소가 많은 경우, optgroup 요소를 부모로 사용하여 그룹핑해줄 수 있다.
-
-##### 예시
 
 ```html
 <form action="/" method="post">
@@ -681,7 +665,10 @@ option 요소가 많은 경우, optgroup 요소를 부모로 사용하여 그룹
 
 ### 21-2. popover 속성
 
-button 요소와 div 요소를 사용하여 JavaScript 없이 팝업 창을 만들 수 있다.
+button 요소의 popovertarget 속성, div 요소의 popover 속성을 활용하여 JavaScript 없이 모달 창을 만들 수 있다.
+
+- &lt;button **popovertarget="modal"** ... &gt;
+- &lt;div **id="modal"** **popver** ... &gt;
 
 ```html
 <button class="button-popover" type="button" popovertarget="popoverContent">팝오버 보기</button>
@@ -689,10 +676,6 @@ button 요소와 div 요소를 사용하여 JavaScript 없이 팝업 창을 만�
   <p>팝오버 내용</p>
 </div>
 ```
-
-#### popovertarget="" 속성
-
-#### popover 속성
 
 <br />
 
@@ -702,8 +685,132 @@ button 요소와 div 요소를 사용하여 JavaScript 없이 팝업 창을 만�
 
 #### open 속성
 
+<br />
+
 ### 22-2. summary 요소
 
 <br />
 
 ## 23. script 요소
+
+javascript 를 활용하여 동적으로 제어할 수 있는 함수를 HTML 파일에 삽입할 수 있는데, 이때 &lt;script&gt; 요소를 사용하여 적용할 수 있다.
+
+&lt;script&gt; 요소는 **&lt;head&gt; 요소 내부** 또는 **&lt;/body&gt; 요소 바로 위**에 위치할 수 있다.
+
+- **&lt;head&gt; 요소 내부** : 외부 js 파일을 생성하여 연결하는 방식을 사용하며, 이때 **&lt;script&gt;** 코드 안에 `type="module"`이 반드시 포함되어야 한다.
+- **&lt;/body&gt; 요소 바로 위** : &lt;script&gt;&lt;/script&gt; 태그 안에 javascript 구문을 직접 작성한다.
+
+```html
+<!-- <head> 요소 내부 -->
+<script type="module" src="/src/html/js/23-script.js"></script>
+
+<!-- </body> 바로 위 -->
+<body>
+  ...
+  <script type="module">
+    document.addEventListener('DOMContentLoaded', () => {
+      const flipButton = document.querySelector('.flip-button');
+      const card = document.querySelector('.card');
+
+      const flipCard = () => {
+        card.classList.toggle('is-flipped');
+      };
+
+      flipButton.addEventListener('click', flipCard);
+    });
+  </script>
+</body>
+```
+
+<br />
+
+###### CSS3
+
+## 01. CSS 기초
+
+- [CSS3 test](https://css3test.com/)
+- [하나의 HTML 코드 - CSS 스타일링 예시](http://csszengarden.com/)
+
+### 01-1. CSS 사용의 의의
+
+문서의 구조와 표현을 분리할 수 있다. 이는 구조와 표현을 분리함으로써, 문서 구조의 수정 없이 스타일의 변경만으로 다양한 표현을 할 수 있다는 것을 의미한다.
+
+##### Component
+
+##### CDD, TDD
+
+<br />
+
+### 01-2. CSS 문법 규칙
+
+CSS 문법의 규칙은 크게 선택자(selector)와 선언부(declaration block)로 이루어지며 선언부는 다시 속성(property)과 속성 값(value)으로 구성되어 있다. 이때 선언부는 세미콜론(;)으로 속성과 속성 값을 구분하여 여러 개의 선언(declaration)을 지정할 수 있다. 모던 웹브라우저의 경우 CSS의 최신 속성을 실험적으로 제공하고 있으며 이를 사용하기 위해서는 속성이나 속성 값 앞에 웹 브라우저별로 **접두사(vendor prefix)**를 붙여야한다.
+
+- **External Style Sheet** : CSS 파일을 별도로 생성하여 HTML 문서에 연결하는 방식으로 &lt;link&gt; 요소를 사용하는 방법과 @import 명령을 사용하는 두 가지 방식이 있다.
+- **Embedded Style Sheet** : 별도로 CSS 파일을 생성하지 않고 HTML 파일 내에 CSS 코드를 직접 포함하여 스타일을 적용하는 방식으로 CSS 코드는 &lt;style&gt; 요소 내에 선언한다.
+- **Inline Style Sheet** : 특정 HTML 요소에 style 속성을 사용하여 CSS 코드를 선언하는 방법이다.
+
+```html
+<!-- External Style Sheet : 외부 파일을 연결 -->
+<link rel="stylesheet" href="/src/css/01-css-basic.css" />
+
+<!-- Embedded Style Sheet : CSS 코드를 html 문서 안에 <style></style> 형태로 직접 작성 -->
+<style>
+  h2 {
+    font-size: 36px;
+  }
+</style>
+
+<!-- Inline Style Sheet : 특정 코드 태그 내부에 style="속성: 값;" 형태로 직접 작성 -->
+<h1 style="color: red">CSS 기초</h1>
+```
+
+<br />
+
+### 01-3. color
+
+`color` 속성을 활용하여 직접 색을 지정하거나(e.g. blue, tomato, violet, ...), #colorcode(e.g. #ccc, #43204a), rgb(a), hsl(a) 등 다양한 형태로 색상을 지정할 수 있다.
+
+```css
+* {
+  color: blue;
+  color: #ccc;
+  color: rgb(0 0 255/0.5);
+  color: hsla(0, 0%, 100%, 0.5);
+}
+```
+
+<br />
+
+### 01-4. font-size
+
+<br />
+
+### 01-5. background-color
+
+<br />
+
+### 01-6. font-family
+
+<br />
+
+##### 벤더 프리픽스
+
+<br />
+
+##### CSSOM (CSS Object Model) -> Render Tree
+
+<hr />
+
+<style>
+   h5::before {
+      content: '✍🏻 추가 학습 필요 : ';
+   }
+
+  h5 {
+    display: block;
+    color: blue;
+    padding: 15px;
+    border: 1px solid blue;
+    border-radius: 10px;
+  }
+</style>
