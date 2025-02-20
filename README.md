@@ -419,6 +419,8 @@ HTML5 에서 DTD는 위 3가지 종류를 구분해서 사용하지 않는다.
 
 웹 접근성 면에서 폼 요소와 label 을 1대1로 대응하는 것을 권고한다. 만약, label 로 대응하지 않기를 원한다면, 폼 항목에 `aria-label=""`로 웹 접근성을 향상할 수 있다.
 
+단, label 안에 input 요소와 단락 (p 태그 등)을 넣는 방법도 채택할 수 있다.
+
 <br />
 
 ### 18-5. input 요소
@@ -959,7 +961,188 @@ CSS 문법의 규칙은 크게 선택자와 {선언부}로 이루어지며 {선�
 
 ###### 2025-02-20
 
-## 2.
+## 2. CSS 선택자
+
+##### [웹 접근성 velog](https://velog.io/@eunbinn/accessibility-essentials-every-front-end-developer-should-know)
+
+##### [&(ampersand)](https://frontendmasters.com/blog/three-approaches-to-the-ampersand-selector-in-css/)
+
+##### [CSS 선택자(mdn)](https://developer.mozilla.org/ko/docs/Glossary/CSS_Selector)
+
+### 2-1. favicon
+
+html 문서의 &lt;head&gt; 영역에 favicon 링크를 넣어 사이트를 대표하는 이미지를 설정할 수 있다. 모던 브라우저는 svg 형식(해상도에 일일이 대응하지 않아도 되는 vector 방식의 이미지)의 favicon 을 불러오며, 그렇지 않다면 ico 형식의 favicon 을 불러오게 된다.
+
+라이트모드와 다크모드에 따라 favicon 을 설정할 수 있는데, 이때 svg 형식을 사용해야 한다.
+
+```html
+<head>
+  <!-- rel="shortcut icon" -->
+  <link rel="shortcut icon" href="/src/assets/favicon/likelion.ico" type="image/x-icon" />
+  <!-- rel="icon" -->
+  <link rel="icon" href="/src/assets/favicon/likelion.svg" />
+</head>
+```
+
+<br />
+
+### 2-2. 태그 선택자
+
+```css
+p {
+  color: red;
+}
+```
+
+<br />
+
+### 2-3. 클래스 선택자
+
+```css
+.like {
+  color: green;
+}
+```
+
+<br />
+
+### 2-4. 아이디 선택자
+
+```css
+#lion {
+  color: blue;
+}
+```
+
+<br />
+
+### 2-5. 속성 선택자
+
+```css
+[title] {
+  color: purple;
+}
+
+/* [속성=값] 형태로도 대응이 가능하다 */
+[id='lion'] {
+  color: purple;
+}
+
+/* a 요소가 "https://"로 시작하는 href 속성을 가졌을 때 */
+a[href^="https://"]
+{
+  text-decoration: none;
+}
+
+/* a 요소가 "pdf 파일 형식"을 가진 href 속성을 가졌을 때 */
+a[href$='pdf'] {
+  background-color: violet;
+}
+```
+
+##### $, ^, ... 작동 방식
+
+<br />
+
+### 2-6. 가상 요소 선택자
+
+#### ::before , ::after
+
+반드시 content 값을 가져야 한다. 만약, 값이 필요하지 않다면 공란('')으로 비워둔다.
+
+```css
+h1::before {
+  content: '✍🏻';
+}
+
+h2::after {
+  content: '🔥';
+}
+```
+
+<br />
+
+### 2-7. 가상 클래스 선택자
+
+#### a:link
+
+```css
+/* 한 번도 방문하지 않는 사이트의 폰트 색을 black 으로 지정 */
+a:link {
+  color: black;
+}
+```
+
+#### a:visited
+
+```css
+/* 한 번이라도 방문한 적이 있는 링크의 폰트 색을 olivedrab 으로 지정 */
+a:visited {
+  color: olivedrab;
+}
+```
+
+#### a:hover
+
+```css
+/* 마우스를 올렸을 때 폰트 색을 blue 로 지정 */
+a:hover {
+  color: blue;
+}
+```
+
+#### a:focus
+
+```css
+/* tab 키로 focus 됐을 때 폰트 색을 aqua 로 지정 */
+a:focus {
+  color: aqua;
+}
+```
+
+#### a:active
+
+```css
+/* 마우스를 클릭하고 있는 상태일 때 폰트 색을 chartreuse 로 지정 */
+a:active {
+  color: chartreuse;
+}
+```
+
+#### &(ampersand)
+
+선택자와 선언부 형태 내부에 중첩할 수 있다.
+
+```css
+p {
+  color: red;
+  &:hover {
+    backgroud-color: skyblue;
+  }
+}
+```
+
+#### focusible 요소
+
+p 태그는 focusible 요소가 아니지만, tabindex 속성으로 non-focusible 요소에 강제로 기능을 부여할 수 있다.
+
+```html
+<p tabindex="0" ...></p>
+```
+
+```css
+p {
+  color: red;
+
+  &:focus {
+    border: 1px solid skyblue;
+  }
+}
+```
+
+##### focusible 요소
+
+<br />
 
 <style>
    h5::before {
