@@ -1387,7 +1387,7 @@ body {
 
 ### 4-8. rem
 
-rem _root(html|:root) em_ 은 **root**로부터 상속받은 크기에 비례하여 크기를 확대, 축소시킨다. rem 단위를 사용하면, root 요소의 크기를 조절하여 전체 문서를 컨트롤하기에 용이하다.
+**root**로부터 상속받은 크기에 비례하여 크기를 확대, 축소시킨다. rem 단위를 사용하면 root 요소의 크기로 전체 문서를 컨트롤할 수 있어 용이하다.
 
 아래 예시를 보면, :root 속성선택자에 font-size 를 10px 로 선언하고, body 속성선택자에 font-size 를 1.4rem 으로 선언했다. 이때, body 의 폰트 크기는 10px 에 1.4 를 곱한 14 px 로 값을 불러온다. 단, 주의할 것은 **보통 :root 에서 값을 임의로 변경해서 사용하지는 않는다.**
 
@@ -1453,9 +1453,53 @@ h1 {
 
 <br />
 
-## 5. CSS 박스 모델
+# UI
 
-### 5-1.
+## 1. 멤버 서비스 링크 예제
+
+부모 요소에 속성을 적용하여 자식 요소에 상속하는 것이 유리한지, 특정 요소에만 적용하는 것이 유리한지 판단하여 속성을 지정해준다.
+
+### text-transform
+
+`font-variant: small-caps` 을 사용했을 때, 대문자로 변환을 해주지만 폰트 사이즈가 작아진다. 이때, `text-transform: uppercase` 로 동일한 폰트 사이즈의 대문자 변환이 가능하다.
+
+<br />
+
+### 클래스 선택자
+
+요소를를 지정하여 사용하는 것보다, 클래스를 사용하여 좀 더 명확한 결과를 만들 수 있다.
+
+```css
+/* 요소를 직접 지정 */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a::before {
+  content: ':';
+}
+
+a:first-child:before {
+  content: '';
+}
+
+/* 클래스 사용 */
+.item {
+  text-decoration: none;
+  color: inherit;
+}
+
+.item::before {
+  content: ':';
+}
+
+.item.first:before {
+  content: '';
+}
+```
+
+### 구조 선택자
 
 <style>
    h5::before {

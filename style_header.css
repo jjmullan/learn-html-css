@@ -5,7 +5,7 @@ body {
 
 header {
   width: 100%;
-  margin: 100px auto;
+  margin: 50px auto;
 }
 
 header > h1 {
@@ -13,26 +13,32 @@ header > h1 {
   font-size: 3em;
 }
 
+div {
+  display: flex;
+}
+
 nav {
   display: flex;
-  justify-content: space-around;
-  height: 50px;
-  margin-bottom: 50px;
+  flex-direction: column;
+  justify-content: left;
+  margin: 50px 0 0 10px;
 }
 
 nav > ul {
-  display: flex;
+  /* display: flex;
   flex-wrap: nowrap;
   flex-direction: row;
   justify-content: center;
-  align-items: center;
-  padding: 1vh 2vw;
+  align-items: center; */
+  /* padding: 1vh 2vw; */
   position: relative;
 }
 
 nav > ul > li {
   list-style: none;
+  width: 10rem;
   font-size: 0.8em;
+  margin-bottom: 0.5rem;
 }
 
 .navName > li:first-child {
@@ -40,17 +46,7 @@ nav > ul > li {
   font-weight: bold;
 }
 
-nav > ul > li::after {
-  content: ' ㅣ';
-  padding-right: 9px;
-  color: #ccc;
-}
-
-nav > ul > li:last-child::after {
-  content: '';
-}
-
-.class-begin {
+.classChange {
   border-top: 1px solid #ccc;
   padding-top: 10px;
 }

@@ -1,0 +1,41 @@
+.member-service {
+  background-color: yellow;
+  /* font-variant: small-caps; */
+  text-transform: uppercase;
+}
+
+/* 속성 지정자를 사용하는 것을 권고하지는 않는다 */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a::before {
+  content: ':';
+}
+
+a:first-child:before {
+  content: '';
+}
+
+/* 클래스를 사용하여 좀 더 명확한 결과를 만들 수 있다 */
+.item {
+  text-decoration: none;
+  color: inherit;
+}
+
+.item::before {
+  content: ':';
+}
+
+.item.first:before {
+  content: '';
+}
+
+/* 구조 선택자 n 을 이용할 수 있다 */
+a:nth-child(n + 2)::before {
+  background-color: red;
+  display: inline-block;
+  width: 2rem;
+  text-align: center;
+}
