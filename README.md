@@ -1310,7 +1310,11 @@ body {
 
 #### rel="preload"
 
-폰트를 웹에서 불러오게 되면, html 의 &lt;link&gt; 요소를 추가해야 한다. (물론, @import 구문으로 CSS 파일에 불러올 수도 있다) 이때 `rel="preload"` 속성을 추가하면, CSS 파싱 이전에 폰트를 미리 로드할 수 있어 웹 사이트의 성능을 향상시킬 수 있다.
+폰트를 웹에서 불러오게 되면, html 의 &lt;link&gt; 요소를 추가해야 한다. (물론, @import 구문으로 CSS 파일에 불러올 수도 있다) 이때 `rel="preload"` 속성과 href 링크에 매칭되는 형태에 대해 `as="font"` 사용하면, CSS 파싱 이전에 폰트를 미리 로드할 수 있어 웹 사이트의 성능을 향상시킬 수 있다.
+
+```html
+
+```
 
 <br />
 
@@ -1500,6 +1504,8 @@ a:first-child:before {
 ```
 
 ### 구조 선택자
+
+##### degit
 
 <style>
    h5::before {
