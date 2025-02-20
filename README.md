@@ -1048,7 +1048,7 @@ a[href$='pdf'] {
 
 #### ::before , ::after
 
-반드시 content 값을 가져야 한다. 만약, 값이 필요하지 않다면 공란('')으로 비워둔다.
+::before 과 ::after 은 주로 디자인 목적으로 사용되는 기능이다. 반드시 content 값을 가져야 하며, 값이 필요하지 않다면 공란('')으로 비워둔다.
 
 ```css
 h1::before {
@@ -1143,6 +1143,116 @@ p {
 ##### focusible 요소
 
 <br />
+
+## 3. CSS 상속, 겹침, 우선순위
+
+웹 브라우저가 각 마크업 요소에 특정 속성을 부여한 형태를 agent style 라고 한다. 개발자는 CSS 를 사용하여 요소의 속성을 변경할 수 있는데, 이를 author style 라고 한다.
+
+아래 이미지는 CSS 에서 h1 태그의 font-size 를 1em 으로 적용한 예시이다.
+
+![크롬 개발자도구 예시](/src/assets/june/CSS-lesson03-1.png)
+
+<br />
+
+### 3-1. 상속 inheritance
+
+높은 명시도를 가진 CSS 속성을 지정하지 않은 자식 요소는 부모 요소의 CSS 속성을 상속받아 적용된다. 개발자 도구를 통해서 어떤 요소가 상속받아 적용되었는지 확인할 수 있다.
+
+아래 예시를 살펴보면, `body { color: olive }` 를 선언했을 때 &lt;body&gt; 요소의 자식 요소인 &lt;h1&gt; 요소도 적용된 것을 볼 수 있다.
+
+```html
+<body>
+  <h1>테스트<h1>
+</body>
+```
+
+```css
+body {
+  color: olive;
+}
+```
+
+![개발자도구 예시](/src/assets/june/CSS-lesson03-3.png)
+
+<br />
+
+inherit 을 사용하면, 부모 요소로부터 상속받은 값을 사용하겠다고 선언할 수 있다. 아래 예시에서 a 태그는 브라우저에서 지정된 -webkit-link; 속성을 자동으로 부여되는데, CSS 에서 a 요소에 inherit 을 부여하면 body 요소의 속성 값을 상속받을 수 있다.
+
+```css
+body {
+  color: olive;
+}
+
+a {
+  color: inherit;
+}
+```
+
+![개발자도구 예시](/src/assets/june/CSS-lesson03-4.png)
+
+<br />
+
+##### inherit 요소와 non-inherit 요소
+
+<br />
+
+### 3-2. 겹침 Cascade
+
+동일한 선택자에 다른 옵션을 주는 경우, 마지막에 있는 선언자가 적용된다
+
+```css
+p {
+  background-color: yellow;
+}
+
+p {
+  background-color: lime;
+}
+```
+
+![캐스케이딩 예시](/src/assets/june/CSS-lesson03-2.png)
+
+<br />
+
+### 3-3. 우선 순위 specificity
+
+- [명시도(mdn)](https://developer.mozilla.org/ko/docs/Web/CSS/CSS_cascade/Specificity)
+
+선택자를 얼마나 구체적으로 주었는가에 따라 명시도가 달라진다. 아래 예시를 보면, 같은 요소를 선택하더라도 구체적인 선택자를 썼는지, 아닌지에 따라 적용되는 값이 다른 것을 볼 수 있다.
+
+```css
+/* body p[class] > body p > p */
+body p[class] {
+  background-color: gray;
+}
+
+body p {
+  background-color: yellow;
+}
+
+p {
+  background-color: lime;
+}
+```
+
+<br />
+
+단, 선언문에 `!important` 를 추가하면 우선 순위를 무시하며, 해당 속성이 가장 높은 우선순위를 갖는다. 이벤트에 의해 동적으로 변화가 필요한 경우 사용할 수 있지만, 웬만하면 사용하지 않는 것을 권한다.
+
+CSS 선택자는 현업에서 `.class`를 가장 많이 사용하며, `p`처럼 전체 선택자 _Universal Selector_ 를 사용하거나,`#id` 처럼 id 를 많이 사용하는 것도 지양한다.
+
+```css
+/* .ai(!important) > #ai */
+.ai {
+  background-color: orange !important;
+}
+
+#ai {
+  background-color: pink;
+}
+```
+
+##### 명시도
 
 <style>
    h5::before {
