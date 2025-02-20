@@ -1,0 +1,26 @@
+:root {
+  font-size: 5vw;
+}
+
+body {
+  font-family: 'SUIT Variable', sans-serif;
+  font-weight: 400;
+}
+
+h1 {
+  font-size: 1rem;
+}
+
+.size {
+  font-size: 20px;
+  font-weight: 300;
+  font-style: italic;
+  line-height: 150%;
+  font-variant: small-caps;
+  font-family: 'pretendard variable', sans-serif;
+  /* font: bold italic small-caps 24px /1.5 'pretendard variable'; */
+}
+
+div {
+  font-size: 2em;
+}

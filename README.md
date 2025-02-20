@@ -1190,8 +1190,6 @@ a {
 
 ![개발자도구 예시](/src/assets/june/CSS-lesson03-4.png)
 
-<br />
-
 ##### inherit 요소와 non-inherit 요소
 
 <br />
@@ -1253,6 +1251,211 @@ CSS 선택자는 현업에서 `.class`를 가장 많이 사용하며, `p`처럼 
 ```
 
 ##### 명시도
+
+##### [SASS -> pre-processor -> (해석) -> CSS](https://sass-lang.com/)
+
+<br />
+
+## 4. CSS 폰트 관련 속성
+
+- [CSS 값과 단위(mdn)](https://developer.mozilla.org/ko/docs/Learn_web_development/Core/Styling_basics/Values_and_units)
+
+### 4-1. font-family
+
+텍스트 폰트를 지정하는 속성이다. 속성 값은 복수로 지정할 수 있으며, 지정된 순서대로 표시할 수 있는 폰트를 찾아 웹 브라우저에 불러온다. 웹 브라우저가 표시할 수 있는 폰트를 찾으면, 이후에 지정된 속성 값들은 무시한다.
+
+font-family 의 가장 마지막에는 범용 폰트 그룹 _generic-family_ 이 포함되어 있어야 한다.
+
+- serif
+- sans-serif
+- cursive
+- fantasy
+- monospace
+
+모든 브라우징 환경에서 똑같이 보이는 것은 어렵다. 사용자의 이용 환경이 중요하다는 점을 명심하자.
+
+```css
+body {
+  font-family:
+    Times New Roman,
+    Trebuchet MS,
+    serif;
+}
+
+p {
+  font-family: '맑은 고딕', '돋움', sans-serif;
+}
+```
+
+<br />
+
+로컬에 있는 폰트를 사용하게 된다면, 사용자 환경에 따라 해당 글꼴을 불러오지 못할 수 있다. 이때, 웹 폰트를 선언하여 사용한다면, 원격 서버에서 로드할 수 있다.
+
+```css
+@font-face {
+  font-family: 'Pretendard';
+  src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+body {
+  font-family: 'Pretendard';
+}
+```
+
+![개발자도구 예시](/src/assets/june/CSS-lesson04-1.png)
+
+<br />
+
+#### rel="preload"
+
+폰트를 웹에서 불러오게 되면, html 의 &lt;link&gt; 요소를 추가해야 한다. (물론, @import 구문으로 CSS 파일에 불러올 수도 있다) 이때 `rel="preload"` 속성을 추가하면, CSS 파싱 이전에 폰트를 미리 로드할 수 있어 웹 사이트의 성능을 향상시킬 수 있다.
+
+<br />
+
+### 4-2. font-weight
+
+폰트의 굵기를 지정할 수 있다. 단락 폰트의 기본 값은 400 이며, 최소 100 부터 900 까지 100 단위로 값을 지정할 수 있다. light, lighter, bold, bolder 등으로도 지정할 수 있다. 단, 폰트마다 보유하고 있는 font-weight 값은 상이하다.
+
+```html
+<link href="https://cdn.jsdelivr.net/gh/sun-typeface/SUIT@2/fonts/variable/woff2/SUIT-Variable.css" rel="stylesheet" />
+```
+
+```css
+body {
+  font-family: 'SUIT Variable', sans-serif;
+  font-weight: 500;
+}
+```
+
+<br />
+
+### 4-3. font-size
+
+폰트의 크기를 지정할 수 있다. 다양한 단위가 있는데, [1-2. CSS 기본 문법 중 단위](#1-2-css-기본-문법)를 참고하면 된다.
+
+```css
+.size {
+  font-size: 24px;
+}
+```
+
+<br />
+
+### 4-4. font-style
+
+폰트에 italic 효과를 지정할 수 있다. normal 을 기본 값으로 갖는다.
+
+- normal
+- italic
+- oblique
+
+<br />
+
+### 4-5. line-height
+
+줄 간격을 지정할 수 있다.
+
+<br />
+
+### 4-6. font-variant
+
+<br />
+
+### 4-7. font 여러 속성을 단축해서 표기하는 방법
+
+공백( )으로 속성을 구분한다. 이때, font-size, font-family 요소는 필수로 입력해야 한다.
+
+- 1순위 : weight, style, variant
+- 2순위 : size, line-height, family
+- 필수 입력 요소 : size, family
+
+```css
+/* 형태 */
+.size {
+  font: (weight) (style) (variant) (size) (/line-height) ('family');
+}
+
+/* 예시 */
+.size {
+  font: bold italic small-caps 24px /1.5 'pretendard variable';
+}
+```
+
+<br />
+
+### 4-8. rem
+
+rem _root(html|:root) em_ 은 **root**로부터 상속받은 크기에 비례하여 크기를 확대, 축소시킨다. rem 단위를 사용하면, root 요소의 크기를 조절하여 전체 문서를 컨트롤하기에 용이하다.
+
+아래 예시를 보면, :root 속성선택자에 font-size 를 10px 로 선언하고, body 속성선택자에 font-size 를 1.4rem 으로 선언했다. 이때, body 의 폰트 크기는 10px 에 1.4 를 곱한 14 px 로 값을 불러온다. 단, 주의할 것은 **보통 :root 에서 값을 임의로 변경해서 사용하지는 않는다.**
+
+```css
+:root {
+  font-size: 10px;
+}
+
+body {
+  font-size: 1.4rem;
+}
+```
+
+<br />
+
+### 4-9. em
+
+**부모 요소**의 값을 상속받으며, 지정된 배율로 값을 정하는 방식이다.
+
+아래 예시를 살펴보면, body 의 default 값인 16 px 에서 2em 를 세 번 곱한(2em x 2em) 256 px 을 웹 브라우저에서 불러온다.
+
+```html
+<body>
+  <div>
+    <div>
+      <div>2em</div>
+    </div>
+  </div>
+</body>
+```
+
+```css
+div {
+  font-size: 2em;
+}
+```
+
+<br/>
+
+### 4-10. %
+
+font-size 에 지정된 값이 있으면, 해당 값에서 지정된 배율(%)를 계산하여 웹 브라우저에 불러온다. 만약, 지정된 값이 없다면, **부모 요소**로부터 상속 받은 값의 배율(%)을 계산한다.
+
+<br />
+
+### 4-11. vw(viewport width)
+
+화면의 전체 크기에 비례하여 값을 동적으로 변경할 수 있다. 1vw 는 viewport 의 가로 영역의 1/100 크기이다.
+
+<br />
+
+### 4-12. clamp(최소값, 기본값, 최대값)
+
+유연하게 반응형을 구현할 수 있다.
+
+아래 예시를 보면, 작은 화면에서는 1.5rem 이하로 작아지지 않고, 중간 크기에서는 5vw를 따라 유동적으로 크기를 조정하고, 큰 화면에서는 3rem 이상으로 커지지 않는다.
+
+```css
+h1 {
+  font-size: clamp(1.5rem, 5vw, 3rem);
+}
+```
+
+<br />
+
+## 5. CSS 박스 모델
+
+### 5-1.
 
 <style>
    h5::before {
