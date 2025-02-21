@@ -1519,6 +1519,26 @@ a:first-child:before {
 
 박스의 바깥쪽에 남는 여유 공간
 
+```css
+
+```
+
+<br />
+
+#### margin vs padding
+
+margin 에서만 auto 와 음수 값을 가질 수 있고, padding 은 가질 수 없다.
+
+<br />
+
+#### 마진 겹침 margin collapsing
+
+상하로 인접한 박스의 display 속성이 block 인 경우 상하로 인접한 박스의 마진이 모두 적용되는 것이 아니라, 큰 마진 값을 기준으로 하나의 값으로 렌더링한다.
+
+normal flow 에서만 적용되며, 유연한 형태의 flex box 나 grid box 에선 적용되지 않는다.
+
+<br />
+
 #### border
 
 박스의 테두리
@@ -1551,6 +1571,8 @@ a:first-child:before {
 }
 ```
 
+<br />
+
 #### padding
 
 박스의 안쪽에 생기는 여유 공간
@@ -1570,6 +1592,42 @@ a:first-child:before {
 
   /* 10px 은 위, 20px 은 좌, 우, 30px 은 아래에 적용된다 */
   padding: 10px 20px 30px;
+}
+```
+
+<br />
+
+#### width, height
+
+inline 요소에는 width, height 속성이 적용되지 않는다.
+
+<br />
+
+#### box-sizing
+
+width, padding, border, margin 을 모두 더한 값이 웹 브라우저에서 불러오는 일반적인 크기이다. 이때, box-sizing 속성의 값을 content-box 값을 사용한 것으로 볼 수 있다.
+
+```css
+.like {
+  box-sizing: content-box;
+  width: 150px;
+  padding: 20px;
+  border: 5px solid black;
+  margin: 50px;
+}
+```
+
+<br />
+
+이때, box-sizing 속성의 border-box 값을 사용하면, width 속성에 적용한 값에 맞게 margin, border, padding 값이 조정된 것을 확인할 수 있다.
+
+```css
+.like {
+  box-sizing: border-box;
+  width: 150px;
+  padding: 20px;
+  border: 5px solid black;
+  margin: 50px;
 }
 ```
 

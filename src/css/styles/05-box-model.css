@@ -32,3 +32,54 @@
   /* 10px 은 위, 20px 은 좌, 우, 30px 은 아래에 적용된다 */
   padding: 10px 20px 30px;
 }
+
+/* width, height */
+.lion {
+  border: 5px solid red;
+  /* block vs inline-block */
+  display: block;
+  /* display: inline-block; */
+  width: 150px;
+  padding: 20px;
+  margin: 50px 0;
+}
+
+.name {
+  margin: 50px 0;
+}
+
+/* border-box */
+.like.first {
+  box-sizing: content-box;
+  width: 150px;
+  padding: 20px;
+  border: 5px solid black;
+  margin: 50px;
+}
+
+.like {
+  box-sizing: border-box;
+  width: 150px;
+  padding: 20px;
+  border: 5px solid black;
+  margin: 50px;
+
+  div {
+    background-color: yellow;
+  }
+}
+
+.bootcamp {
+  border: 1px solid purple;
+  padding: 0 100px;
+  margin: 20px 0;
+}
+
+.name {
+  width: 300px;
+  /* margin-left: auto; margint-right=auto; 와 같이 가운데 정렬되는 것을 볼 수 있다 */
+  margin-inline: auto;
+
+  /* 원래 있던 위치에서 왼쪽 방향으로 50px 음수 방향으로 이동 */
+  margin-left: -50px;
+}
