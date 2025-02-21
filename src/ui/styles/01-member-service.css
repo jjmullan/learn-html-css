@@ -64,12 +64,12 @@ a:first-child:before {
     font-size: 0.875rem;
 
     a {
-      display: inline-block; /* SSAM */
+      display: inherit; /* li 의 display: inline-block; 값을 상속 */
       padding: 8px;
     }
 
     span {
-      display: inline-block; /* SSAM */
+      display: inherit; /* li 의 display: inline-block; 값을 상속 */
        margin: 0 4px; /* SSAM */
     }
   }

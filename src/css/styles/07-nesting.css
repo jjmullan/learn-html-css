@@ -1,0 +1,42 @@
+.likelion {
+  .likelion__list {
+    list-style: none;
+
+    /* = .likelion__list:hover { background-color: yellow; } */
+    &:hover {
+      background-color: pink;
+    }
+
+    .likelion__item {
+      color: green;
+
+      .likelion__link {
+        color: inherit;
+      }
+    }
+  }
+
+  /* SASS 와 달리, CSS 에서는 가상 요소를 붙이는 것 외 클래스명을 추가로 붙일 수 없음  */
+  &__list {
+    text-decoration: none;
+  }
+}
+
+.likelion {
+  .likelion__list {
+    list-style: none;
+
+    /* = .likelion__list:hover { background-color: yellow; } */
+    &:hover {
+      background-color: pink;
+    }
+  }
+
+  .likelion__item {
+    color: green;
+  }
+
+  .likelion__link {
+    color: inherit;
+  }
+}
