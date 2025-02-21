@@ -1866,6 +1866,19 @@ position: absolute 의 각 offset 값이 0일 때, position: static 이 아닌 �
 
 <br />
 
+#### position: absolute 속성을 정중앙으로 정렬하고 싶을 때
+
+```css
+.absolute {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+```
+
+<br />
+
 #### z-index
 
 cascading 에 따라, 작성된 순서대로 relative 속성을 가진 요소와 absolute 속성을 가진 요소의 계층이 형성된다. 이때, z-index 속성을 사용하면, cascading 에 따라 표시되는 것이 아니라 z-index 값에 따라 계층이 형성된다.
