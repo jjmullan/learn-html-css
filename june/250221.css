@@ -1,0 +1,65 @@
+body {
+  margin: 0;
+  padding: 0;
+
+  position: relative;
+}
+
+header {
+  width: 100vw;
+  height: 50px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: sticky;
+  top: 0;
+}
+
+.header {
+  width: 740px;
+  height: 22px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .header__logo {
+    width: 140px;
+    height: 14px;
+  }
+
+  .header__nav {
+    display: inline-block;
+
+    font-family: 'Pretendard Variable', 'SpoqaHanSans', sans-serif;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-transform: uppercase;
+    color: #24388d;
+  }
+
+  .header__nav ul {
+    padding: 0;
+  }
+
+  .header__nav li {
+    display: inline-block;
+
+    &:not(:first-child) {
+      margin-left: 8px;
+    }
+  }
+
+  [strong] {
+    font-weight: bold;
+  }
+}
+
+main {
+  width: 100vh;
+  height: 5000px;
+}
