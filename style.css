@@ -1,0 +1,140 @@
+body {
+  margin: 0;
+  background-color: white;
+}
+
+header {
+  width: 100%;
+  margin: 50px auto;
+}
+
+header > h1 {
+  text-align: center;
+  font-size: 3em;
+}
+
+.main {
+  display: flex;
+  position: relative;
+  width: 100%;
+
+  /* ========= nav ========= */
+  .main__nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    margin: 50px 0 0 10px;
+
+    position: sticky;
+    top: 50px;
+    left: 50px;
+  }
+
+  ul.main__nav {
+    margin-bottom: 0.5rem;
+    width: 10rem;
+
+    list-style: none;
+    font-size: 0.8em;
+
+    position: inherit;
+
+    li {
+      display: block;
+
+      position: inherit;
+    }
+  }
+
+  li.main__nav--title {
+    color: blue;
+    font-weight: bold;
+  }
+
+  /* ========= main ========= */
+  .learnHtmlCss {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+    margin: 0 50px 80px;
+  }
+
+  .month {
+    margin: 0 50px 30px;
+
+    &:not(:first-child) {
+      margin: 50px 50px 30px;
+    }
+  }
+
+  .daily {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin: 0;
+  }
+
+  .daily > ul {
+    width: 17vw;
+    padding: 2vw;
+    margin-bottom: 3vh;
+
+    border: 1px solid #ccc;
+    border-radius: 30px;
+    background-color: rgb(251, 250, 250);
+    box-shadow: 4px 5px 10px #ccc;
+
+    position: relative;
+  }
+
+  .daily > ul > li {
+    margin: 0 0 1.5vh;
+    list-style: none;
+  }
+
+  .daily > ul > li.classChange {
+    border-top: 1px solid #ccc;
+    padding-top: 10px;
+  }
+
+  .daily > ul > li.weekdayStart::before {
+    content: '한 주 시작!';
+    position: absolute;
+    padding: 8px;
+    background-color: blue;
+    font-size: 0.8em;
+    font-weight: bold;
+    color: white;
+    left: -15px;
+    top: -15px;
+    border-radius: 20px;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  a:hover {
+    background-color: blueviolet;
+    color: white;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  nav {
+    display: flex;
+    flex-direction: column;
+  }
+
+  nav > ul {
+    padding: 0 0;
+    margin: 0 0 10px;
+  }
+
+  main {
+    max-width: 768px;
+    padding: 0 15px;
+  }
+}

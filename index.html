@@ -4,17 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>HTML/CSS</title>
-    <link rel="stylesheet" href="style_header.css" />
-    <link rel="stylesheet" href="style_main.css" />
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <header>
       <h1>HTML/CSS</h1>
     </header>
-    <div class="main_nav">
-      <nav>
-        <ul class="navName">
-          <li>private</li>
+    <div class="main">
+      <nav class="main__nav">
+        <ul class="main__nav private">
+          <li class="main__nav--title">private</li>
           <li>
             <a href="https://www.notion.so/choiyoungjune/13-16521bc2456c80b8b025c30803efc343" target="_blank"
               ><img src="./src/assets/june/Notion-logo.s" width="15" height="15" /> Notion</a
@@ -24,8 +23,8 @@
             <a href="https://github.com/jjmullan" target="_blank"><img src="./src/assets/june/github-logo.png" width="15" height="15" /> Github</a>
           </li>
         </ul>
-        <ul class="navName">
-          <li>reference</li>
+        <ul class="main__nav reference">
+          <li class="main__nav--title">reference</li>
           <li>
             <a href="https://wholesale-snipe-50a.notion.site/Front-end-Bootcamp-cabfd94f39484ddf94794d01cc6043e6" target="_blank"
               ><img src="./src/assets/june/Notion-logo.s" width="15" height="15" /> SSAM</a
@@ -70,16 +69,16 @@
             <a href="https://brunch.co.kr/@euid/2" target="_blank"><img src="" width="15" height="15" /> 이듬 브런치</a>
           </li>
         </ul>
-        <ul class="navName">
-          <li>useful</li>
+        <ul class="main__nav useful">
+          <li class="main__nav--title">useful</li>
           <li>
             <a href="https://snippet-generator.app/?description=&tabtrigger=&snippet=&mode=vscode" target="_blank">🐥 snippet generator</a>
           </li>
         </ul>
       </nav>
-      <main>
+      <main class="learnHtmlCss">
         <h2 class="month">February 2025</h2>
-        <section id="feb2025">
+        <section class="daily" id="feb2025">
           <ul>
             <li>2025. 2. 12</li>
             <li><a href="README.md">README (25.2.21 유기 확정)</a></li>
@@ -91,9 +90,9 @@
             <li><a href="./src/html/03-image-figure.html">03. 이미지와 피규어</a></li>
             <li><a href="./src/html/04-anchor.html">04. 하이퍼링크</a></li>
           </ul>
-          <ul class="weekdayStart">
-            <li><time datetime="2025-02-17">2025. 2. 17</time></li>
-            <li class="difficult"><a href="./src/html/05-unordered-ordered-list.html">05. 순서형, 비순서형 목록</a></li>
+          <ul>
+            <li class="weekdayStart"><time datetime="2025-02-17">2025. 2. 17</time></li>
+            <li><a href="./src/html/05-unordered-ordered-list.html">05. 순서형, 비순서형 목록</a></li>
             <li><a href="./src/html/06-definition-list.html">06. 정의형 목록</a></li>
             <li><a href="./src/html/07-phrasing-element.html">07. 프레이징 요소</a></li>
             <li><a href="./src/html/08-blockquote-br.html">08. 인용문과 줄바꿈</a></li>
@@ -137,8 +136,8 @@
             <li><a href="/src/css/08-position.html">8. CSS Position</a></li>
           </ul>
 
-          <ul class="weekdayStart">
-            <li>2025. 2. 24</li>
+          <ul>
+            <li class="weekdayStart">2025. 2. 24</li>
             <li><a href="">00. </a></li>
           </ul>
           <ul>
@@ -159,7 +158,7 @@
           </ul>
         </section>
         <h2 class="month">March 2025</h2>
-        <section id="mar2025">
+        <section class="daily" id="mar2025">
           <ul class="weekdayStart">
             <li>2025. 3. 4</li>
             <li><a href="">00. </a></li>

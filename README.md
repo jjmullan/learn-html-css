@@ -1764,6 +1764,7 @@ display 속성의 값으로는 대표적으로 inline, block 이 있으며, inli
 
 ```css
 .likelion {
+  /* .likelione > .likelione__list */
   .likelion__list {
     list-style: none;
 
@@ -1772,10 +1773,12 @@ display 속성의 값으로는 대표적으로 inline, block 이 있으며, inli
     }
   }
 
+  /* .likelione > .likelione__list > .likelion__item */
   .likelion__item {
     color: green;
   }
 
+  /* .likelione > .likelione__list > .likelion__item > .likelion__link*/
   .likelion__link {
     color: inherit;
   }
