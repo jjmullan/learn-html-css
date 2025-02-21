@@ -1459,7 +1459,7 @@ h1 {
 
 # UI
 
-## 1. 멤버 서비스 링크 예제
+## 1. UI 멤버 서비스 링크 예제
 
 부모 요소에 속성을 적용하여 자식 요소에 상속하는 것이 유리한지, 특정 요소에만 적용하는 것이 유리한지 판단하여 속성을 지정해준다.
 
@@ -1506,6 +1506,90 @@ a:first-child:before {
 ### 구조 선택자
 
 ##### degit
+
+<br />
+
+###### 2025-02-21
+
+## 5. CSS 박스 모델
+
+### 5-1. 박스 모델
+
+#### margin
+
+박스의 바깥쪽에 남는 여유 공간
+
+#### border
+
+박스의 테두리
+
+```css
+/* 각각의 영역마다 두께를 다르게 줄 수 있다. */
+.like {
+  border-top-width: 2px;
+  border-right-width: 4px;
+  border-bottom-width: 6px;
+  border-left-width: 8px;
+}
+
+/* 단축 속성 */
+.like {
+  /* 상/하/좌/우 방향을 각각 지정할 수 있다 */
+  border-top-width: 2px;
+  border-right-width: 4px;
+  border-bottom-width: 6px;
+  border-left-width: 8px;
+
+  /* border-widtd 의 단축 형태 */
+  border-width: 2px 4px 6px 8px;
+
+  border-style: solid;
+  border-color: green;
+
+  /* border 의 단축 형태 */
+  border: 5px solid green;
+}
+```
+
+#### padding
+
+박스의 안쪽에 생기는 여유 공간
+
+```css
+.like {
+  padding-top: 10px;
+  padding-right: 20px;
+  padding-bottom: 30px;
+  padding-left: 40px;
+
+  /* padding 의 단축 형태 */
+  padding: 10px 20px 30px 40px;
+
+  /* 10px 은 위, 아래에 적용되고, 20px 은 좌, 우에 적용된다 */
+  padding: 10px 20px;
+
+  /* 10px 은 위, 20px 은 좌, 우, 30px 은 아래에 적용된다 */
+  padding: 10px 20px 30px;
+}
+```
+
+<br />
+
+### 5-2. display
+
+- [inline(w3)](https://www.w3.org/TR/css-inline-3/#line-boxes)
+
+display 속성은 Html 의 표현 방식을 지정한다. HTML 요소는 각각 기본으로 지정된 display 값이 존재한다.
+
+display 속성의 값으로는 대표적으로 inline, block 이 있으며, inline-block, flex, inline-flex, grid, inline-grid, table, table-row, flow-root 등을 사용하여 다양한 형태로 표현할 수 있다.
+
+<br />
+
+#### inline
+
+#### block
+
+#### float-root
 
 <style>
    h5::before {

@@ -33,7 +33,7 @@ section > ul > li:first-child {
 }
 
 section > ul > li {
-  margin: 0 0 1.5vh 1vw;
+  margin: 0 0 1.5vh;
   list-style: none;
 }
 
