@@ -1717,6 +1717,159 @@ display 속성의 값으로는 대표적으로 inline, block 이 있으며, inli
 
 ### 7-1. 아토믹 디자인
 
+- [Atomic Design](https://atomicdesign.bradfrost.com/chapter-2/)
+
+원자 레벨의 컴포넌트 단위로 분자 레벨의 컴포넌트를 만들고, 조직체 레벨의 컴포넌트를 만들고, 템플릿, 페이지 단위의 컴포넌트를 만들 수 있다. 재활용할 범위를 어디까지 만들 것인가에 따라 나눠지는 컴포넌트 수준이 다를 수 있다.
+
+단, 원자 레벨의 컴포넌트가 할 일, 분자 레벨의 컴포넌트가 할 일, … 에 대한 구분을 명확히 할 필요가 있다.
+
+<br />
+
+### 7-2. 중첩 Nesting
+
+- [Nesting(mdn)](https://developer.mozilla.org/ko/docs/Web/CSS/CSS_nesting/Using_CSS_nesting)
+- [stateofcss](https://2024.stateofcss.com/en-US/tools/)
+
+상위 class 명의 하위 클래스를 다중 중첩 구조로 만들 수 있다. 하지만, 중첩이 너무 많아지는 것은 좋은 현상이 아니며, 가시성 또한 좋지 않다.
+
+```css
+.likelion {
+  .likelion__list {
+    list-style: none;
+
+    /* = .likelion__list:hover { background-color: yellow; } */
+    &:hover {
+      background-color: pink;
+    }
+
+    .likelion__item {
+      color: green;
+
+      .likelion__link {
+        color: inherit;
+      }
+    }
+  }
+
+  /* SASS 와 달리, CSS 에서는 가상 요소를 붙이는 것 외 클래스명을 추가로 붙일 수 없음  */
+  &__list {
+    text-decoration: none;
+  }
+}
+```
+
+<br />
+
+이때, 상위 class 명의 하위 클래스를 중첩 구조로 만드는 것이 아니라 **리스트 형태**로 정리해두는 것이 가시성에 좋다.
+
+```css
+.likelion {
+  .likelion__list {
+    list-style: none;
+
+    &:hover {
+      background-color: pink;
+    }
+  }
+
+  .likelion__item {
+    color: green;
+  }
+
+  .likelion__link {
+    color: inherit;
+  }
+}
+```
+
+<br />
+
+## 8. CSS Position
+
+요소 박스의 배치 방식을 지정할 수 있는 속성으로, 기본 값은 static 이다.
+
+### 8-1. position: static;
+
+<br />
+
+#### offset - top, right, bottom, left
+
+position 이 static 이 아닐 때, 사용할 수 있는 속성이다.
+
+<br />
+
+### 8-2. position: relative;
+
+자기 자신의 영역이 보존된 상태로, 위치를 이동할 수 있다. 아래 예시를 살펴보면, position: relative 인 자식 요소와 position: static 인 부모 요소를 활용하여 다음과 같이 그림자가 있는 형태로도 만들 수 있다.
+
+물론, box-shadow 라는 속성이 있지만, 실제 크기에 반영되지 않는다는 단점이 있다. 이때, position 속성을 활용한다면 크기에 대응하는 그림자를 만들 수 있다.
+
+```css
+.lion {
+  border: 1px solid black;
+  background-color: black;
+
+  /* div > h3 */
+  .like {
+    height: 50px;
+    position: relative;
+    top: -5px;
+    left: -5px;
+
+    border: 1px solid red;
+    background-color: yellow;
+  }
+}
+```
+
+<br />
+
+### 8-3. position: absolute;
+
+자기 자신의 영역을 보존하지 않고 띄운 뒤, 그 다음 요소가 채워진다. 이때, 해당 요소는 **display: block** 으로 렌더링된다.
+
+- [BFC(mdn)](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_display/Block_formatting_context)
+
+position: absolute 가 적용된 요소 또한 relative 처럼 top, bottom, left, right 값을 입력할 수 있다. 이때, 부모 요소의 블록을 기준으로 하며, **position: static 이 아닌 부모 요소**를 찾아 해당 요소의 영역을 기준으로 위치를 재조정한다.
+
+아래 예시를 보면 position: absolute 가 적용된 h5 요소의 부모 요소인 div 가 position: static 이기 때문에 div 요소를 기준으로 하지 않고, 그 position: static 이 아닌 부모 요소 section 의 영역을 기준으로 위치를 이동하게 된다.
+
+```html
+<section style="position: relative;">
+  <div style="position: static;">
+    <h5 class="bootcamp" style="position: absolute;">멋사 프론트엔드 13기</h5>
+  </div>
+</section>
+```
+
+<br />
+
+#### top, right, bottom, left 를 0 으로 줬을 때
+
+position: absolute 의 각 offset 값이 0일 때, position: static 이 아닌 부모 요소의 전체 영역에 맞게 확장한다.
+
+```css
+.box {
+  width: 300px;
+  height: 300px;
+  position: relative;
+
+  .bootcamp {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+  }
+}
+```
+
+<br />
+
+#### z-index
+
+cascading 에 따라, 작성된 순서대로 relative 속성을 가진 요소와 absolute 속성을 가진 요소의 계층이 형성된다. 이때, z-index 속성을 사용하면, cascading 에 따라 표시되는 것이 아니라 z-index 값에 따라 계층이 형성된다.
+
 <style>
    h5::before {
       content: '✍🏻 추가 학습 필요 : ';
