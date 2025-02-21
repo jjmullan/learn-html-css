@@ -1649,6 +1649,52 @@ display 속성의 값으로는 대표적으로 inline, block 이 있으며, inli
 
 #### float-root
 
+<br />
+
+## 6. CSS Reset
+
+- [CSS 리셋 참고 페이지](https://brunch.co.kr/@euid/2)
+
+브라우저마다 서로 조금씩 다른 기본 스타일을 가지는데, 이때 일관성 없는 다양한 브라우저의 기본 스타일을 초기화하는 목적으로 사용한다.
+
+단, 유명한 개발자가 제작한 CSS Reset 값을 가져오더라도, 검증에 따라 필요한 항목을 조정할 수 있어야 한다. Snippet 에 등록해두고, 필요에 따라 사용하는 것도 방법이다.
+
+<br />
+
+#### @import
+
+다른 CSS 파일을 CSS 파일에서 불러오는 방식이다.
+
+```css
+@import '/src/common/mini-reset.css';
+```
+
+<br />
+
+### 6-1. CSS Reset
+
+- [CSS 리셋 - eric meyer](https://meyerweb.com/eric/tools/css/reset/)
+- [CSS 리셋 - joshComeau](https://www.joshwcomeau.com/css/custom-css-reset/)
+- [CSS 리셋 - mini](https://jgthms.com/minireset.css/)
+
+기본 스타일의 대부분을 제외하고, 새롭게 스타일을 추가하기 위해 사용한다. 모든 요소를 일일이 대응하여 사용할 수도 있고, 에스터리스크`*`로 전체를 선택할 수 있다.
+
+##### [font-smooth 속성](https://developer.mozilla.org/en-US/docs/Web/CSS/font-smooth)
+
+##### overflow-wrap, text-wrap 속성
+
+##### isolation 속성
+
+<br />
+
+### 6-2. CSS Normalize
+
+일관되지 않은 스타일만 제거하고, 가능한 기본 스타일을 유지한다.
+
+##### line-height 값의 한글 이슈
+
+<br />
+
 <style>
    h5::before {
       content: '✍🏻 추가 학습 필요 : ';
