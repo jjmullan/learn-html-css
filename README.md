@@ -1511,6 +1511,10 @@ a:first-child:before {
 
 ###### 2025-02-21
 
+<br />
+
+###### 2025-02-21
+
 ## 5. CSS 박스 모델
 
 ### 5-1. 박스 모델
@@ -1619,7 +1623,7 @@ width, padding, border, margin 을 모두 더한 값이 웹 브라우저에서 �
 
 <br />
 
-이때, box-sizing 속성의 border-box 값을 사용하면, width 속성에 적용한 값에 맞게 margin, border, padding 값이 조정된 것을 확인할 수 있다.
+이때, box-sizing 속성의 border-box 값을 사용하면, width 속성에 적용한 값에 맞게 margin, border, padding 값이 포함된 것을 확인할 수 있다.
 
 ```css
 .like {

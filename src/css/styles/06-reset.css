@@ -3,6 +3,7 @@
 /* @import '/src/common/mini-reset.css'; */
 @import '/src/common/best-reset.css';
 
+/* import 된 Reset 속성이 cascading 됨  */
 ul {
   margin-left: 50px;
   padding-left: 50px;
