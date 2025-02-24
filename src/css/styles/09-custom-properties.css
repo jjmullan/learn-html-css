@@ -1,0 +1,69 @@
+/* 전역 변수 1차 정의 */
+:root {
+  --primary-color: #3498db;
+  --secondary-color: #2ecc71;
+
+  --white: #fff;
+  --black: #000;
+  --red: #f00;
+  --green: #0f0;
+  --blue: #00f;
+}
+
+/* 전역 변수와 지역 변수에 동일한 변수 명을 지정한 경우, 지역 변수의 값이 우선 순위를 갖는다 */
+.text-card-1 {
+  --bg-color: var(--green);
+  --border-color: var(--red);
+
+  h1 {
+    background-color: var(--bg-color);
+  }
+
+  p {
+    border: 10px solid var(--border-color);
+  }
+}
+
+.text-card-2 {
+  --bg-color: var(--blue);
+  --border-color: var(--green);
+
+  h1 {
+    background-color: var(--bg-color);
+  }
+
+  p {
+    border: 10px solid var(--border-color);
+  }
+}
+
+/* 전역 변수를 컴포넌트에서 재선언하는 예제 */
+:root {
+  --small: 0.75rem;
+  --medium: 0.875rem;
+  --default: 1rem;
+  --large: 1.125rem;
+}
+
+/* 컴포넌트 별로 동일한 변수명을 선언하고, 변수에 할당하는 값을 root 의 변수를 개별로 설정할 수 있다 */
+.wrapper {
+  button {
+    font-size: var(--font-size);
+  }
+
+  .open {
+    --font-size: var(--small);
+  }
+
+  .close {
+    --font-size: var(--medium);
+  }
+
+  .popup {
+    --font-size: var(--default);
+  }
+
+  .info {
+    --font-size: var(--large);
+  }
+}
