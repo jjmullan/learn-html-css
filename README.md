@@ -2023,6 +2023,8 @@ root 에서 봤을 때 변수를 사용한 컴포넌트의 값을 일괄 수정�
 }
 ```
 
+<br />
+
 예시 2. 각 요소는 font-size 값을 갖고 있기 때문에, 부모-자식 관계에서 상속되는 속성을 활용하면 관리에 더욱 용이하다.
 
 ```css
@@ -2037,27 +2039,95 @@ root 에서 봤을 때 변수를 사용한 컴포넌트의 값을 일괄 수정�
 .wrapper {
   button {
     font-size: var(--font-size);
+    background-color: var(--bg-color);
+    color: var(--text-color);
   }
 
   .open {
-    --font-size: var(--small, 0.75rem);
+    --font-size: var(--small);
+    --bg-color: var(--blue);
+    --text-color: var(--white);
   }
 
   .close {
-    --font-size: var(--medium, 0.875rem);
+    --font-size: var(--medium);
+    --bg-color: var(--red);
+    --text-color: var(--white);
   }
 
   .popup {
-    --font-size: var(--default, 1rem);
+    --font-size: var(--default);
+    --bg-color: var(--green);
+    --text-color: var(--black);
   }
 
   .info {
-    --font-size: var(--large, 1.125rem);
+    --font-size: var(--large);
+    --bg-color: var(--black);
+    --text-color: var(--white);
   }
 }
 ```
 
-##### 변수명 설정하는 방식
+<br />
+
+예시 3. 전역 변수 안에 변수를 재정의, 선언하는 방식으로 사용할 수도 있다.
+
+```css
+:root {
+  --blue: #00f;
+  --red: #f00;
+  --yellow: yellow;
+  --light-blue: aqua;
+
+  /* 변수 재선언 */
+  --primariy-color: var(--blue);
+  --secondary-color: var(--red);
+  --accent-color: var(--yellow);
+  --border-color: var(--light-blue);
+
+  /* 현업에서 변수에 속성을 직접 작성하는 방식을 많이 사용한다 */
+  --text12: 0.75rem;
+  --text14: 0.875rem;
+  --text16: 1rem;
+  --text18: 1.125rem;
+}
+```
+
+<br />
+
+예시 4. @property 사용
+
+```css
+@property --text-color {
+  syntax: '<color>';
+
+  /* 상속을 받지 않겠다 */
+  inherits: false;
+
+  /* initial-value : 초기 설정 값 */
+  initial-value: orange;
+}
+
+.container {
+  /* 1. 지역 변수를 할당하고 2. 값을 재할당하여 사용하는 2단계를 거칠 필요가 없다 */
+  color: var(--text-color);
+
+  .parent {
+    --text-color: blue;
+    /* color: var(--text-color); */
+
+    .child {
+      /* @property 에서 inherits: false; 를 했기 때문에 .container 의 지역 변수 값을 상속받지 않는다. */
+      color: var(--text-color);
+    }
+  }
+}
+```
+
+##### 커스텀 프로퍼티(@property)의 각 속성 알아보기
+
+##### 변수명 설정하는 방식(?) 예시 알아보기
 
 <br />
 
