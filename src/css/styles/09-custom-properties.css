@@ -107,3 +107,22 @@
     }
   }
 }
+
+/* 상속 요소 vs 비상속 요소 에 대해 이해할 필요가 있다 */
+.lion {
+  color: var(--text-);
+  border: 1px solid green;
+  padding: 1em;
+
+  .parent {
+    margin: 0;
+    border: inherit;
+    padding: inherit;
+
+    .child {
+      margin: 0;
+      border: inherit;
+      padding: inherit;
+    }
+  }
+}
