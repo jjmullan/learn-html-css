@@ -1,6 +1,18 @@
 body {
+  min-height: 100vh;
+
   background-color: hsl(180, 10%, 80%);
   background-image: url(/src/assets/images/rabbit.png);
   background-repeat: no-repeat;
-  background-position: 50% 40px;
+  background-position: 50% 50%;
+  background-attachment: fixed;
+  background-size: 100px 130px;
+
+  /* shorthand */
+  background:
+    url(/src/assets/images/cloud.png) no-repeat 0 100px /100px fixed,
+    url(/src/assets/images/sun.png) no-repeat 100px 50px fixed,
+    linear-gradient(red, green),
+    pink;
+  }
 }

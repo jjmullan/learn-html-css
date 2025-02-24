@@ -2199,9 +2199,93 @@ p {
 
 <br />
 
-##### CSS 에서 백분율(%)과 px 의 동작 범위
+#### CSS 에서 백분율(%)과 px 의 동작 범위
+
+픽셀(px)은 x축 좌표, y축 좌표에 해당하는 위치만큼 요소를 이동시킨다.
+
+```css
+body {
+  background-position: 10px 10px;
+}
+```
 
 <br />
+
+백분율(%)은 요소 박스의 특정 백분율 값에 해당하는 지점을 찾아 이미지를 이동시키고, 이미지의 특정 백분율 값에 해당하는 지점을 찾아 이미지를 이동시킨다. 아래 예시를 보면, 이미지의 x축 방향의 50%에 해당하는 지점을 body 의 x축 50% 지점으로 이동시키는 것을 알 수 있다.
+
+```css
+body {
+  background-image: url();
+  background-position: 50% 0;
+}
+```
+
+<br />
+
+### 10-5. background-attachment: ;
+
+- [참고 링크 - 1](https://blog.logrocket.com/create-parallax-scrolling-css/)
+- [참고 링크 - 2(w3school)](https://www.w3schools.com/howto/howto_css_parallax.asp)
+
+스크롤이 발생하는 상황에서, 해당 속성으로
+
+- fixed : 스크롤 할 때 지정된 위치에 고정시킨다.
+- scroll :
+
+<br />
+
+### 10-6. background-size: ;
+
+- contain : 이미지의 세로 영역이 잘리지 않는 선에서 이미지를 확대/축소
+- cover : 이미지의 가로 영역이 잘리지 않는 선에서 이미지를 확대/축소
+- 직접 지정 : 가로, 세로 값을 직접 지정하여 이미지 영역을 확대/축소
+
+<br />
+
+### 10-7. background (shorthand)
+
+```css
+body {
+  /* viewport height 를 100% 꽉 차게 */
+  min-height: 100vh;
+
+  /* 속성을 개별 지정할 수 있다 */
+  background-color: hsl(180, 10%, 80%);
+  background-image: url(/src/assets/images/rabbit.png);
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-attachment: fixed;
+  background-size: contain;
+
+  /* 속성을 일괄 지정(shorthand)할 수 있다 */
+  background: yellow url(/src/assets/images/cloud.png) repeat-x 0 50% fixed;
+}
+```
+
+<br />
+
+콤마(,)로 여러 이미지를 구분하여 넣을 수 있으며, 먼저 선언한 이미지가 최상단에 위치한다. 배경 이미지는 코드의 상단에 위치할 수록 맨 앞에 위치하며, 이미지는 코드의 하단에 위치할 수록 맨 앞에 위치한다.
+
+`background-color` 을 최상단에 삽입하게 된다면, 배경색이 이미지를 덮기 때문에 이미지가 표시되지 않는다. 따라서, background-color 을 사용하고 싶다면, 최하단에 위치하여 사용한다.
+
+`background-size` 는 슬래시(/)로 구분하여 사용한다.
+
+```css
+body {
+  background:
+    /* 1순위 */
+    url(/src/assets/images/cloud.png) no-repeat 0 100px /50px 50px fixed,
+    
+    /* 2순위 */
+    url(/src/assets/images/sun.png) no-repeat 100px 50px fixed,
+    
+    /* 3순위 */    
+    linear-gradient(red, green),
+
+    /* 4순위 */
+    pink;
+}
+```
 
 <style>
    h5::before {
