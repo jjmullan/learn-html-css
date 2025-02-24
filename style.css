@@ -103,6 +103,10 @@ header > h1 {
     padding-top: 10px;
   }
 
+  .monthDaily > ul > li.ui {
+    color: black;
+  }
+
   .monthDaily > ul > li.weekdayStart::before {
     content: '한 주 시작!';
     position: absolute;
