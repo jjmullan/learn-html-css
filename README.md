@@ -2275,15 +2275,9 @@ body {
   background:
     /* 1순위 */
     url(/src/assets/images/cloud.png) no-repeat 0 100px /50px 50px fixed,
-    
-    /* 2순위 */
-    url(/src/assets/images/sun.png) no-repeat 100px 50px fixed,
-    
-    /* 3순위 */    
-    linear-gradient(red, green),
-
-    /* 4순위 */
-    pink;
+    /* 2순위 */ url(/src/assets/images/sun.png) no-repeat 100px 50px fixed,
+    /* 3순위 */ linear-gradient(red, green),
+    /* 4순위 */ pink;
 }
 ```
 
@@ -2293,6 +2287,119 @@ body {
 
 - [WAI-ARIA 적용 사례 : Toast vs Snack bar](https://aoa.gitbook.io/skymimo/aoa-2023/ui-aria-2022-2024/snack-bar)
 - [caniuse 에서 호환성 체크하기](https://caniuse.com/)
+
+### 11-1. CSS Float
+
+normal flow 에서 요소를 분리하여, 부모 요소 라인박스의 왼쪽 또는 오른쪽에 배치한다. float 속성이 적용된 요소는 다른 요소의 배치에 영향을 미친다. 독립적인 개체로 인식되며, 다른 요소와 겹칠 수 없다.
+
+float 속성이 적용되면 normal flow 가 아닌 요소가 되면서, 부모 컨테이너는 자식 요소의 높이 값을 인식할 수 없게 된다. 부모 요소에 직접 높이 값을 지정하지 않는 이상, 가상의 보이지 않는 선을 긋고, 그 위치를 기준으로 float 속성이 적용된 요소를 강제 정렬한다.
+
+```css
+.card {
+  border: 1px solid green;
+
+  .subject {
+    background-color: var(--pastel-blue);
+  }
+
+  /* .thumbnail(div)의 가상 박스가 선을 긋고, float 가 적용된 요소(img)는 해당 선을 기준으로 좌/우 위치를 지정할 수 있다. */
+  .thumbnail {
+    background-color: var(--pastel-yellow);
+    height: 141px;
+
+    img {
+      vertical-align: bottom;
+      float: left;
+    }
+  }
+
+  .content {
+    background-color: var(--pastel-orange);
+  }
+}
+```
+
+<br />
+
+### 11-2. CSS Float 중단
+
+위 예제를 보면, 이미지의 레이아웃은 유지하면서 형제 요소 중 첫 번째인 div.content 를 float 속성에서 벗어나게 하고 싶다. float 가 있는 img 의 컨테이너 요소인 .thumbnail 에 height 을 수동으로 설정해주는 것은 굉장히 번거롭고 비효율적이다. 이때, .content 에 `clear: left|both|right;`를 사용하여 해결할 수 있다. clear 속성은 **반드시 block 성향을 가진 요소에만** 지정할 수 있다.
+
+```css
+.card {
+  .thumbnail {
+    img {
+      vertical-align: bottom;
+      float: left;
+    }
+  }
+
+  .content {
+    clear: both;
+  }
+}
+```
+
+<br />
+
+또한, 위 예제에서 부모 요소에 `overflow: hidden(|scroll|auto);` 속성을 사용할 수 있다. 이때, 독립적인 레이아웃을 갖는 [BFC 렌더링](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_display/Block_formatting_context)이 적용되는 것을 볼 수 있다. 이는 `clear: both;` 속성과 동일한 기능을 갖으며, 안전한 코드 작성을 위해, 두 개의 속성 코드를 모두 작성하는 것이 좋다.
+
+```css
+.card {
+  .thumbnail {
+    overflow: hidden;
+
+    img {
+      vertical-align: bottom;
+      float: left;
+    }
+  }
+}
+```
+
+<br />
+
+```css
+.card {
+  .thumbnail {
+    display: flow-root;
+
+    img {
+      vertical-align: bottom;
+      float: left;
+    }
+  }
+}
+```
+
+부모 요소에 `display: flow-root;` 속성을 사용할 수 있다. flow-root 속성은 록 상자를 생성하여 새로운 BFC를 설정하고 서식 루트가 있는 위치를 정의하는 값이다. 위 두 개의 속성보다 해당 속성을 사용하는 방식을 권한다.
+
+<br />
+
+```css
+.card {
+  border: 1px solid green;
+
+  .subject {
+    float: left;
+  }
+
+  .thumbnail {
+    float: right;
+
+    img {
+      vertical-align: bottom;
+      float: right;
+    }
+  }
+
+  .content {
+    float: left;
+  }
+}
+```
+
+각 요소에 float 를 설정하는 이중 float 구조를 사용할 수 있다. 이는, BFC 를 적용시키는 개념으로 접근할 수 있는데, 비효율적이기 때문에 권하는 방식은 아니다.
 
 <br />
 
@@ -2308,10 +2415,19 @@ body {
 
 `Cmd + Shift + L`
 
+<br />
+
+#### 요소를 숨기는 방법
+
+HTML 는 `hidden`, CSS 는 `display: none;` 속성을 삽입하여 요소를 숨길 수 있다. 이때, 두 속성 모두 DOM tree 에서 사라진다.
+
+#### block 요소를 컨테이너로 가진 inline 요소의 여백 삭제하기
+
+inline 요소는 top-line, middle-line, bottom-line, base-line 영역이 있는데, 요소는 base-line 에 맞춰진다. 이때, base-line 과 bottom-line 의 gap 이 존재하게 되면서 레이아웃에 오차가 있는 것처럼 느껴질 수 있다.
+
+이때, 아래 여백을 제거하기 위한 트릭으로 `display: block;`를 사용할 수 있다. 이는 base-line 개념을 삭제함으로써 bottom-line 에 요소를 맞추게 된다. 또한, `vertical-align: top; (|bottom)`으로 수직 기준 위치를 조정함으로써 여백을 없앨 수 있다.
+
 ##### Toast UI (알림)
-
-
-
 
 <style>
    h5::before {

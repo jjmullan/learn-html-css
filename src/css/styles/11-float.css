@@ -1,0 +1,28 @@
+@import url(/src/common/theme.css);
+
+/* float */
+.card {
+  /* background-color: var(--pastel-pink); */
+  border: 1px solid green;
+
+  .subject {
+    background-color: var(--pastel-blue);
+  }
+
+  /* .thumbnail(div)의 가상 박스가 선을 긋고, float 가 적용된 요소(img)는 해당 선을 기준으로 좌/우 위치를 지정할 수 있다. */
+  .thumbnail {
+    background-color: var(--pastel-yellow);
+    /* overflow: hidden; */
+    display: flow-root;
+
+    img {
+      vertical-align: bottom;
+      float: left;
+    }
+  }
+
+  .content {
+    background-color: var(--pastel-orange);
+    /* clear: both; */
+  }
+}

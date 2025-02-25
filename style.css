@@ -109,7 +109,7 @@ header > h1 {
     font-size: 14px;
 
     color: black;
-    border: 1px solid black
+    border: 1px solid black;
   }
 
   .monthDaily > ul > li.weekdayStart::before {
