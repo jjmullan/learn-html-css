@@ -1,0 +1,83 @@
+:root {
+  /* 색상 */
+  --primary-color: #24388d;
+
+  /* 길이 */
+  --margin: 21.875rem;
+  --padding: 0.875rem;
+  --padding-nav: 0.2rem;
+
+  color: var(--primary-color);
+}
+
+body {
+  margin: 0;
+}
+
+main {
+  width: 100vw;
+  height: 100vh;
+}
+
+ol,
+ul,
+li {
+  margin: 0;
+  padding-left: 0;
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.header {
+  margin: 0 auto;
+  padding: var(--padding, 0.875rem) 0;
+
+  min-width: 600px;
+  max-width: 740px;
+
+  display: flow-root;
+
+  .header__logo {
+    width: 140px;
+    float: left;
+
+    svg {
+      width: 100%;
+    }
+  }
+
+  .header__nav {
+    float: right;
+
+    li {
+      float: left;
+
+      position: relative;
+      top: 6px;
+    }
+
+    li:nth-child(n + 2)::before {
+      content: ':';
+      padding: var(--padding-nav);
+    }
+
+    a[strong] {
+      font-weight: 700;
+    }
+  }
+}
+
+.main {
+  .main__banner {
+    background-image: url(/src/assets/cover/euid-cover.png);
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: cover;
+
+    width: inherit;
+    height: 31.25rem;
+  }
+}
