@@ -33,7 +33,9 @@ body {
       vertical-align: top;
 
       &[lang="en"] {
-        font-size: 0.5em;     /* 12px */
+        font-size: 0.5em;    /* 12px (.subject 의 f-s: 1.5rem 의 영향을 받음) */
+        position: relative;
+        top: 2.5px;
       }
     }
   }
