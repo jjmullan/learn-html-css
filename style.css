@@ -103,8 +103,13 @@ header > h1 {
     padding-top: 10px;
   }
 
-  .monthDaily > ul > li.ui {
+  .monthDaily > ul > li.ui > a {
+    display: block;
+    padding: 0.5rem;
+    font-size: 14px;
+
     color: black;
+    border: 1px solid black
   }
 
   .monthDaily > ul > li.weekdayStart::before {
