@@ -2421,11 +2421,17 @@ float 속성이 적용되면 normal flow 가 아닌 요소가 되면서, 부모 
 
 HTML 는 `hidden`, CSS 는 `display: none;` 속성을 삽입하여 요소를 숨길 수 있다. 이때, 두 속성 모두 DOM tree 에서 사라진다.
 
+<br />
+
 #### block 요소를 컨테이너로 가진 inline 요소의 여백 삭제하기
 
 inline 요소는 top-line, middle-line, bottom-line, base-line 영역이 있는데, 요소는 base-line 에 맞춰진다. 이때, base-line 과 bottom-line 의 gap 이 존재하게 되면서 레이아웃에 오차가 있는 것처럼 느껴질 수 있다.
 
 이때, 아래 여백을 제거하기 위한 트릭으로 `display: block;`를 사용할 수 있다. 이는 base-line 개념을 삭제함으로써 bottom-line 에 요소를 맞추게 된다. 또한, `vertical-align: top; (|bottom)`으로 수직 기준 위치를 조정함으로써 여백을 없앨 수 있다.
+
+<br />
+
+##### aspect-ratio
 
 ##### Toast UI (알림)
 
