@@ -2287,6 +2287,32 @@ body {
 }
 ```
 
+###### 2024-02-25
+
+## 11. CSS Float
+
+- [WAI-ARIA 적용 사례 : Toast vs Snack bar](https://aoa.gitbook.io/skymimo/aoa-2023/ui-aria-2022-2024/snack-bar)
+- [caniuse 에서 호환성 체크하기](https://caniuse.com/)
+
+<br />
+
+#### 동일한 코드를 선택할 때
+
+`Cmd + D`
+
+#### 동일한 코드를 선택하는 중 일부 항목은 넘어가고 싶을 떄
+
+`Cmd + K`
+
+#### 동일한 코드를 모두 찾아 한 번에 선택할 때
+
+`Cmd + Shift + L`
+
+##### Toast UI (알림)
+
+
+
+
 <style>
    h5::before {
       content: '✍🏻 추가 학습 필요 : ';
