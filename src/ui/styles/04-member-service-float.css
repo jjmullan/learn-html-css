@@ -1,0 +1,66 @@
+/* reset 설정 */
+:root {
+  --small-size: 14px;
+  --basic-size: 16px;
+  --large-size: 18px;
+}
+
+body {
+  font-family: 'SUIT', sans-serif;
+}
+
+body *, body *::before, body *::after {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+ul, li {
+  margin: 0;
+  padding-left: 0;
+  list-style-type: none;
+}
+
+
+/* 멤버-서비스 */
+.member-service {
+  background-color: yellow;
+  text-transform: uppercase;
+
+  /* float: right; */
+  display: flow-root;
+
+  a {
+    float: left;
+
+    &:nth-child(n+2):before {
+      content: "|";
+      margin: 0 var(--small-size);
+    }
+  }
+}
+
+
+/* 선 */
+hr {
+  clear: both;
+}
+
+
+/* 멤버-링크 */
+.member-link {
+  background-color: pink;
+  display: flow-root;
+
+  li {
+    float: left;
+  }
+
+  span {
+    float: left;
+    margin: 0 var(--small-size);
+  }
+}
