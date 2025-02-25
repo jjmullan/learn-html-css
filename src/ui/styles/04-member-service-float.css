@@ -33,12 +33,13 @@ ul, li {
   /* float: right; */
   display: flow-root;
 
-  a {
+  div {
     float: left;
 
-    &:nth-child(n+2):before {
+    &:nth-child(n+2)::before {
       content: "|";
       margin: 0 var(--small-size);
+      cursor: not-allowed;
     }
   }
 }
