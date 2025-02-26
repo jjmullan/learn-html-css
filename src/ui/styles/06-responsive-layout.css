@@ -9,6 +9,11 @@
   --large-size: 20vh;
   --larger-size: 30vh;
   --max-size: 60vh;
+
+  /* 연습 */
+  --header-area: 10vh;
+  --main-area: calc(100vh - var(--small-size) - var(--footer-area));
+  --footer-area: 10vh;
 }
 
 .header {
@@ -51,13 +56,13 @@
     @media (min-width: 768px) and (max-width: 1023px) {
       float: right;
       width: 50%;
-      height: var(--max-size);
+      height: var(--main-area);
     }
 
     @media (min-width: 1024px) {
       float: left;
       width: 40%;
-      height: 80vh;
+      height: var(--main-area);
     }
   }
 }
@@ -81,7 +86,7 @@
     @media (min-width: 1024px) {
       float: right;
       width: 70%;
-      height: 80vh;
+      /* height: var(--main-area); */
     }
   }
 }
