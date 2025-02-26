@@ -1,0 +1,25 @@
+.sr-only {
+  /* 영역을 차지하지 않는 상태로 위치를 조정한다. */
+  position: absolute;
+
+  /* 스크린리더가 인식할 수 있도록 영역을 최소 단위로 설정한다. 이때, 요소가 oveflow 된다 */
+  width: 1px;
+  height: 1px;
+
+  /* oveflow 되는 요소를 가로로 배치하여 강제 개행 문제를 제거한다. */
+  white-space: nowrap; /* 줄 바꿈, 공백 문자에 대한 처리 */
+
+  /* oveflow 되는 요소를 안보이게 숨긴다. 이때, 1*1 의 작은 사각형만 화면에 표시된다. */
+  overflow: hidden;
+
+  /* 음수 margin 을 넣어 1*1 의 사각형을 화면에서 요소가 보여지지 않게 한다. */
+  margin: -1px;
+
+  /* position: absolute; 와 함께 사용되는 속성이며, 이미지의 표시 영역을 다양한 형태로 표현할 수 있다. */
+  /* clip: rect(0, 0, 0, 0); */ /* clip 속성 대신 clip-path 사용을 권장한다. */
+  clip-path: inset(50%);
+
+  /* 혹시나 발생할 수 있는 속성 값을 삭제한다.  */
+  border: 0;
+  padding: 0;
+}
