@@ -1,0 +1,42 @@
+@import url(/src/common/modern-reset.css);
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 1rem 0;
+}
+
+/* 온/오프라인 아바타 컴포넌트 만들기 */
+
+/* figure */
+.img-avatar {
+  background-color: yellow;
+
+  /* 지역 변수 선언 */
+  --size: 4rem;
+
+  img {
+    width: var(--size);
+    /* height: var(--size); */
+    aspect-ratio: 1 / 1;
+  }
+}
+
+/* button */
+.btn-avatar {
+  background-color: pink;
+
+  /* 지역 변수 선언 */
+  --size: 4rem;
+
+  padding: 0;
+
+  img {
+    width: var(--size);
+    /* height: var(--size); */
+    aspect-ratio: 1 / 1;
+  }
+}

@@ -1457,9 +1457,7 @@ h1 {
 
 <br />
 
-# UI
-
-## 1. UI 멤버 서비스 링크 예제
+## UI 1. 멤버 서비스 링크 예제
 
 부모 요소에 속성을 적용하여 자식 요소에 상속하는 것이 유리한지, 특정 요소에만 적용하는 것이 유리한지 판단하여 속성을 지정해준다.
 
@@ -1529,7 +1527,7 @@ a:first-child:before {
 
 ###### 2025-02-21
 
-## 5. CSS 박스 모델
+## CSS 5. 박스 모델
 
 ### 5-1. 박스 모델
 
@@ -1669,7 +1667,7 @@ display 속성의 값으로는 대표적으로 inline, block 이 있으며, inli
 
 <br />
 
-## 6. CSS Reset
+## CSS 6. CSS Reset
 
 - [CSS 리셋 참고 페이지](https://brunch.co.kr/@euid/2)
 
@@ -1713,7 +1711,7 @@ display 속성의 값으로는 대표적으로 inline, block 이 있으며, inli
 
 <br />
 
-## 7. CSS Nesting
+## CSS 7. CSS Nesting
 
 ### 7-1. 아토믹 디자인
 
@@ -1787,7 +1785,7 @@ display 속성의 값으로는 대표적으로 inline, block 이 있으며, inli
 
 <br />
 
-## 8. CSS Position
+## CSS 8. CSS Position
 
 요소 박스의 배치 방식을 지정할 수 있는 속성으로, 기본 값은 static 이다.
 
@@ -1890,7 +1888,7 @@ cascading 에 따라, 작성된 순서대로 relative 속성을 가진 요소와
 
 ###### 2025-02-24
 
-## 9. CSS 변수(사용자정의 속성)
+## CSS 9. CSS 변수(사용자정의 속성)
 
 - [CSS 변수(사용자정의) 속성(mdn)](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_cascading_variables/Using_CSS_custom_properties)
 
@@ -2168,7 +2166,7 @@ p {
 
 <br />
 
-## 10. CSS 배경
+## CSS 10. CSS 배경
 
 ### 10-1. background-color: ;
 
@@ -2283,7 +2281,7 @@ body {
 
 ###### 2024-02-25
 
-## 11. CSS Float
+## CSS 11. CSS Float
 
 - [WAI-ARIA 적용 사례 : Toast vs Snack bar](https://aoa.gitbook.io/skymimo/aoa-2023/ui-aria-2022-2024/snack-bar)
 - [caniuse 에서 호환성 체크하기](https://caniuse.com/)
@@ -2434,6 +2432,46 @@ inline 요소는 top-line, middle-line, bottom-line, base-line 영역이 있는�
 ##### aspect-ratio
 
 ##### Toast UI (알림)
+
+<br />
+
+###### 2025-02-26
+
+## UI 5. 아바타 컴포넌트
+
+### 5-1. 컴포넌트 쪼개기
+
+비동적 요소 마크업
+
+```html
+<figure class="img-avatar">
+  <img src="/src/assets/face/face1.jpg" alt="수정-사용자명" />
+  <figcaption class="state offline"><span class="sr-only">오프라인</span></figcaption>
+</figure>
+<figure class="img-avatar">
+  <img src="/src/assets/face/face2.jpg" alt="수정-사용자명" />
+  <figcaption class="state online"><span class="sr-only">온라인</span></figcaption>
+</figure>
+```
+
+```css
+
+```
+
+<br />
+
+button 요소와 가상 요소 선택자를 활용한 동적 요소 마크업
+
+```html
+<button type="button" class="btn-avatar state-offline" aria-label="오프라인">
+  <img src="/src/assets/face/face1.jpg" alt="수정-사용자명" />
+</button>
+<button type="button" class="btn-avatar state-online" aria-label="온라인">
+  <img src="/src/assets/face/face1.jpg" alt="수정-사용자명" />
+</button>
+```
+
+##### aria-label="" 은 상호작용하는 요소에 사용한다.
 
 <style>
    h5::before {
