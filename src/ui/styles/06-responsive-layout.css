@@ -24,7 +24,7 @@
 /* Tablet */
 .tablet-wrapper {
   @media (min-width) {
-    display: flow-root;4
+    display: flow-root;
   }
 
   .content {
