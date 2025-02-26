@@ -2473,16 +2473,177 @@ button 요소와 가상 요소 선택자를 활용한 동적 요소 마크업
 
 ##### aria-label="" 은 상호작용하는 요소에 사용한다.
 
-<style>
-   h5::before {
-      content: '✍🏻 추가 학습 필요 : ';
-   }
+<br />
 
+## CSS 12. 미디어 쿼리
+
+웹이 가장 많이 사용되는 곳은 PC 지만, 웹을 다양한 매체에 선택적으로 적용, 표시하기 위한 기능으로 미디어 쿼리 _Media Query_ 가 있다.
+
+### 12-1. media 속성
+
+media 의 타입 별로 다르게 지정하여 설정할 수 있다.
+
+- media="screen" : 화면에 보여지는 스타일을 지정 (e.g. 컬러 프린트)
+- media="print" : 불필요한 장식 스타일을 제외한 베이직한 스타일을 지정 (e.g. 흑백 프린트)
+
+단, print 타입을 만들었는데 순서를 screen 타입보다 위쪽에 명시한다면, 우선순위에 따라 print 속성이 cascading 될 수 있다. 따라서, 중요도에 맞게 캐스케이딩 규칙을 따라야 한다.
+
+<br />
+
+### 12-2. &lt;style media="" ... &gt;
+
+```html
+<style type="text/css" media="screen">
+  /* 미디어 타입이 screen일 때 적용되는 CSS */
+  h1 {
+    color: #f00;
+  }
+  p {
+    font-size: 1.2em;
+  }
+</style>
+
+<style type="text/css" media="print">
+  /* 미디어 타입이 print 때 적용되는 CSS */
+  h1,
+  p {
+    color: #000;
+    font-size: 1em;
+  }
+</style>
+```
+
+<br />
+
+### 12-3. &lt;link media="" ... &gt;
+
+```html
+<link rel="stylesheet" type="text/css" media="screen" href="screen.css">
+<link rel="stylesheet" type="text/css" media="print" href="print.css">
+```
+
+<br />
+
+### 12-4. @media
+
+@media 규칙을 이용한 CSS 속성의 적용의 특징은 하나의 CSS 파일 안에서 특정 매체(media)에만 적용될 구간을 작성할 수 있다는 점과, @media 안에 작성된 CSS 속성들도 공통 영역에 작성된 속성을 상속하며, 우선순위도 똑같이 적용 받는다는 점이다.
+
+```css
+/* 모든 매체에 공통적으로 적용되는 CSS */
+h1 {
+	color: #f00;
+}
+p {
+	font-size: 1.2em;
+}
+
+/* 미디어 타입이 print일 때 적용되는 CSS */
+@media print {
+ h1, p {
+		color: #000;
+		font-size: 1em;
+	}
+}
+```
+
+<br />
+
+@media 규칙을 사용하여, 뷰포트를 기준으로 반응형 웹 디자인을 구축할 수 있다.
+
+```css
+@media (min-width: 600px) {
+  body {
+    background-color: pink;
+  }
+}
+```
+
+<br />
+
+orientation 속성을 사용하여 가로/세로 모드에 따른 반응형 디자인을 구축할 수 있다.
+
+```css
+@media (orientation: landscape) {
+  body {
+    background-color: orange;
+  }
+}
+```
+
+<br />
+
+@media 중첩 구조를 사용하여 효율적으로 코드를 관리할 수 있다.
+
+```css
+body {
+  color: black;
+  font-size: 3em;
+
+  @media (min-width: 600px) {
+    /* 속성 선택자를 생략한다 */
+    color: white;
+    font-size: 2em;
+  }
+
+  @media (min-width: 1200px) {
+    color: violet;
+    font-size: 1rem;
+  }
+}
+```
+
+<br />
+
+#### mobile first vs browser first
+
+- 성능 면에서 작은 요소를 기준으로 만들고, 점점 크기를 넓혀가며 만들어야 한다.
+- 브라우저를 기준으로 만들고 점점 모바일 영역으로 축소하게 된다면,  브라우저에서 사용하는 소스를 그대로 사용하게 되기 때문에 성능이 떨어질 수 있다.
+
+<br />
+
+#### font-size: clamp(최소값, 유연하게 적용할 값, 최대값)
+
+- [mdn](https://developer.mozilla.org/en-US/docs/Web/CSS/clamp)
+
+반응형 디자인을 사용할 때, 폰트 사이즈를 유연하게 적용하면서도 특정 값 이상 또는 이하로 변경되지 않도록 제한할 수 있다. 이때, 각 값 안에 함수식을 적용하여 사용할 수도 있다.
+
+```css
+/* Static values */
+width: clamp(200px, 40%, 400px);
+width: clamp(20rem, 30vw, 70rem);
+width: clamp(10vw, 20em, 100vw);
+
+/* Calculated values */
+width: clamp(min(10vw, 20rem), 300px, max(90vw, 55rem));
+width: clamp(100px, calc(30% / 2rem + 10px), 900px);
+```
+
+<br />
+
+##### 컨테이너 쿼리
+
+##### scss 파일 중 언더바(_)로 시작되는 파일은 컴파일 하지 않는다.
+
+##### 성능 면에서 @import 구문을 다중 사용하지 않고, 하나의 CSS 파일 안에 모든 CSS 속성을 넣는 것이 좋다.
+
+##### 이미지의 성능 최적화 고민하기 (jpg/png/.. to webp/avif)
+
+##### VS code 의 'PORTS'에서 port 정보를 입력하면, 외부에 배포할 수 있는 링크를 얻을 수 있다.
+
+<style>
   h5 {
     display: block;
     color: blue;
     padding: 15px;
     border: 1px solid blue;
     border-radius: 10px;
+
+    &::before {
+      content: '✍🏻 추가 학습 필요 : ';
+   }
+
+    &.check::before {
+      content: '💪🏻 회고 완료 : ';
+    }
   }
 </style>

@@ -1,0 +1,37 @@
+/* basic */
+body {
+  background-color: yellow;
+}
+
+/* viewport 기준 */
+@media (min-width: 600px) { /* @media 와 { 사이에 (조건)을 줘야 한다. */
+  body {
+    background-color: pink;
+  }
+}
+
+/* orientation 기준 - 가로 보기(landscape) | 세로 보기(portrait) */
+@media (orientation: landscape) {
+  body {
+    background-color: orange;
+  } 
+}
+
+/* 동일한 요소에 대해 속성 값을 다르게 할 때, @media 중첩을 사용할 수 있다 */
+body {
+  color: black;
+
+  @media (min-width: 600px) and (max-width: 1199px) {
+    /* 속성 선택자를 생략한다 */
+    color: white;
+  }
+
+  @media (min-width: 1200px) {
+    color: violet;
+  }
+}
+
+/* 모든 디바이스에 글자 크기 단위로 vw 를 사용하여 유연하게 설정 */
+body {
+  font-size: clamp(0.75rem, 2vw + 0.75rem, 2rem);
+}
