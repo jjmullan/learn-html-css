@@ -1,0 +1,87 @@
+@import url(/src/common/best-reset.css);
+@import url(/src/common/theme.css);
+
+/* 반응형 레이아웃 예제 실습 */
+:root {
+  /* height */
+  --small-size: 10vh;
+  --medium-size: 15vh;
+  --large-size: 20vh;
+  --larger-size: 30vh;
+  --max-size: 60vh;
+}
+
+.header {
+  background-color: var(--pastel-coral);
+  height: var(--small-size);
+}
+
+.footer {
+  background-color: var(--pastel-peach);
+  height: var(--small-size);
+}
+
+/* Tablet */
+.tablet-wrapper {
+  @media (min-width) {
+    display: flow-root;4
+  }
+
+  .content {
+    background-color: var(--pastel-aqua);
+    height: var(--larger-size);
+
+    @media (min-width: 768px) and (max-width: 1023px) {
+      float: left;
+      width: 50%;
+      height: var(--max-size);
+    }
+
+    @media (min-width: 1024px) {
+      float: left;
+      width: 60%;
+      height: 80vh;
+    }
+  }
+
+  .sidebar {
+    background-color: var(--pastel-yellow);
+    height: var(--larger-size);
+
+    @media (min-width: 768px) and (max-width: 1023px) {
+      float: right;
+      width: 50%;
+      height: var(--max-size);
+    }
+
+    @media (min-width: 1024px) {
+      float: left;
+      width: 40%;
+      height: 80vh;
+    }
+  }
+}
+
+/* Desktop */
+.desktop-wrapper {
+  display: flow-root;
+
+  .navigation {
+    background-color: var(--pastel-green);
+    height: var(--large-size);
+
+    @media (min-width: 1024px) {
+      width: 30%;
+      height: 80vh;
+      float: left;
+    }
+  }
+
+  .tablet-wrapper {
+    @media (min-width: 1024px) {
+      float: right;
+      width: 70%;
+      height: 80vh;
+    }
+  }
+}

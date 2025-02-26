@@ -2630,6 +2630,10 @@ width: clamp(100px, calc(30% / 2rem + 10px), 900px);
 
 ##### VS code 의 'PORTS'에서 port 정보를 입력하면, 외부에 배포할 수 있는 링크를 얻을 수 있다.
 
+##### breakpoint 알아보기
+
+##### 적응형 웹 디자인
+
 <style>
   h5 {
     display: block;
@@ -2641,9 +2645,5 @@ width: clamp(100px, calc(30% / 2rem + 10px), 900px);
     &::before {
       content: '✍🏻 추가 학습 필요 : ';
    }
-
-    &.check::before {
-      content: '💪🏻 회고 완료 : ';
-    }
   }
 </style>
