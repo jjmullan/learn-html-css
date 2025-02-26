@@ -14,10 +14,10 @@ h6 {
 
 /* figure */
 .img-avatar {
-  background-color: yellow;
-
   /* 지역 변수 선언 */
   --size: 4rem;
+  --state-default: #dbdbdb;
+  --state-is-active: #4cfe88;
 
   width: var(--size);
   border-radius: 50%;
@@ -34,22 +34,26 @@ h6 {
   .state {
     width: 25%;
     aspect-ratio: 1 / 1;
+
     border-radius: inherit;
+    border: 2px solid #fff;
 
     /* 위치 조정 */
     position: absolute;
     right: 0;
     bottom: 0;
 
-    &.online {
-      background-color: #fff;
-    }
+    background-color: var(--state-default);
 
-    &.offline {
-      background-color: #fff;
+    &.is-active {
+      background-color: var(--state-is-active);
     }
   }
 }
+
+
+
+
 
 /* button */
 .btn-avatar {
@@ -57,6 +61,8 @@ h6 {
 
   /* 지역 변수 선언 */
   --size: 4rem;
+  --state-default: #dbdbdb;
+  --state-is-active: #4cfe88;
 
   /* button 은 default 로 padding, border, bgc 값을 갖기 때문에, 해당 속성을 수정해준다. */
   padding: 0;
@@ -65,10 +71,31 @@ h6 {
 
   width: var(--size);
   border-radius: 50%;
-  overflow: hidden;
+
+  position: relative;
 
   img {
     width: 100%;
     aspect-ratio: 1 / 1;
+    border-radius: inherit;
+  }
+
+  &::after {
+    content: '';
+    /* 위치 조정 */
+    position: absolute;
+    right: 0;
+    bottom: 0;
+
+    width: 25%;
+    aspect-ratio: 1 / 1;
+    border-radius: inherit;
+    border: 2px solid #fff;
+
+    background-color: var(--state-default);
+  }
+
+  &.is-active::after {
+    background-color: var(--state-is-active);
   }
 }
