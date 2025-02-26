@@ -1,4 +1,5 @@
 @import url(/src/common/modern-reset.css);
+@import url(/src/common/a11y.css);
 
 h1,
 h2,
@@ -18,10 +19,35 @@ h6 {
   /* 지역 변수 선언 */
   --size: 4rem;
 
+  width: var(--size);
+  border-radius: 50%;
+
+  position: relative;
+
   img {
-    width: var(--size);
-    /* height: var(--size); */
+    width: 100%;
     aspect-ratio: 1 / 1;
+
+    border-radius: inherit;
+  }
+
+  .state {
+    width: 25%;
+    aspect-ratio: 1 / 1;
+    border-radius: inherit;
+
+    /* 위치 조정 */
+    position: absolute;
+    right: 0;
+    bottom: 0;
+
+    &.online {
+      background-color: #fff;
+    }
+
+    &.offline {
+      background-color: #fff;
+    }
   }
 }
 
@@ -32,11 +58,17 @@ h6 {
   /* 지역 변수 선언 */
   --size: 4rem;
 
+  /* button 은 default 로 padding, border, bgc 값을 갖기 때문에, 해당 속성을 수정해준다. */
   padding: 0;
+  border: 0; /* 0, none 값을 줘서 border 를 없앤다 */
+  background-color: transparent; /* transparent, none 값을 줘서 bgc 를 없앤다 */
+
+  width: var(--size);
+  border-radius: 50%;
+  overflow: hidden;
 
   img {
-    width: var(--size);
-    /* height: var(--size); */
+    width: 100%;
     aspect-ratio: 1 / 1;
   }
 }
