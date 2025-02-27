@@ -2862,6 +2862,28 @@ flex layout 상황에서 자신의 부모 요소를 무시하고, 조부모의 �
 }
 ```
 
+<br />
+
+## UI 08. 테이블 스타일링
+
+### 8-1. &lt;col&gt;
+
+열의 너비, 배경색을 제어하기 위해 사용한다. 특정 속성 외 나머지 속성은 적용할 수 없다.
+
+<br />
+
+### 8-2. position: fixed;
+
+viewport 기준으로 위치 고정
+
+<br />
+
+### 8-2. position: sticky
+
+부모 기준으로 위치 고정
+
+<br />
+
 <style>
   h5 {
     display: block;
