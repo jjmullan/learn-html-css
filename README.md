@@ -2763,15 +2763,15 @@ flex-direction 에 따라 결정된 메인 축을 기준으로 정렬한다.
 
 ### 14-6. (부모) align-items: stretch(default) | flex-start | flex-end | center | stretch | baseline | first baseline | last baseline | start | end | self-start | self-end + ... safe | unsafe;
 
-교차 축을 정렬한다.
+교차 축을 기준으로 정렬한다.
 
 <br />
 
 ### 14-7. (부모) align-content:
 
-<br />
+교차 축을 기준으로 정렬한다.
 
-#### 부모의 높이가 고정되어 있는 컨테이너라면, margin, padding 없이 레이아웃을 어느 정도 구축할 수 있다.
+<br />
 
 #### 여러 줄이 작성된 상황(wrap)에서 align-items: center; vs align-content: center;
 
@@ -2781,9 +2781,54 @@ align-content 는 줄바꿈이 됐을 때 행 수 만큼 영역을 구분하지 
 
 <br />
 
+#### 부모의 높이가 고정되어 있는 컨테이너라면, margin, padding 없이 레이아웃을 어느 정도 구축할 수 있다.
+
+<br />
+
 ### 14-8. (부모) row-gap, column-gap, gap(shorthand)
 
 flex-direction 으로 방향이 달라지더라도(row -> column), gap 요소는 논리 속성이 아니기 때문에 절대적인 위치로 row, column 값을 지정한다.
+
+<br />
+
+### 14-9. (자식) order: 0(default) | {num};
+
+모든 요소의 order 가 0 이면, 작성된 순서대로 정렬된다. 이때, 특정 요소를 맨 앞으로 옮기고 싶다면 order: -1; 로 입력하면 특정 요소만 맨 앞에 오고 나머지는 순서대로 정렬할 수 있다.
+
+맨 마지막에 위치했으면 좋을 요소를 배치하고 싶을 때는, order 를 99, 999 와 같이 큰 값으로 설정해둘 수 있다.
+
+<br />
+
+### 14-10. (자식) flex-grow: 0(default) | 1 | 2 | ... ;
+
+메인 축에 여백이 있다면, 요소마다 여백을 균등하게 분배, 설정하여 여백 없이 메인 축 방향으로 가득 채운다.
+
+<br />
+
+### 14-11. (자식) flex-shrink : 1(default) | 
+
+메인 축 방향의 컨테이너 크기보다 아이템 요소의 크기가 큰 경우 flex-shrink: 1 이 자동 적용되며, 크기를 동일한 비율로 축소시킨다.
+
+<br />
+
+### 14-12. (자식) flex-basis: auto(default) | 0 | {값} | ... ;
+
+- [mdn](https://developer.mozilla.org/ko/docs/Web/CSS/flex-basis)
+
+메인 축을 기준으로 inline-size 를 지정한다. 이때, flex-basis 에 auto 를 제외하고 값을 직접 입력하면 width/height 나 inline-size/block-size 값의 cascading 을 모두 무시하고(심지어 !important 를 넣어도 안됨), flex-basis 를 우선 적용된다.
+
+- auto : content 영역에 맞게 inline-size 를 지정한다. (width/height/inline-size/block-size 우선)
+- {값} : 값을 직접 지정할 수 있다. (최우선)
+
+#### flex-basis: 0; flex-grow: 1; 로 설정한다면?
+
+모든 요소의 크기를 0으로 동일하게 설정하고(flex-basis: 0;), 여백을 모든 요소에 대해 균등하게 배분하면(flex-grow: 1;), 요소의 여백이 콘텐츠 유무와 관계 없이 동일하게 설정된다.
+
+<br />
+
+### 14-13. (자식) flex (shorthand)
+
+flex: (grow) (shrink) (basis); 순서로 작성한다.
 
 <br />
 

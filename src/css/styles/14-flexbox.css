@@ -11,6 +11,11 @@ body *::after {
   box-sizing: border-box;
 }
 
+hr {
+  margin-block: 20px;
+}
+
+/* flex container */
 .case-01 {
   border: 1px solid var(--pastel-coral);
 
@@ -69,5 +74,37 @@ body *::after {
   .item2 {
     /* inline-size: 200px; */
     font-size: 30px;
+  }
+}
+
+/* flex item */
+.case-02 {
+  border: 1px solid var(--pastel-green);
+  inline-size: 502px;
+
+  display: flex;
+  flex-flow: row nowrap;
+
+  [class^='item'] {
+    border: 1px solid currentColor;
+    color: var(--pastel-gray);
+
+    /* inline-size: 100px;
+    block-size: 100px; */
+
+    text-align: center;
+    align-content: center;
+
+    /* odd, even 사용 */
+    &:nth-child(even) {
+      order: -1;
+    }
+
+    /* 세 가지 속성은 묶어서 기억하기 */
+    flex-grow: 0; /* 메인 축에 여백이 있다면, 요소마다 여백을 균등하게 분배, 설정하여 여백 없이 메인 축 방향으로 가득 채운다. */
+    flex-shrink: 1; 
+    flex-basis: auto; /* 메인 축을 기준으로 inline-size 를 지정한다. */
+    /* shorthand */
+    flex: 0 1 auto;
   }
 }
