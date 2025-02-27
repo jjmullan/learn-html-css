@@ -2805,7 +2805,7 @@ flex-direction 으로 방향이 달라지더라도(row -> column), gap 요소는
 
 <br />
 
-### 14-11. (자식) flex-shrink : 1(default) | 
+### 14-11. (자식) flex-shrink : 1(default) |
 
 메인 축 방향의 컨테이너 크기보다 아이템 요소의 크기가 큰 경우 flex-shrink: 1 이 자동 적용되며, 크기를 동일한 비율로 축소시킨다.
 
@@ -2831,6 +2831,36 @@ flex-direction 으로 방향이 달라지더라도(row -> column), gap 요소는
 flex: (grow) (shrink) (basis); 순서로 작성한다.
 
 <br />
+
+#### display: content;
+
+flex layout 상황에서 자신의 부모 요소를 무시하고, 조부모의 직계 자손인 것처럼 동작한다.
+
+아래 예시를 보면, '.date-week' 클래스를 가진 div 태그를 ul 태그로 변경하고 그 자식들도 li 태그로 변경한 다음 display: flex 가 아닌 display: contents 를 적용하면 '.date-week' 요소의 자식인 7개의 li 태그들은 조부모인 '.calendar-grid' 의 자식인 것 처럼 동작하게 되어 원하던 대로 그리드가 적용된다.
+
+```html
+<div class="calendar-grid">
+  <ul class="date-week">
+    <li class="sun">SUN</li>
+    <li class="mon">MON</li>
+    <li class="tue">TUE</li>
+    <li class="wed">WED</li>
+    <li class="thu">THU</li>
+    <li class="fri">FRI</li>
+    <li class="sat">SAT</li>
+  </ul>
+
+  <div class="date-day"></div>
+</div>
+```
+
+```css
+.date-week {
+  display: contents;
+  color: #b2b2b2;
+  font-size: 12px;
+}
+```
 
 <style>
   h5 {
