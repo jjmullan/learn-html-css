@@ -2518,8 +2518,7 @@ media 의 타입 별로 다르게 지정하여 설정할 수 있다.
 ### 12-3. &lt;link media="" ... &gt;
 
 ```html
-<link rel="stylesheet" type="text/css" media="screen" href="screen.css">
-<link rel="stylesheet" type="text/css" media="print" href="print.css">
+<link rel="stylesheet" type="text/css" media="screen" href="screen.css" /> <link rel="stylesheet" type="text/css" media="print" href="print.css" />
 ```
 
 <br />
@@ -2531,18 +2530,19 @@ media 의 타입 별로 다르게 지정하여 설정할 수 있다.
 ```css
 /* 모든 매체에 공통적으로 적용되는 CSS */
 h1 {
-	color: #f00;
+  color: #f00;
 }
 p {
-	font-size: 1.2em;
+  font-size: 1.2em;
 }
 
 /* 미디어 타입이 print일 때 적용되는 CSS */
 @media print {
- h1, p {
-		color: #000;
-		font-size: 1em;
-	}
+  h1,
+  p {
+    color: #000;
+    font-size: 1em;
+  }
 }
 ```
 
@@ -2597,7 +2597,7 @@ body {
 #### mobile first vs browser first
 
 - 성능 면에서 작은 요소를 기준으로 만들고, 점점 크기를 넓혀가며 만들어야 한다.
-- 브라우저를 기준으로 만들고 점점 모바일 영역으로 축소하게 된다면,  브라우저에서 사용하는 소스를 그대로 사용하게 되기 때문에 성능이 떨어질 수 있다.
+- 브라우저를 기준으로 만들고 점점 모바일 영역으로 축소하게 된다면, 브라우저에서 사용하는 소스를 그대로 사용하게 되기 때문에 성능이 떨어질 수 있다.
 
 <br />
 
@@ -2622,7 +2622,7 @@ width: clamp(100px, calc(30% / 2rem + 10px), 900px);
 
 ##### 컨테이너 쿼리
 
-##### scss 파일 중 언더바(_)로 시작되는 파일은 컴파일 하지 않는다.
+##### scss 파일 중 언더바(\_)로 시작되는 파일은 컴파일 하지 않는다.
 
 ##### 성능 면에서 @import 구문을 다중 사용하지 않고, 하나의 CSS 파일 안에 모든 CSS 속성을 넣는 것이 좋다.
 
@@ -2633,6 +2633,84 @@ width: clamp(100px, calc(30% / 2rem + 10px), 900px);
 ##### breakpoint 알아보기
 
 ##### 적응형 웹 디자인
+
+<br />
+
+###### 2024-02-27
+
+## CSS 13. 논리 속성
+
+- [Logical Properties(mdn)](https://developer.mozilla.org/ko/docs/Web/CSS/CSS_logical_properties_and_values/Sizing)
+
+#### currentColor
+
+버튼을 만들 때 버튼의 배경색은 투명하고 텍스트가 들어가있는 상태에서 텍스트의 글자색에 맞게 border 를 만들고 싶은 경우(= 고스트 버튼, 아웃라인 스타일), border 속성에 currentColor 를 사용하면 하나의 속성 값만 바꿔도 같이 적용된다.
+
+```css
+.case-01 {
+  border: 1px solid currentColor;
+  color: green;
+}
+```
+
+<br />
+
+### 13-1. inline-size
+
+<br />
+
+### 13-2. block-size
+
+<br />
+
+### 13-3. padding|margin-inline|block(-start|end)
+
+<br />
+
+inline-start, block-end 와 같은 방향에 대한 이해가 더해지면 다음과 같이 활용할 수 있다.
+
+```css
+.eg {
+  /* float: left 와 동잃하게 작동할 수 있다. */
+  float: inline-start;
+}
+```
+
+<br />
+
+### 13-4. writing-mode
+
+- [writing mode(mdn)](https://developer.mozilla.org/ko/docs/Web/CSS/CSS_logical_properties_and_values/Sizing)
+
+상이한 문화권에서는 글 쓰는 방향으 좌상단 -> 우하단 이 아닌 경우가 있다. 이때, 글 쓰는 방향의 위치와 방향을 바꿀 수 있는 속성이 writing-mode 이다.
+
+- horizontal-tb : top -> bottom
+- vertical-lr : left -> right
+- vertical-rl : right -> left
+- sideways-rl :
+- sideways-lr :
+
+<br />
+
+### 13-5. inset-block|inline(-start|end)
+
+top, right, bottom, left 속성을 논리 속성으로 변환하여 사용할 때 inset- 속성을 사용할 수 있다. position 속성과 함께 위치를 지정할 때 유용하게 사용할 수 있다.
+
+```css
+.eg {
+  position: absolute;
+  /* top: 0; right: 0; bottom: 0; left: 0; 을 한 번에 작성할 수 있다. */
+  inset: 0;
+```
+
+<br />
+
+## CSS 14. Flex
+
+- [flex layout guide](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
+- [flex로 만들 수 있는 10가지 레이아웃](https://d2.naver.com/helloworld/8540176)
+- [flex-froggy game](https://flexboxfroggy.com/#ko)
+- [flex(web.dev)](https://web.dev/learn/css/logical-properties?hl=ko)
 
 <style>
   h5 {

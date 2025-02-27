@@ -1,0 +1,27 @@
+.case-01 {
+  border: 1px solid currentColor;
+  color: green;
+
+  /* width 가 아닌 inline-size 논리 속성으로 가로 크기를 지정했다. */
+  inline-size: 400px;
+
+  /* height 가 아닌 block-size 논리 속성으로 세로 크기를 지정했다. 그러니까, 부모 요소 바깥으로 텍스트가 나가게 되네? */
+  block-size: 100px;
+
+  /* 넘치는 면적을 처리 */
+  overflow: auto;
+
+  /* 논리 속성에 대한 패딩을 방향에 따라 일괄 적용할 수 있다. */
+  padding-inline: 20px; /* = padding-left, padding-right */
+  padding-block: 30px; /* = padding-top, padding-bottom */
+
+  /* writing mode 에 따라 여백을 논리적으로 변하게 하기 위한 목적으로 시작, 끝 지점의 값을 각각 다르게 지정할 수 있다. */
+  padding-inline-start: 20px;
+  padding-inline-end: 20px;
+
+  margin-inline: 30px;
+  margin-block: 40px;
+
+  /* 글의 시작점과 방향을 다르게 만들 수 있다. */
+  writing-mode: sideways-lr;
+}
