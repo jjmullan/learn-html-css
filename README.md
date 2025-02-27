@@ -2712,6 +2712,49 @@ top, right, bottom, left 속성을 논리 속성으로 변환하여 사용할 �
 - [flex-froggy game](https://flexboxfroggy.com/#ko)
 - [flex(web.dev)](https://web.dev/learn/css/logical-properties?hl=ko)
 
+#### writingmode 에 따라 inline, block 방향이 다르게 적용됨을 이해하자.
+
+##### 독립적인 레이아웃을 갖는 [BFC](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_display/Block_formatting_context) 는 margin collapsing 이 발생하지 않는다
+
+<br />
+
+### 14-1. (부모) display: flex;
+
+부모 요소에 display: flex; 속성을 작성하면 해당 요소는 flex container 로 작동하며, 직계 자식에 영향을 준다. 이떄, flex container 을 포함하여, 직계 자식들 또한 inline 요소라고 하더라도 BFC 로 렌더링 된다.
+
+<br />
+
+### 14-2. (부모) flex-direction: column|column-reverse|row|row-reverse|... ;
+
+flex container 의 직계 자식들이 어떤 방향으로 흘러가는지 지정할 수 있다.
+
+- column
+- column-reverse
+- row = `float: left;`
+- row-reverse = `float: right;`
+
+<br />
+
+### 14-3. (부모) flex-wrap: nowrap|wrap|
+
+<br />
+
+### 14-4. (부모)) flex-flow (shorthand)
+
+flex-flow 를 사용하면 flex-direction 과 flex-wrap 을 함께 사용할 수 있다.
+
+```css
+.eg {
+  flex-flow: row nowrap;
+  /* flex-direction: row; */
+  /* flex-wrap: nowrap; */
+}
+```
+
+<br />
+
+### 14-5.
+
 <style>
   h5 {
     display: block;

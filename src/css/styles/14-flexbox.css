@@ -1,0 +1,51 @@
+@import url(/src/common/theme.css);
+
+body *,
+body *::before,
+body *::after {
+  box-sizing: border-box;
+}
+
+.case-01 {
+  border: 1px solid var(--pastel-coral);
+  padding: 10px;
+
+  /* 부모 요소에 flex container 역할을 부여한다. */
+  display: flex;
+  flex-direction: row;
+
+  /* container 의 크기를 자식 요소의 전체 크기보다 작게 설정했을 때, 자식 요소의 inline 사이즈가 변경된다. */
+  inline-size: 465px;
+
+  /* flex-wrap 속성을 사용하면 줄바꿈이 발생하며, inline-size 에 맞게 자식 요소들이 항목을 차지한다. */
+  /* 남은 공간에 item3 가 포함할 수 없기 때문에 줄바꿈이 발생한다. */
+  flex-wrap: wrap;
+
+  /* shorthand (flex-direction, flex-wrap) */
+  flex-flow: row wrap;
+
+  [class*='item'] {
+    border: 1px solid currentColor;
+    background-color: var(--pastel-yellow);
+    color: var(--pastel-mauve);
+
+    inline-size: 100px;
+    block-size: 100px;
+    text-align: center;
+    /* 중앙 정렬 할 때, block-size 와 같은 값을 적용하면 중앙 정렬된다. e.g. line-height: 100px; */
+    align-content: center; /* 작년에 추가된 레잔도 속성 */
+
+    margin-inline-start: 10px;
+    margin-inline-end: 10px;
+    margin-block-start: 10px;
+    margin-block-end: 10px;
+  }
+
+  .item1 {
+    inline-size: 200px;
+  }
+
+  .item2 {
+    /* inline-size: 200px; */
+  }
+}
