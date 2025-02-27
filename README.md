@@ -2724,7 +2724,7 @@ top, right, bottom, left 속성을 논리 속성으로 변환하여 사용할 �
 
 <br />
 
-### 14-2. (부모) flex-direction: column|column-reverse|row|row-reverse|... ;
+### 14-2. (부모) flex-direction: column | column-reverse | row | row-reverse | ... ;
 
 flex container 의 직계 자식들이 어떤 방향으로 흘러가는지 지정할 수 있다.
 
@@ -2735,11 +2735,11 @@ flex container 의 직계 자식들이 어떤 방향으로 흘러가는지 지�
 
 <br />
 
-### 14-3. (부모) flex-wrap: nowrap|wrap|
+### 14-3. (부모) flex-wrap: nowrap(default) | wrap | wrap-reverse;
 
 <br />
 
-### 14-4. (부모)) flex-flow (shorthand)
+### 14-4. (부모) flex-flow (shorthand)
 
 flex-flow 를 사용하면 flex-direction 과 flex-wrap 을 함께 사용할 수 있다.
 
@@ -2753,7 +2753,39 @@ flex-flow 를 사용하면 flex-direction 과 flex-wrap 을 함께 사용할 수
 
 <br />
 
-### 14-5.
+### 14-5. (부모) justify-content: normal(default) | flex-start | flex-end | center | space-between | space-around | space-evenly | start | end | left | right ... + safe | unsafe;
+
+flex-direction 에 따라 결정된 메인 축을 기준으로 정렬한다.
+
+레이아웃의 변천사에 따라 grid 모델이 등장하게 되면서, 두 모델을 공통으로 쓸 수 있도록 flex- 를 제외하고 start, end 처럼 쓸 수 있게 확장되었다.
+
+<br />
+
+### 14-6. (부모) align-items: stretch(default) | flex-start | flex-end | center | stretch | baseline | first baseline | last baseline | start | end | self-start | self-end + ... safe | unsafe;
+
+교차 축을 정렬한다.
+
+<br />
+
+### 14-7. (부모) align-content:
+
+<br />
+
+#### 부모의 높이가 고정되어 있는 컨테이너라면, margin, padding 없이 레이아웃을 어느 정도 구축할 수 있다.
+
+#### 여러 줄이 작성된 상황(wrap)에서 align-items: center; vs align-content: center;
+
+align-items 는 줄바꿈이 됐을 때 행 수만큼 영역을 부모 영역의 높이를 가상의 영역으로 구분한 뒤, 그 영역 안에서 중앙(center) 정렬을 하는 것이다.
+
+align-content 는 줄바꿈이 됐을 때 행 수 만큼 영역을 구분하지 않고, 모든 요소를 마치 컨테이너로 설정하여 중앙정렬 하듯이 height 의 중앙 지점에 정렬시킨다.
+
+<br />
+
+### 14-8. (부모) row-gap, column-gap, gap(shorthand)
+
+flex-direction 으로 방향이 달라지더라도(row -> column), gap 요소는 논리 속성이 아니기 때문에 절대적인 위치로 row, column 값을 지정한다.
+
+<br />
 
 <style>
   h5 {

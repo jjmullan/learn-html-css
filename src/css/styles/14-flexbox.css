@@ -1,5 +1,10 @@
 @import url(/src/common/theme.css);
 
+html,
+body {
+  font-family: 'SUIT', sans-serif;
+}
+
 body *,
 body *::before,
 body *::after {
@@ -8,44 +13,61 @@ body *::after {
 
 .case-01 {
   border: 1px solid var(--pastel-coral);
-  padding: 10px;
 
   /* 부모 요소에 flex container 역할을 부여한다. */
   display: flex;
   flex-direction: row;
 
   /* container 의 크기를 자식 요소의 전체 크기보다 작게 설정했을 때, 자식 요소의 inline 사이즈가 변경된다. */
-  inline-size: 465px;
+  inline-size: 600px;
+  block-size: 600px;
 
   /* flex-wrap 속성을 사용하면 줄바꿈이 발생하며, inline-size 에 맞게 자식 요소들이 항목을 차지한다. */
-  /* 남은 공간에 item3 가 포함할 수 없기 때문에 줄바꿈이 발생한다. */
   flex-wrap: wrap;
 
   /* shorthand (flex-direction, flex-wrap) */
   flex-flow: row wrap;
+
+  /* 메인 축을 기준으로 정렬 (flex-direction: row; -> x축 방향이 메인 축 | column; -> y축 방향이 메인 축) */
+  justify-content: center;
+
+  /* 교차 축을 기준으로 정렬 */
+  align-items: stretch; /* 크기가 없는 상태일 때 작동, 크기가 있으면 해당 크기로 지정됨 */
+  align-items: center; /* 여러 줄로 작성(wrap) 됐을 때, 해당 줄 수만큼 영역을 자른 뒤 해당 영역의 가운데로 정렬하는 것 */
+  align-items: baseline; /* font 의 baseline 을 기준으로 재정렬한다. */
+
+  /* 교차 축을 기준으로 정렬(wrap 상황에서 유용하다) */
+  align-content: center;
+
+  /* 자식 요소에 margin 을 넣은 것처럼 작동한다. */
+  row-gap: 20px;
+  column-gap: 20px;
+  gap: 20px 15px; /* row-gap column-gap */
 
   [class*='item'] {
     border: 1px solid currentColor;
     background-color: var(--pastel-yellow);
     color: var(--pastel-mauve);
 
-    inline-size: 100px;
-    block-size: 100px;
+    /* inline-size: 100px; */
+    /* block-size: 100px; */
     text-align: center;
     /* 중앙 정렬 할 때, block-size 와 같은 값을 적용하면 중앙 정렬된다. e.g. line-height: 100px; */
     align-content: center; /* 작년에 추가된 레잔도 속성 */
 
-    margin-inline-start: 10px;
+    /* margin-inline-start: 10px;
     margin-inline-end: 10px;
     margin-block-start: 10px;
-    margin-block-end: 10px;
+    margin-block-end: 10px; */
   }
 
   .item1 {
-    inline-size: 200px;
+    /* inline-size: 200px; */
+    font-size: 48px;
   }
 
   .item2 {
     /* inline-size: 200px; */
+    font-size: 30px;
   }
 }
