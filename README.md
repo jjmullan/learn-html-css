@@ -2948,9 +2948,11 @@ transition 의 property 를 all 로 작성하면, 모든 트랜지션 속성 변
 
 <br />
 
-## 16. 
+## 16.
 
+focus-visible 는 오류 메시지를 표현할 때 사용
 
+cursor-pointer 는 링크 요소를 위한 속성이기 때문에, button 에는 사용하지 않는 것을 권한다.
 
 <style>
   h5 {
