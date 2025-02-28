@@ -1,0 +1,86 @@
+@import '/src/common/theme.css';
+@import '/src/common/best-reset.css';
+@import '/src/common/a11y.css';
+@import '/src/common/base.css';
+
+/* 컴포넌트 - 1. 로고 */
+.brand {
+  .brand__logo {
+    /* 키보드로 접근했을 때(focus ring, outline), inline 요소 안에 block 요소가 들어오면 정확한 영역을 표시하지 못할 수 있다. */
+    /* 이때, a 요소를 block 으로 만들면 정확하게 해당 영역을 포함시킬 수 있다. ( display: inline; 이랑 비교해보기 ) */
+    display: block;
+  }
+}
+
+/* 컴포넌트 - 3. 버튼 */
+.button {
+  inline-size: 1.5rem;
+  block-size: 1.5rem;
+
+  &.button__circle {
+    /* 기본적으로 button 은 border 를 갖기 때문에, 0을 설정해줘야 없어진다. */
+    border: 0;
+    border-radius: 50%;
+    background: #23e97f linear-gradient(180deg, #23e97f 0%, #00dcc9 100%);
+
+    /* ::after 배치를 위해 설정 */
+    position: relative;
+
+    &::after {
+      content: '';
+
+      /* 가상 요소 선택자는 기본 속성이 display: inline; 이다. */
+      position: absolute;
+
+      /* 요소의 가로/세로 크기 지정 */
+      inline-size: 40%;
+      block-size: 40%;
+
+      /* 위치 변경 */
+      inset-inline-start: 50%;
+      inset-block-start: 50%;
+      translate: -50% -50%;
+
+      /* 스타일링 */
+      background-color: #fff;
+      border-radius: 50%;
+    }
+  }
+}
+
+/* 컴포넌트 - 2. 입력 서식 */
+.input {
+  background-color: yellow;
+
+  input[type='search'] {
+    /* size */
+    inline-size: 100%;
+    block-size: 1.5rem;
+
+    /* padding */
+    padding-inline: 0.5rem;
+    padding-block: 0.25rem;
+
+    /* style */
+    border: 1px solid var(--pastel-gray);
+    font-size: 0.875rem;
+  }
+}
+
+/* 검색 바(searchbar) */
+.searchbar {
+}
+
+/* 컴포넌트 3 + 컴포넌트 2 */
+.form__search {
+  margin-block-start: 1.25rem;
+
+  fieldset {
+    border: 0;
+  }
+
+  .search__wrapper {
+    background-color: yellow;
+    display: flex;
+  }
+}

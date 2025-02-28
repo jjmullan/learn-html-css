@@ -1,0 +1,14 @@
+/* 기본 스타일 */
+body {
+  font-family: 'SUIT', sans-serif;
+  background-color: #fff;
+  color: #121212;
+  line-height: 1.15;
+  font-weight: 300;
+}
+
+/* 링크 스타일 */
+a {
+  color: inherit;
+  text-decoration: none;
+}

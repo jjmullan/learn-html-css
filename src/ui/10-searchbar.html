@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="/src/assets/favicon/likelion.ico" type="image/x-icon" />
+    <link rel="icon" href="/src/assets/favicon/likelion.svg" />
+    <link rel="preload" as="font" href="https://cdn.jsdelivr.net/gh/sun-typeface/SUIT@2/fonts/static/woff2/SUIT-Regular.woff2" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sun-typeface/SUIT@2/fonts/static/woff2/SUIT.css" />
+    <link rel="stylesheet" href="/src/ui/styles/10-searchbar.css" />
+    <title>검색 바 스타일링</title>
+  </head>
+  <body>
+    <h1>검색 바 <span class="title__sub">search bar</span></h1>
+
+    <!-- 컴포넌트 - 1 -->
+    <div class="brand">
+      <!-- a 태그는 인라인 요소이기 때문에, svg 의 부모 요소로 마크업했을 때 주의할 것  -->
+      <a href="/" class="brand__logo">
+        <svg aria-label="네이버" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M0 0H8L15.5 12V0H24V24H15.1875L8 12.5L8 24H0V0Z" fill="url(#paint0_linear_4260_3)" />
+          <defs>
+            <linearGradient id="paint0_linear_4260_3" x1="4.5" y1="-1.93715e-07" x2="20.5" y2="24" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#1BF008" />
+              <stop offset="1" stop-color="#03CCA8" />
+            </linearGradient>
+          </defs>
+        </svg>
+      </a>
+    </div>
+
+    <!-- 컴포넌트 - 2 -->
+    <!-- class 를 두 개 두고, 하나는 마크업을 위해, 하나는 디자인(컴포넌트화)을 위해 쓸 수 있다 -->
+    <button type="submit" class="button button__search button__circle">
+      <span class="sr-only">검색</span>
+    </button>
+
+    <!-- 컴포넌트 - 3 -->
+    <!-- type 이 달라질 수 있으니, 기본 컨테이너의 class 를 input 으로만 뒀다. -->
+    <div class="input">
+      <label for="input__keyword" class="sr-only">검색어</label>
+      <input type="search" id="input__keyword" name="keyword" required placeholder="검색어를 입력해주세요." />
+    </div>
+
+    <!-- 검색 폼 (조립) -->
+    <div class="searchbar">
+      <!-- 컴포넌트 1 -->
+      <div class="brand">
+        <a href="/" class="brand__logo">
+          <svg aria-label="네이버" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M0 0H8L15.5 12V0H24V24H15.1875L8 12.5L8 24H0V0Z" fill="url(#paint0_linear_4260_3)" />
+            <defs>
+              <linearGradient id="paint0_linear_4260_3" x1="4.5" y1="-1.93715e-07" x2="20.5" y2="24" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#1BF008" />
+                <stop offset="1" stop-color="#03CCA8" />
+              </linearGradient>
+            </defs>
+          </svg>
+        </a>
+      </div>
+      <!-- form = 컴포넌트 3 + 컴포넌트 2 -->
+      <form action="/" class="form__search">
+        <fieldset>
+          <div class="search__wrapper">
+            <legend class="sr-only"></legend>
+            <div class="input">
+              <label for="input__keyword" class="sr-only">검색어</label>
+              <input type="search" id="input__keyword" name="keyword" required placeholder="검색어를 입력해주세요." />
+            </div>
+            <button type="submit" class="button__search button__circle">
+              <span class="sr-only">검색</span>
+            </button>
+          </div>
+        </fieldset>
+      </form>
+    </div>
+  </body>
+</html>
