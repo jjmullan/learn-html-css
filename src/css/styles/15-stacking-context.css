@@ -1,0 +1,77 @@
+@import '/src/common/best-reset.css';
+@import '/src/common/theme.css';
+@import '/src/ui/components/avatar/avatar.css';
+
+/* Stacking context */
+body {
+  margin: 50px;
+}
+
+h1 {
+  margin-block: 20px;
+}
+
+/* case - 1 (stacking context) */
+.case-01 {
+  background-color: yellow;
+  display: flex;
+  flex-flow: row nowrap;
+
+  .img-avatar {
+    /* 음수 margin 을 사용했을 때, 박스의 크기가 마치 줄어든 것처럼 보여진다. */
+    margin-inline-end: -20px;
+
+    /* z-index 는 static 이 아니어야 한다. */
+    position: relative;
+
+    /* non-hover|focus */
+    filter: blur(1.5px) grayscale(100%);
+    transition: rotate 0.5s;
+
+    &:hover,
+    &:focus {
+      /* 요소의 순서를 무시하고, 최상단에 보여지게 만든다 */
+      z-index: 99;
+
+      transform: scale(1.2);
+      translate: 0 -20px;
+      /* opacity: 0.8; */
+      filter: none;
+      rotate: 3turn;
+    }
+
+    &::after {
+      display: none;
+    }
+  }
+}
+
+/* case - 2 (transition) */
+.case-02 {
+  /* case-01 영역 구분용 */
+  margin-block-start: 20px;
+  
+  /* 여백 없이 정렬 목적 */
+  display: flex;
+  gap: 20px;
+  
+  [class^="area"] {
+    inline-size: 100px;
+    block-size: 100px;
+    border: 1px solid currentColor;
+    text-align: center;
+    align-content: center;
+    background-color: var(--pastel-lavender);
+    
+    /* transition 을 활용한 시퀀스 애니메이션 */
+    transition-property: background-color, border-radius;
+    transition-duration: 1s, 2s;
+    transition-delay: 1s, 0s;
+    transition-timing-function: ease;
+
+    &:hover {
+      background-color: var(--pastel-orange);
+      border-radius: 50%;
+    }
+  }
+}

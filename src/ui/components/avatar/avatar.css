@@ -21,6 +21,7 @@ h6 {
 
   width: var(--size);
   border-radius: 50%;
+  border: 0;
 
   position: relative;
 
@@ -50,10 +51,6 @@ h6 {
     }
   }
 }
-
-
-
-
 
 /* button */
 .btn-avatar {

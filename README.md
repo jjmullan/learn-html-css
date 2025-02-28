@@ -2884,6 +2884,74 @@ viewport 기준으로 위치 고정
 
 <br />
 
+## CSS 15. 스택킹 컨텍스트
+
+#### 기술 부채
+
+display: inline-block; 일 때, 부모 요소에 font-size: 0; 을 줘서 요소간 공백을 없애는 트릭이 있다. 하지만, 해당 방법은 다른 요소가 em, rem 단위를 사용할 때 영향을 줄 수 있기 때문에, 사용하지 않는 것을 권한다. 차라리 display: flex; 을 주는 것이 낫다.
+
+<br />
+
+## 15-1. 음수 마진
+
+## 15-2. z-index
+
+- [mdn](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_positioned_layout/Understanding_z-index/Stacking_context)
+
+z-index 속성이 적용되기 위해서는 position: static; 이 아닌 상황에서 적용이 가능하다. 단, 새로운 쌓임 맥락(stacking context)이 생성되면, position 이 static 이더라도 적용된다.
+
+<br />
+
+## 15-3. transform
+
+- [mdn](https://developer.mozilla.org/ko/docs/Web/CSS/transform)
+
+animation 속성과 함께 사용하면, 효과가 극대화되는 속성이다. transform 속성이 적용되면 새로운 쌓임 맥락이 생성된다.
+
+- matrix
+- translate
+- scale
+- rotate
+- skew
+
+<br />
+
+## 15-4. opacity
+
+투명도 값을 지정할 수 있다. opacity: 1; 미만이라면, 새로운 쌓임 맥락이 생성된다.
+
+<br />
+
+## 15-5. rotate
+
+<br />
+
+## 15-6. filter
+
+<br />
+
+## 15-7. transition
+
+A 요소 에서 B 요소 로 전환되는 중간 과정을 보여준다. 트랜지션의 트리거는 :hover, :focus 등 특정 행동이지만, 기본적으로 요소에서부터 트랜지션이 시작되기 때문에 transition 속성은 가상 클래스 선택자가 아닌 요소의 기본 스타일에 지정한다.
+
+아래 나열된 4가지 속성을 transition: property duration delay timing-function; 순서로 shorthand 로 사용할 수 있다.
+
+- property
+- duration
+- delay
+- [timing-function](https://www.the-art-of-web.com/css/timing-function/) : [예시 사이트](https://cubic-bezier.com/#.44,.01,.59,1)
+- ...
+
+<br />
+
+transition 의 property 를 all 로 작성하면, 모든 트랜지션 속성 변화값이 적용된다.
+
+<br />
+
+## 16. 
+
+
+
 <style>
   h5 {
     display: block;
