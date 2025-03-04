@@ -1,0 +1,24 @@
+@import '/src/common/modern-reset.css';
+@import '/src/common/login-theme.css';
+@import '/src/common/a11y.css';
+@import '/src/common/base.css';
+
+/* 로고 컴포넌트 (img 요소) */
+.logo {
+  /* 지역 변수 설정 */
+  --size: 14.375rem;
+
+  /* a 태그는 initial value 가 inline 이기 때문 */
+  display: block;
+  inline-size: var(--size, 14.375rem);
+}
+
+/* 로고 컴포넌트 (svg 요소) */
+.logo {
+  svg,
+  img {
+    display: block;
+    inline-size: 100%;
+    block-size: auto;
+  }
+}

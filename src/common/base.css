@@ -1,8 +1,8 @@
 /* 기본 스타일 */
 body {
   font-family: 'SUIT', sans-serif;
-  background-color: #fff;
   color: #121212;
+  background-color: #fff;
   line-height: 1.15;
   font-weight: 300;
 }

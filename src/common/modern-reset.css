@@ -49,6 +49,7 @@ a:not([class]) {
 /* Make images easier to work with */
 img,
 picture {
+  /* 이미지가 부모 요소에 따라 확대될 수 있도록 하되, 이미지의 원본 크기 이상 커지지 않도록 설정 */
   max-width: 100%;
   display: block;
 }
