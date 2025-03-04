@@ -7,13 +7,15 @@
 .button {
   --spacing: var(--spacing-2, 0.5rem);
   --text-size: var(--font-base, 1rem);
+  --fill-color: var(--gray-600, #919191);
   --text-color: var(--white, #fff);
-  --fill-color: var(--gray-900, #454545);
 
+  /* 요소 안에 svg 같은 요소가 포함되어 있어서, 정렬이 필요한 경우에 유용하다. */
+  display: inline-flex;
   border: 1px solid currentColor;
   padding: var(--spacing);
-  color: var(--text-color);
   background: var(--fill-color);
+  color: var(--text-color);
 
   /* 비활성화 스타일 */
   &:disabled {
@@ -23,15 +25,10 @@
     background: var(--disabled-color);
     color: var(--text-color);
     border-color: var(--disabled-color);
+
+    /* '이 버튼은 사용하지 못한다'에 대한 의미 전달을 위한 추가 디자인 */
     cursor: not-allowed;
     opacity: 0.7;
-  }
-
-  &:focus {
-    --outline-color: var(--blue-900);
-
-    outline: 0;
-    border-color: var(--outline-color);
   }
 }
 

@@ -12,3 +12,11 @@ a {
   color: inherit;
   text-decoration: none;
 }
+
+/* default */
+.components-container {
+  display: flex;
+  flex-flow: column;
+  row-gap: var(--font-base);
+  padding: var(--font-base);
+}

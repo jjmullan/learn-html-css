@@ -1,0 +1,32 @@
+@import '/src/common/modern-reset.css';
+@import '/src/common/login-theme.css';
+@import '/src/common/a11y.css';
+@import '/src/common/base.css';
+
+/* default */
+form {
+  display: contents;
+
+  fieldset {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    display: contents;
+  }
+}
+
+/* input - base */
+.input {
+  background-color: yellow;
+
+  position: relative;
+
+  p[class*='error-message'] {
+    font-size: var(--font-xs);
+    color: var(--red-500);
+    position: absolute;
+    inset-block-end: 0;
+    inset-inline-start: 0;
+    translate: 0 150%;
+  }
+}
