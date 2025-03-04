@@ -1,0 +1,14 @@
+@import '/src/common/modern-reset.css';
+@import '/src/common/login-theme.css';
+@import '/src/common/a11y.css';
+@import '/src/common/base.css';
+
+/* :checked & background-image */
+.checkbox__input:checked {
+}
+
+/* 부모 요소에 :has 선택자 활용 */
+.checkbox:has(:checked) {
+}
+
+/* svg */
