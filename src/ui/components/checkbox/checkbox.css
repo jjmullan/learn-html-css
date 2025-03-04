@@ -3,12 +3,102 @@
 @import '/src/common/a11y.css';
 @import '/src/common/base.css';
 
-/* :checked & background-image */
-.checkbox__input:checked {
+a {
+  font-size: var(--font-sm);
+  color: var(--blue-400);
+  display: inline-block;
+  margin-block-end: 2rem;
 }
 
-/* 부모 요소에 :has 선택자 활용 */
-.checkbox:has(:checked) {
+/* background-image 예제 */
+.checkbox {
+  --size: 1.5rem;
+
+  font-size: var(--font-md);
+
+  /* 흘러가는 모양이 Inline 일 때, inline-flex 사용 */
+  display: inline-flex;
+
+  /* 배경 이미지의 원본 크기 24px 만큼 height 를 키운 것 */
+  block-size: var(--size);
+
+  /* input 에 positioin: aboslute 를 주기 위해 */
+  position: relative;
+
+  /* ========== :has - 부모 레벨 (div > input) ========== */
+  &:has(.bg-img) input {
+    position: absolute;
+    margin: 0;
+    inset-block-start: 0;
+    inset-inline-start: 0;
+
+    /* 배경 이미지 크기만큼 확대 */
+    inline-size: var(--size);
+    block-size: var(--size);
+
+    /* 부모 요소의 position 이 relative 인 것을 찾아서, 사이즈를 100%로 맞추면 레이블 요소까지 포커싱할 수 있다.  */
+    inline-size: 100%;
+    block-size: 100%;
+
+    /* 체크박스를 띄우면서 숨김 */
+    appearance: none;
+  }
+
+  label.bg-img {
+    background: url(/src/assets/naver/unchecked.svg) no-repeat;
+
+    /* label 에 배경을 깔고, 배경 이미지를 가리지 않도록 왼쪽 여백을 삽입한다. */
+    padding-inline-start: calc(1.5rem + 0.375rem);
+    /* text-indent 는 block 레벨 요소인 경우에만 유효하다. 부모 요소가 display: inline-flex 이기 때문에 적용이 되는 것이다. */
+    /* text-indent: 2rem; */
+
+    align-content: center;
+  }
+
+  /* ========== :checked - 형제 레벨 (input, label) & background-image ========== */
+  input.checkbox__input:checked + label.bg-img {
+    background-image: url(/src/assets/naver/checked.svg);
+  }
 }
 
-/* svg */
+/* svg 예제 */
+.checkbox.svg {
+  display: inline-flex;
+  align-items: center;
+  column-gap: 0.375rem;
+
+  input {
+    position: absolute;
+    margin: 0;
+    inset-block-start: 0;
+    inset-inline-start: 0;
+
+    /* 배경 이미지 크기만큼 확대 */
+    inline-size: var(--size);
+    block-size: var(--size);
+
+    /* 부모 요소의 position 이 relative 인 것을 찾아서, 사이즈를 100%로 맞추면 레이블 요소까지 포커싱할 수 있다.  */
+    inline-size: 100%;
+    block-size: 100%;
+
+    /* 체크박스를 띄우면서 숨김 */
+    appearance: none;
+  }
+
+  label {
+    /* display: flex; 가 중복되는 상황에, label 에 display: contents; 를 사용하여 하위 요소를 flex 속성으로 컨트롤 할 수 있다. */
+    display: contents;
+  }
+
+  input.checkbox__input:checked + label.checkbox__label {
+    .svg--area,
+    .svg--border {
+      /* svg 는 background-color 가 아니라 fill 이다. */
+      fill: var(--green-500);
+    }
+
+    .svg--mark {
+      fill: var(--white);
+    }
+  }
+}

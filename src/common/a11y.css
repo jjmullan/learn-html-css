@@ -1,3 +1,5 @@
+@import url(/src/common/login-theme.css);
+
 .sr-only {
   /* 영역을 차지하지 않는 상태로 위치를 조정한다. */
   position: absolute;
@@ -22,4 +24,15 @@
   /* 혹시나 발생할 수 있는 속성 값을 삭제한다.  */
   border: 0;
   padding: 0;
+}
+
+/* 기본 focus style */
+*:focus {
+  outline: 0;
+}
+
+/* :focus-visible 속성을 사용하면 마우스로 접근했을 때 outline 이 보이는 것을 숨길 수 있다. */
+*:focus-visible {
+  box-shadow: 0 0 0 1px var(--green-700);
+  border-radius: var(--rounded-xs);
 }

@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="/src/assets/favicon/likelion.ico" type="image/x-icon" />
+    <link rel="icon" href="/src/assets/favicon/likelion.svg" />
+    <link rel="preload" as="font" href="https://cdn.jsdelivr.net/gh/sun-typeface/SUIT@2/fonts/static/woff2/SUIT-Regular.woff2" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sun-typeface/SUIT@2/fonts/static/woff2/SUIT.css" />
+    <link rel="stylesheet" href="/src/ui/components/switch/switch.css" />
+    <title>체크박스 컴포넌트</title>
+  </head>
+  <body>
+    <div class="components-container">
+      <h1>스위치 컴포넌트</h1>
+
+      <h2>텍스트 스위치</h2>
+      <div class="switch text-switch">
+        <!-- label 의 span 태그에 .sr-only 를 넣은 대신, input 태그에 roll 속성을 추가하여 웹 접근성을 높일 수 있다. -->
+        <input class="switch__input" role="switch" type="checkbox" name="switch-1" id="switch-1" />
+        <label class="switch__label" for="switch-1">
+          <span class="sr-only">스위치</span>
+        </label>
+      </div>
+
+      <h2>토글 스위치</h2>
+      <div class="switch toggle-switch2">
+        <input class="switch__input" role="switch" type="checkbox" name="switch-2" id="switch-2" />
+        <label class="switch__label" for="switch-2">
+          <span class="sr-only">스위치</span>
+        </label>
+      </div>
+
+      <div class="switch toggle-switch3">
+        <input class="switch__input" role="switch" type="checkbox" name="switch-2" id="switch-3" />
+        <label class="switch__label" for="switch-3">
+          <span class="sr-only">스위치</span>
+        </label>
+      </div>
+    </div>
+  </body>
+</html>
