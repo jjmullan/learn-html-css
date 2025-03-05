@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="/src/assets/favicon/likelion.ico" type="image/x-icon" />
+    <link rel="icon" href="/src/assets/favicon/likelion.svg" />
+    <link rel="preload" as="font" href="https://cdn.jsdelivr.net/gh/sun-typeface/SUIT@2/fonts/static/woff2/SUIT-Regular.woff2" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sun-typeface/SUIT@2/fonts/static/woff2/SUIT.css" />
+    <link rel="stylesheet" href="./component.css" />
+    <title>오늘의 집 - 컴포넌트</title>
+  </head>
+  <body>
+    <!-- logo -->
+    <a href="" class="logo">
+      <img src="./assets/ohouse.png" alt="오늘의 집 로고" width="147" height="50" />
+    </a>
+
+    <!-- input - email, password, button -->
+    <form action="/" class="input">
+      <fieldset>
+        <div class="input__wrapper">
+          <input
+            type="email"
+            id="input__email"
+            class="input__email"
+            name="input__email"
+            pattern="[a-zA-Z0-9._%+-]+@[[a-zA-Z0-9.-]]+\.[[a-zA-Z]{2,}"
+            minlength="8"
+            placeholder="이메일을 입력해주세요"
+            required
+          />
+          <label for="input__email" class="input__email--label sr-only">아이디(이메일)</label>
+          <!-- <p class="input__errorMessege">오류메시지</p> -->
+        </div>
+        <div class="input__wrapper">
+          <input
+            type="password"
+            id="input__password"
+            class="input__password"
+            name="input__password"
+            pattern="[a-zA-Z0-9._%+-]+@[[a-zA-Z0-9.-]]+\.[[a-zA-Z]{2,}"
+            minlength="8"
+            placeholder="비밀번호를 입력해주세요"
+            required
+          />
+          <label for="input__password" class="input__password--label sr-only">비밀번호</label>
+          <!-- <p class="input__errorMessege">오류메시지</p> -->
+        </div>
+        <figcaption class="sr-only">사용자 입력 정보</figcaption>
+        <button type="submit" class="input__button">로그인</button>
+      </fieldset>
+    </form>
+
+    <!-- text-link -->
+    <a href="" class="resetPassword" target="_blank" rel="noopenner noreferrer">비밀번호 재설정</a>
+    <a href="" class="register" target="_blank" rel="noopenner noreferrer">회원가입</a>
+    <a href="" class="errorLogin" target="_blank" rel="noopenner noreferrer">로그인에 문제가 있으신가요?</a>
+    <a href="" class="withoutLogin" target="_blank" rel="noopenner noreferrer">비회원 주문 조회하기</a>
+
+    <!-- text -->
+    <p class="login__SNS">SNS 계정으로 간편 로그인/회원가입</p>
+
+    <!-- SNS logo -->
+    <a href="" target="_blank" class="login__facebook">
+      <img src="./assets/Facebook.png" alt="페이스북 로그인" width="48" height="48" />
+    </a>
+    <a href="" target="_blank" class="login__kakao">
+      <img src="./assets/kakao.png" alt="카카오 로그인" width="48" height="48" />
+    </a>
+    <a href="" target="_blank" class="login__naver">
+      <img src="./assets/naver.png" alt="네이버 로그인" width="48" height="48" />
+    </a>
+
+    <!-- footer -->
+    <footer class="login__footer">
+      <p><abbr title="copyright">&copy;</abbr> <a href="">bucketplace, Co., Ltd..</a> All Rights Reserved</p>
+    </footer>
+  </body>
+</html>

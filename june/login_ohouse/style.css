@@ -1,0 +1,81 @@
+@import '/login_ohouse/component.css';
+
+a {
+  cursor: pointer;
+}
+
+.login {
+  inline-size: 300px;
+  block-size: 97vh;
+  margin: 0 auto;
+  padding: 40px 0;
+
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+
+  .login__header {
+    margin-block-end: 10px;
+  }
+
+  .input {
+    inline-size: 100%;
+
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: stretch;
+
+    fieldset {
+      display: contents;
+    }
+
+    input {
+      inline-size: 100%;
+    }
+
+    .input__button {
+      margin-block-start: 20px;
+    }
+  }
+
+  .error {
+    display: inline-flex;
+    gap: 20px;
+  }
+
+  .login__SNS--wrapper {
+    margin-block-start: 10px;
+
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+
+    p {
+      flex-basis: 100%;
+      text-align: center;
+      vertical-align: center;
+    }
+  }
+
+  .errorLogin--wrapper {
+    inline-size: 100%;
+    text-align: center;
+    margin-block-start: 10px;
+    margin-block-end: 10px;
+    padding-block-end: 30px;
+    border-block-end: 1px solid var(--border-base);
+  }
+
+  .withouLogin {
+    margin-block-start: 10px;
+  }
+}
+
+.login__footer {
+  text-align: center;
+  font-size: 10px;
+}

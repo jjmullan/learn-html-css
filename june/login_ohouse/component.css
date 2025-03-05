@@ -1,0 +1,114 @@
+@import '/source/reset.css';
+
+:root {
+  /* color */
+  --border-base: #dbdbdb;
+  --border-focus: #f77;
+  --font-black: #121212;
+  --font-link-1: #424242;
+  --font-link-2: #757575;
+  --font-link-3: #c2c8cc;
+  --button-base: #e5c5f0;
+  --button-hover: #09addb;
+}
+
+body {
+  min-inline-size: 100%;
+  min-block-size: 100%;
+  font-size: 16px;
+  color: var(--font-black);
+}
+
+fieldset {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+footer {
+  min-block-size: 3vh;
+}
+
+/* logo */
+
+/* input */
+.input {
+  .input__wrapper {
+    position: relative;
+
+    input {
+      padding: 13px 15px 14px;
+      border: 1px solid var(--border-base, #dbdbdb);
+
+      &:focus {
+        outline: 0;
+        border: 1px solid var(--border-focus);
+        box-shadow: 0 0 0 2px #ccc;
+      }
+
+      &::placeholder {
+        font-size: 14px;
+        color: var(--border-base);
+      }
+    }
+
+    [type='email'] {
+      border-radius: 5px 5px 0 0;
+    }
+
+    [type='password'] {
+      border-top: 0;
+      border-radius: 0 0 5px 5px;
+
+      &:focus {
+        padding-top: 12px;
+      }
+    }
+  }
+
+  .input__button {
+    border: 0.8px solid rgb(53, 197, 240);
+    border-radius: 4px;
+    padding: 15px 10px;
+    background-color: var(--button-base);
+    color: white;
+  }
+}
+
+/* text-link */
+.resetPassword,
+.register,
+.withoutLogin {
+  color: var(--font-link-1);
+  font-size: 15px;
+}
+
+.login__SNS {
+  font-size: 12px;
+}
+
+.login__SNS,
+.login__footer {
+  color: var(--font-link-2);
+}
+
+.errorLogin {
+  color: var(--font-link-3);
+  font-size: 14px;
+}
+
+/* logo - SNS */
+.login__facebook,
+.login__kakao,
+.login__naver {
+  display: inline-block;
+
+  img {
+    border-radius: 50%;
+  }
+}
