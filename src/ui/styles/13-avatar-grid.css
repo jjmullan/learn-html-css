@@ -1,0 +1,85 @@
+@import url(/src/ui/components/avatar/avatar.css);
+
+/* 아바타 리스트 */
+
+/* case 01 - inline-block */
+.case-01 {
+  background-color: yellow;
+
+  margin: 20px;
+
+  ul {
+    background-color: pink;
+    font-size: 0;
+
+    width: 360px;
+    padding: 10px;
+    margin: 0 auto;
+  }
+
+  li {
+    font-size: 1rem;
+
+    display: inline-block;
+    margin: 10px;
+  }
+}
+
+/* case 02 - float */
+.case-02 {
+  background-color: burlywood;
+
+  margin: 20px;
+
+  ul {
+    background-color: pink;
+    font-size: 0;
+
+    width: 360px;
+    padding: 10px;
+    margin: 0 auto;
+
+    display: flow-root;
+  }
+
+  li {
+    font-size: 1rem;
+
+    margin: 10px;
+    float: left;
+  }
+}
+
+/* case 03 - grid */
+/* -------- 초기화 -------- */
+.case-03 {
+  /* 보기 편하기 위함 */
+  margin: 20px;
+  /* -------- 여기까지 --------  */
+}
+
+/* 초기화 */
+.img-avatar,
+.state {
+  position: initial !important;
+}
+/* -------- 여기까지 --------  */
+.img-avatar {
+  display: grid;
+
+  img,
+  figcaption {
+    grid-area: 1 / 1 / 2 / 2;
+  }
+
+  figcaption {
+    place-self: end;
+  }
+}
+
+.grid-box {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  place-items: center;
+}

@@ -31,7 +31,8 @@
 
 /* grid-layout */
 .container {
-  min-width: 100vw;
+  /* 내가 짠 코드 */
+  /* min-width: 100vw;
   min-height: 100vh;
 
   display: grid;
@@ -92,5 +93,34 @@
     .footer {
       grid-area: item5;
     }
+  } */
+
+  /* 강사님이 짜주신 것 */
+  display: grid;
+  padding: 0 20px;
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(12, 1fr);
+    max-inline-size: 800px;
+    margin: 0 auto;
+
+    .header,
+    .navigation,
+    .footer {
+      grid-column: 1 / -1;
+    }
+
+    .content, .sidebar {
+      /* start 번호를 명시하지 않으면, 순서대로 6개를 확장 > 그 다음부터 6개 확장 하는 식으로 진행된다. */
+      grid-column: span 6;
+    }
   }
-}
+
+  @media (min-width: 1024px) {
+    max-inline-size: 1280px;
+
+    .navigation, .sidebar {
+      /* .content 는 span 6 으로 유지하면서, 나머지 .navigation 과 .sidebar 의 span 을 3 으로 조절하여 한 줄로 만들었다. */
+      grid-column: span 3;
+    }
+  }
