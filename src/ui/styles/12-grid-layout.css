@@ -1,0 +1,96 @@
+@import '/src/common/modern-reset.css';
+@import '/src/common/theme.css';
+
+/* color */
+.container {
+  /* 헤더 */
+  .header {
+    background: var(--pastel-coral);
+  }
+
+  /* 내비게이션 */
+  .navigation {
+    background: var(--pastel-green);
+  }
+
+  /* 메인 콘텐츠 */
+  .content {
+    background: var(--pastel-aqua);
+  }
+
+  /* 사이드 바 */
+  .sidebar {
+    background: var(--pastel-yellow);
+  }
+
+  /* 푸터 */
+  .footer {
+    background: var(--pastel-lavender);
+  }
+}
+
+/* grid-layout */
+.container {
+  min-width: 100vw;
+  min-height: 100vh;
+
+  display: grid;
+  grid-template-rows: repeat(5, 1fr);
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-areas:
+    'item1 item1 item1 item1 item1 item1 item1 item1 item1 item1 item1 item1'
+    'item2 item2 item2 item2 item2 item2 item2 item2 item2 item2 item2 item2'
+    'item3 item3 item3 item3 item3 item3 item3 item3 item3 item3 item3 item3'
+    'item4 item4 item4 item4 item4 item4 item4 item4 item4 item4 item4 item4'
+    'item5 item5 item5 item5 item5 item5 item5 item5 item5 item5 item5 item5';
+
+  .header {
+    grid-area: item1;
+  }
+
+  .navigation {
+    grid-area: item2;
+  }
+
+  .content {
+    grid-area: item3;
+  }
+
+  .sidebar {
+    grid-area: item4;
+  }
+
+  .footer {
+    grid-area: item5;
+  }
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(12, min-max(4rem, 1fr));
+    grid-template-areas:
+      'item1 item1 item1 item1 item1 item1 item1 item1 item1 item1 item1 item1'
+      'item2 item2 item2 item3 item3 item3 item3 item3 item3 item4 item4 item4'
+      'item2 item2 item2 item3 item3 item3 item3 item3 item3 item4 item4 item4'
+      'item2 item2 item2 item3 item3 item3 item3 item3 item3 item4 item4 item4'
+      'item5 item5 item5 item5 item5 item5 item5 item5 item5 item5 item5 item5';
+
+    .header {
+      grid-area: item1;
+    }
+
+    .navigation {
+      grid-area: item2;
+    }
+
+    .content {
+      grid-area: item3;
+    }
+
+    .sidebar {
+      grid-area: item4;
+    }
+
+    .footer {
+      grid-area: item5;
+    }
+  }
+}
