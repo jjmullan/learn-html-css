@@ -50,11 +50,10 @@
   background-color: var(--pastel-yellow);
   padding: 1em;
 
-  /* block 요소인 4개의 division 이 단에 의해 구분되었다.  */
-  columns: 2;
+  columns: 3;
 
-  /* 줄바꿈 처리한다. */
-  .case {
-    break-inside: avoid;
+  .case-01 {
+    /* 브라우저 호환 이슈가 있다. */
+    break-after: column;
   }
 }
