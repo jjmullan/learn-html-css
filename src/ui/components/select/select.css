@@ -1,0 +1,59 @@
+@import '/src/common/modern-reset.css';
+@import '/src/common/theme.css';
+@import '/src/common/a11y.css';
+@import '/src/common/base.css';
+
+body {
+  background-color: black;
+}
+
+fieldset {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.wrapper {
+  margin: 20px;
+  inline-size: 10vw;
+  display: grid;
+
+  fieldset {
+    display: contents;
+  }
+
+  svg,
+  select {
+    grid-area: 1 / 1 / 2 / 2;
+  }
+
+  svg {
+    /* svg 가 클릭되어도 마우스 이벤트가 작동하지 않도록 처리한다 */
+    pointer-events: none;
+  }
+
+  svg.world {
+    place-self: center start;
+    margin-inline-start: 10px;
+    fill: var(--gray-800);
+  }
+
+  svg.down {
+    place-self: center end;
+    margin-inline-end: 10px;
+    fill: var(--gray-800);
+  }
+
+  .select__language {
+    padding: 10px 30px;
+    background-color: transparent;
+    border: 1px solid currentColor;
+    color: var(--gray-800);
+    border-radius: 4px;
+
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+
+    appearance: none;
+  }
+}
