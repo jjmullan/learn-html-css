@@ -1,0 +1,78 @@
+@import '/src/common/modern-reset.css';
+@import '/src/common/theme.css';
+@import '/src/common/a11y.css';
+@import '/src/common/base.css';
+
+body {
+  padding: 20px;
+}
+
+figure {
+  margin-block-end: 1.25rem;
+  padding: 1rem;
+  display: grid;
+  border: 1px solid #c8c;
+
+  /* 단 바뀜으로 인한 요소 잘림을 없앨 수 있다. */
+  break-inside: avoid;
+
+  img,
+  figcaption {
+    grid-area: 1 / 1 / 2 / 2;
+  }
+
+  img {
+    inline-size: 100%;
+    filter: sepia(1);
+
+    &:hover {
+      filter: none;
+    }
+  }
+
+  figcaption {
+    block-size: 5rem;
+    z-index: 99;
+
+    /* 텍스트 정렬 */
+    text-align: center;
+    align-content: center;
+
+    /* grid -> 위치 정렬 */
+    align-self: end;
+
+    /* styling */
+    background-color: rgba(0, 0, 0, 0.5);
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 1.5rem;
+    font-weight: 100;
+  }
+}
+
+.masonry-layout {
+  min-inline-size: 100%;
+  columns: 1;
+
+  @media (min-width: 768px) {
+    columns: 2;
+    column-gap: 20px;
+  }
+
+  @media (min-width: 1024px) {
+    columns: 4;
+
+    figcaption {
+      block-size: 3rem;
+      font-size: 1rem;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    columns: 6;
+
+    figcaption {
+      block-size: 3rem;
+      font-size: 1rem;
+    }
+  }
+}
