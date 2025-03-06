@@ -2,3 +2,70 @@
 @import '/src/common/theme.css';
 @import '/src/common/a11y.css';
 @import '/src/common/base.css';
+
+body {
+  margin: 20px;
+}
+
+/* 카드 컴포넌트 */
+.card {
+  border: 1px solid var(--pastel-gray);
+  border-radius: 8px;
+  /* display: flex;
+  flex-flow: column nowrap; */
+  padding: 1rem;
+  box-shadow: 0 0 8px 1px var(--pastel-gray);
+
+  .subject {
+    font-weight: 600;
+    font-size: 1.5rem;
+  }
+
+  .content {
+    line-height: 1.5;
+  }
+
+  .more {
+    /* a 태그는 원래 inline 요소 -> BFC 를 위해 inline-flex 로 지정하고, 텍스트 가운데 배치 */
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    background: var(--pastel-blue);
+    color: var(--white);
+    padding: 1em;
+  }
+
+  .thumbnail {
+    img {
+      /* CSS Reset 에 max-width: 100%; 가 되어 있었다. 따라서, 부모 컨테이너의 크기에 맞게 확대할 수 있도록 수정 */
+      width: 100%;
+
+      /* 비율과 위치가 무너진 것을 다시 잡아주는 속성들 */
+      aspect-ratio: 3/2;
+      object-fit: cover;
+      object-position: 50% 0;
+    }
+  }
+}
+
+.container {
+  display: grid;
+
+  /* 개발자 도구에서 grid 를 보면, 1개의 행, 4개의 열로 구성된 grid 인 것을 알 수 있다. */
+  /* 1fr 로 반응하지만, 18.75rem 이하로 크기가 반응형으로 작아지면, 행이 변경되면서 자동 정렬된다. */
+  grid-template-columns: repeat(auto-fit, minmax(18.75rem, 1fr));
+
+  /* .card 안에 요소의 위치를 쪼개고, 행마다 정렬을 지정할 때 해당 속성을 추가한다. */
+  /* .card 에 grid-row 에 span 4 를 사용했다는 것은, .container 에 auto 의 4개의 행이 있다는 것을 의미한다. 
+  따라서, template-rows 를 생략할 수 있다. */
+  /* grid-template-rows: auto 1.5rem auto auto; */
+  column-gap: 20px;
+  row-gap: 20px;
+
+  .card {
+    display: grid;
+    grid-template-rows: subgrid;
+    grid-row: span 4;
+  }
+}
