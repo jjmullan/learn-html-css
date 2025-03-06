@@ -2,3 +2,59 @@
 @import '/src/common/theme.css';
 @import '/src/common/a11y.css';
 @import '/src/common/base.css';
+
+.container {
+  background-color: var(--pastel-aqua);
+  padding: 1rem;
+
+  .case {
+    /* border: 1px solid red; */
+    margin-block: 1.25rem;
+  }
+
+  /* case */
+  .case-01 {
+    column-width: 15rem;
+    column-rule: 1px solid red;
+    column-gap: 2rem;
+  }
+
+  .case-02 {
+    column-count: 4;
+    column-rule: 1px dotted blue;
+
+    span {
+      display: block;
+      background-color: var(--pastel-apricot);
+      padding: 0.5rem;
+      column-span: all;
+    }
+  }
+
+  .case-03 {
+    columns: 6;
+    column-rule: 3px double orange;
+  }
+
+  .case-04 {
+    columns: 5rem;
+  }
+
+  .case-05 {
+    columns: 3;
+    /* column-fill: auto; */
+  }
+}
+
+.wrapper {
+  background-color: var(--pastel-yellow);
+  padding: 1em;
+
+  /* block 요소인 4개의 division 이 단에 의해 구분되었다.  */
+  columns: 2;
+
+  /* 줄바꿈 처리한다. */
+  .case {
+    break-inside: avoid;
+  }
+}
