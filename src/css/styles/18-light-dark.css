@@ -3,12 +3,23 @@
 @import '/src/common/a11y.css';
 @import '/src/common/base.css';
 
-/* 미디어 쿼리란? 미디어의 특성을 가지고 미디어를 분개하는 것 */
-
-body {
-  margin: 50px;
+:root {
+  /* light, dark 모드 사용 선언 */
+  color-scheme: light dark;
 }
 
+body {
+  /* 지역변수 선언 */
+  --light-color: var(--pastel-gray);
+  --dark-color: var(--pastel-lemon);
+
+  h1 {
+    /* 속성을 줄 때, 자체적으로 light-dark({값} {값}) 만 넣으면 된다. */
+    color: light-dark(var(--light-color) var(--dark-color));
+  }
+}
+
+/* 미디어 쿼리란? 미디어의 특성을 가지고 미디어를 분개하는 것 */
 /* light-mode */
 @media (prefers-color-scheme: light) {
   body {
