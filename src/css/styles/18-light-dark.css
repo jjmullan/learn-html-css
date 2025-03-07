@@ -1,0 +1,26 @@
+@import '/src/common/modern-reset.css';
+@import '/src/common/theme.css';
+@import '/src/common/a11y.css';
+@import '/src/common/base.css';
+
+/* 미디어 쿼리란? 미디어의 특성을 가지고 미디어를 분개하는 것 */
+
+body {
+  margin: 50px;
+}
+
+/* light-mode */
+@media (prefers-color-scheme: light) {
+  body {
+    background-color: var(--pastel-apricot);
+    color: black;
+  }
+}
+
+/* dark-mode */
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: black;
+    color: var(--pastel-apricot);
+  }
+}
