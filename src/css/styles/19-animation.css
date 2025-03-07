@@ -3,6 +3,7 @@
 @import '/src/common/a11y.css';
 @import '/src/common/base.css';
 @import '/src/ui/components/button/button.css';
+@import '/src/common/animation.css';
 
 :root {
   color-scheme: light dark;
@@ -39,40 +40,43 @@ h1 {
   strong {
     min-inline-size: 280px;
     position: absolute;
-    bottom: 2rem;
+    bottom: 1rem;
     left: 1rem;
 
     font-size: 1rem;
     font-weight: 100;
     color: #ccc;
 
-    display: flex;
-    flex-flow: row wrap;
-    column-gap: 0.5rem;
-
     .name {
+      display: block;
       inline-size: 100%;
+
+      margin-block-end: 0.3rem;
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: white;
     }
 
-    .duration {
+    .description {
+      display: none;
+      font-size: 0.6rem;
+      padding: 0.2rem 0.6rem;
+      /* border: 0.2px solid white; */
+      border-radius: 10px;
+      margin-block-start: 0.5rem;
+      background-color: white;
+      color: black;
+      font-weight: 400;
     }
-  }
 
-  .name {
-    display: block;
-    margin-block-end: 0.3rem;
-    font-size: 1.4rem;
-    font-weight: 500;
-    color: white;
-  }
+    .codetip {
+      float: left;
+      inline-size: 1.5rem;
+    }
 
-  .name::before {
-    content: 'duration  timing-function  delay  iteration-count  direction  fill-mode';
-    position: absolute;
-    font-size: 0.55rem;
-    font-weight: 100;
-    bottom: -15px;
-    left: 0;
+    .codetip:active + .description {
+      display: block;
+    }
   }
 
   button {
@@ -94,7 +98,7 @@ h1 {
   }
 
   .target-animation {
-    margin: 4rem;
+    margin-block-start: 4rem;
 
     /* styling */
     font-size: 2rem;
@@ -108,18 +112,8 @@ h1 {
 }
 
 /* case-01 animation */
-@keyframes fadeIn {
-  0% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0.2;
-  }
-}
-
 .case-01 .target-animation {
-  /* shorthand */
+  /* shorthand - name 과 duration 은 필수 요소이다. */
   animation: name duration timing-function delay iteration-count direction fill-mode;
 
   /* animation */
@@ -130,6 +124,96 @@ h1 {
   animation-iteration-count: 1;
   /* animation-direction: alternate; */
 
-  /* none | forwards(마지막 키프레임을 유지) | backwards(첫 키프레임 상태로 복원) | both */
+  /* none(default) | forwards(마지막 키프레임을 유지) | backwards(첫 키프레임 상태로 복원) | both */
   animation-fill-mode: forwards;
+
+  /* running(default) | paused */
+  animation-play-state: paused; /* 새로고침 시 애니메이션 자동 재생 중단 */
+}
+
+/* case-02 animation */
+.case-02 .target-animation {
+  animation: shrink 2s ease-in-out infinite alternate;
+  animation-play-state: paused;
+}
+
+/* case-03 animation */
+.case-03 .target-animation {
+  animation: bounce 2s ease-in-out 0.5s 5;
+  animation-play-state: paused;
+}
+
+/* case-04 animation */
+.case-04 .target-animation {
+  animation: shake 3s ease-in-out infinite;
+  animation-play-state: paused;
+}
+
+/* case-05 animation */
+.case-05 .target-animation {
+  inline-size: 30%;
+  margin-inline: auto;
+  aspect-ratio: 1 / 1;
+  background: conic-gradient(var(--red-400), var(--red-600), var(--red-400));
+  border-radius: 50%;
+
+  /* animation */
+  animation: spin 2s linear infinite;
+  animation-play-state: paused;
+}
+
+/* case-06 animation */
+.case-06 .target-animation {
+  animation: pulse 1.5s ease-out infinite;
+  animation-play-state: paused;
+}
+
+/* case-07 animation */
+.case-07 .target-animation {
+  animation: flip 2s ease-in-out infinite;
+  animation-play-state: paused;
+}
+
+/* case-08 animation */
+.case-08 .target-animation {
+  animation: wobble 2s ease-in-out infinite;
+  animation-play-state: paused;
+}
+
+/* case-09 animation */
+.case-09 .target-animation {
+  animation: glow 2s ease-in-out infinite;
+  animation-play-state: paused;
+}
+
+/* case-10 animation */
+.case-10 .target-animation {
+  margin-inline: auto;
+  font-size: 1rem;
+  width: 80px;
+  aspect-ratio: 1/1;
+  position: relative;
+
+  &::before,
+  &::after {
+    --rotation: 0deg;
+
+    box-sizing: content-box;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    inset: 50%;
+    translate: -50% -50%;
+    background: conic-gradient(from var(--rotation), red, blue, red, yellow, orange, red);
+    padding: 3px;
+    z-index: -1;
+    border-radius: 12px;
+    animation: rotate 1s infinite linear;
+    animation-play-state: paused;
+  }
+
+  &::before {
+    filter: blur(15px);
+  }
 }

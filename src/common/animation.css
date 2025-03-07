@@ -1,0 +1,134 @@
+@keyframes fadeIn {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0.2;
+  }
+}
+
+@keyframes shrink {
+  0% {
+    inline-size: 100%;
+  }
+
+  100% {
+    inline-size: 50%;
+  }
+}
+
+/* Bounce Animation */
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(0, -50%);
+  }
+}
+
+/* Shake */
+@keyframes shake {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  30% {
+    transform: translate(-15px, 0);
+  }
+
+  60% {
+    transform: translate(15px, 0);
+  }
+}
+
+/* Rotate */
+@keyframes spin {
+  0% {
+    /* rotate: 0turn; */
+    rotate: 0;
+  }
+
+  100% {
+    /* rotate: 1turn; */
+    rotate: 360deg;
+  }
+}
+
+/* zoom-in */
+@keyframes pulse {
+  0%,
+  100% {
+    scale: 1;
+  }
+
+  33% {
+    /* rotate: 1turn; */
+    scale: 1.1;
+  }
+}
+
+/* flip */
+@keyframes flip {
+  0% {
+    transform: perspective(300px) rotateY(0);
+  }
+  100% {
+    transform: perspective(300px) rotateY(360deg);
+  }
+}
+
+/* wobble */
+@keyframes wobble {
+  0%,
+  100% {
+    transform: translateX(0%) rotate(0deg);
+  }
+  15% {
+    transform: translateX(-15px) rotate(-5deg);
+  }
+  30% {
+    transform: translateX(10px) rotate(3deg);
+  }
+  45% {
+    transform: translateX(-10px) rotate(-3deg);
+  }
+  60% {
+    transform: translateX(5px) rotate(2deg);
+  }
+  75% {
+    transform: translateX(-5px) rotate(-1deg);
+  }
+}
+
+/* glow */
+@keyframes glow {
+  0%,
+  100% {
+    box-shadow: 0 0 5px light-dark(rgb(0 0 0 /0.5), rgb(255 255 255 /0.5));
+  }
+  50% {
+    box-shadow: 0 0 10px light-dark(rgb(0 0 0 /0.6), rgb(255 255 255 /0.6));
+  }
+}
+
+/* rotate */
+
+/* 변수 생성 */
+@property --rotation {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 0deg;
+}
+
+/* 키프레임 선언 */
+@keyframes rotate {
+  from {
+    --rotation: 0deg;
+  }
+  to {
+    --rotation: 360deg;
+  }
+}
