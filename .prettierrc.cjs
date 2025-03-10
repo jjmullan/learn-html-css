@@ -2,13 +2,13 @@ module.exports = {
   // 화살표 함수 식 매개변수 () 생략 여부 (ex: (a) => a)
   arrowParens: 'always',
 
+  htmlWhitespaceSensitivity: 'css',
+
   // 닫는 괄호(>) 위치 설정
   // ex: <div
   //       id="unique-id"
-  //       class="contaienr"
-  //     >
-  htmlWhitespaceSensitivity: 'css',
-  bracketSameLine: false,
+  //       class="contaienr" />
+  bracketSameLine: true,
 
   // 객체 표기 괄호 사이 공백 추가 여부 (ex: { foo: bar })
   bracketSpacing: true,

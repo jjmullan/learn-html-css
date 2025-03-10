@@ -1,0 +1,30 @@
+@import '/src/common/modern-reset.css';
+@import '/src/common/theme.css';
+@import '/src/common/a11y.css';
+@import '/src/common/base.css';
+
+/* @layer */
+@layer module, state;
+
+@layer state {
+  .alert {
+    background-color: brown;
+    border: medium solid limegreen;
+  }
+
+  p {
+    padding: 2em;
+  }
+}
+
+@layer module {
+  .alert {
+    background-color: yellow;
+    border: medium solid violet;
+    color: white;
+  }
+
+  p {
+    padding: 1em;
+  }
+}
